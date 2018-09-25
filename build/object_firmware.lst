@@ -1,0 +1,418 @@
+GAS LISTING /tmp/ccKcRiIJ.s 			page 1
+
+
+   1              		.file	"object_firmware.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.text.get_object_firmware,"ax",@progbits
+   5              		.globl	get_object_firmware
+   7              	get_object_firmware:
+   8              	.LFB63:
+   9              		.file 1 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/objec
+   1:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** /*----------------------------------------------------------------------------
+   2:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * All rights reserved.
+   4:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * are permitted provided that the following conditions are met:
+   6:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * conditions and the following disclaimer.
+   8:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * provided with the distribution.
+  11:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * permission.
+  14:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *---------------------------------------------------------------------------*/
+  26:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** /*----------------------------------------------------------------------------
+  27:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Notice of Export Control Law
+  28:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * ===============================================
+  29:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * applicable export control laws and regulations.
+  33:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *---------------------------------------------------------------------------*/
+  34:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  35:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** /*******************************************************************************
+  36:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *
+  37:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Copyright (c) 2013, 2014 Intel Corporation and others.
+  38:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * All rights reserved. This program and the accompanying materials
+  39:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * are made available under the terms of the Eclipse Public License v1.0
+  40:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * and Eclipse Distribution License v1.0 which accompany this distribution.
+  41:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *
+  42:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * The Eclipse Public License is available at
+  43:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    http://www.eclipse.org/legal/epl-v10.html
+  44:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * The Eclipse Distribution License is available at
+  45:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    http://www.eclipse.org/org/documents/edl-v10.php.
+  46:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *
+  47:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Contributors:
+  48:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    Julien Vermillard - initial implementation
+  49:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    Fabien Fleutot - Please refer to git log
+GAS LISTING /tmp/ccKcRiIJ.s 			page 2
+
+
+  50:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    David Navarro, Intel Corporation - Please refer to git log
+  51:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    Bosch Software Innovations GmbH - Please refer to git log
+  52:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *    Pascal Rieux - Please refer to git log
+  53:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *
+  54:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  *******************************************************************************/
+  55:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  56:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** /*
+  57:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * This object is single instance only, and provide firmware upgrade functionality.
+  58:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * Object ID is 5.
+  59:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  */
+  60:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  61:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** /*
+  62:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * resources:
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 0 package                   write
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 1 package url               write
+  65:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 2 update                    exec
+  66:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 3 state                     read
+  67:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 4 update supported objects  read/write
+  68:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  * 5 update result             read
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****  */
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  71:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #include "internals.h"
+  72:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #include "agenttiny.h"
+  73:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #include "atiny_log.h"
+  74:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #ifdef CONFIG_FEATURE_FOTA
+  76:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #include "atiny_fota_manager.h"
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** // ---- private object "Firmware" specific defines ----
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** // Resource Id's:
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_M_PACKAGE                   0
+  82:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_M_PACKAGE_URI               1
+  83:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_M_UPDATE                    2
+  84:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_M_STATE                     3
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_O_UPDATE_SUPPORTED_OBJECTS  4
+  86:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_M_UPDATE_RESULT             5
+  87:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_O_PKG_NAME                  6
+  88:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_O_PKG_VERSION               7
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #define RES_O_FIRMWARE_UPDATE_DELIVER_METHOD               8
+  90:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  91:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+  92:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** static uint8_t prv_firmware_read(uint16_t instanceId,
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                  int *numDataP,
+  94:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                  lwm2m_data_t **dataArrayP,
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                  lwm2m_data_cfg_t *dataCfg,
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                  lwm2m_object_t *objectP)
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     uint32_t i;
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     uint8_t result;
+ 100:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     // this is a single instance object
+ 102:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (instanceId != 0)
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 104:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         return COAP_404_NOT_FOUND;
+ 105:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 106:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+GAS LISTING /tmp/ccKcRiIJ.s 			page 3
+
+
+ 107:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     // is the server asking for the full object ?
+ 108:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (*numDataP == 0)
+ 109:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         uint16_t resources[] = {RES_M_PACKAGE_URI, RES_M_STATE,
+ 111:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                 RES_M_UPDATE_RESULT, RES_O_FIRMWARE_UPDATE_DELIVER_METHOD
+ 112:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                };
+ 113:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         *dataArrayP = lwm2m_data_new(array_size(resources));
+ 114:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         if (*dataArrayP == NULL) return COAP_500_INTERNAL_SERVER_ERROR;
+ 115:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         *numDataP = array_size(resources);
+ 116:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         for(i = 0 ; i < array_size(resources); ++i)
+ 117:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 118:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             (*dataArrayP)[i].id = resources[i];
+ 119:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 120:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 121:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 122:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     i = 0;
+ 123:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     do
+ 124:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 125:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         switch ((*dataArrayP)[i].id)
+ 126:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 127:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_M_PACKAGE:
+ 128:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_405_METHOD_NOT_ALLOWED;
+ 129:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             break;
+ 130:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_M_PACKAGE_URI:
+ 131:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 132:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             const char *pkg_uri;
+ 133:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             pkg_uri = atiny_fota_manager_get_pkg_uri(atiny_fota_manager_get_instance());
+ 134:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             if(pkg_uri == NULL)
+ 135:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             {
+ 136:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                 pkg_uri = "";
+ 137:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             }
+ 138:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             lwm2m_data_encode_nstring(pkg_uri, strlen(pkg_uri) + 1, *dataArrayP + i);
+ 139:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_205_CONTENT;
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             break;
+ 141:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 142:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 143:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_M_UPDATE:
+ 144:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_405_METHOD_NOT_ALLOWED;
+ 145:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             break;
+ 146:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 147:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_M_STATE:
+ 148:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             // firmware update state (int)
+ 149:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 150:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             int state = atiny_fota_manager_get_rpt_state(atiny_fota_manager_get_instance());
+ 151:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             lwm2m_data_encode_int(state, *dataArrayP + i);
+ 152:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_205_CONTENT;
+ 153:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             break;
+ 154:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 155:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 156:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_M_UPDATE_RESULT:
+ 157:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 158:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             int updateresult = atiny_fota_manager_get_update_result(atiny_fota_manager_get_instance
+ 159:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             lwm2m_data_encode_int(updateresult, *dataArrayP + i);
+ 160:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_205_CONTENT;
+ 161:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             break;
+ 162:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 163:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+GAS LISTING /tmp/ccKcRiIJ.s 			page 4
+
+
+ 164:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_O_FIRMWARE_UPDATE_DELIVER_METHOD:
+ 165:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 166:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             int method = atiny_fota_manager_get_deliver_method(atiny_fota_manager_get_instance());
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             lwm2m_data_encode_int(method, *dataArrayP + i);
+ 168:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_205_CONTENT;
+ 169:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 170:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         break;
+ 171:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         default:
+ 172:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_404_NOT_FOUND;
+ 173:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 174:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 175:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         i++;
+ 176:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 177:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     while (i < *numDataP && result == COAP_205_CONTENT);
+ 178:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 179:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if(dataCfg && (1 == *numDataP) && (RES_M_STATE == (*dataArrayP)[0].id))
+ 180:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 181:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         atiny_fota_manager_get_data_cfg(atiny_fota_manager_get_instance(), dataCfg);
+ 182:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 183:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 184:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     return result;
+ 185:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** }
+ 186:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 187:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** static uint8_t prv_firmware_write(uint16_t instanceId,
+ 188:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                   int numData,
+ 189:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                   lwm2m_data_t *dataArray,
+ 190:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                   lwm2m_object_t *objectP)
+ 191:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+ 192:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     int i;
+ 193:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     uint8_t result;
+ 194:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 195:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     // this is a single instance object
+ 196:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (instanceId != 0)
+ 197:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 198:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         return COAP_404_NOT_FOUND;
+ 199:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 200:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 201:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     i = 0;
+ 202:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 203:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     do
+ 204:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 205:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         switch (dataArray[i].id)
+ 206:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 207:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 208:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         case RES_M_PACKAGE_URI:
+ 209:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             // URL for download the firmware
+ 210:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 211:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             int ret;
+ 212:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             if(dataArray[i].type != LWM2M_TYPE_STRING || NULL == dataArray[i].value.asBuffer.buffer
+ 213:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             {
+ 214:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                 ATINY_LOG(LOG_ERR, "type ERR %d", dataArray[i].type);
+ 215:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                 result = COAP_400_BAD_REQUEST;
+ 216:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                 break;
+ 217:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             }
+ 218:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             ret = atiny_fota_manager_start_download(atiny_fota_manager_get_instance(), \
+ 219:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                                     (const char *)(dataArray[i].value.asBuffer.buff
+ 220:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = (ATINY_OK == ret ? COAP_204_CHANGED : COAP_405_METHOD_NOT_ALLOWED);
+GAS LISTING /tmp/ccKcRiIJ.s 			page 5
+
+
+ 221:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             break;
+ 222:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 223:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 224:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         default:
+ 225:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             result = COAP_405_METHOD_NOT_ALLOWED;
+ 226:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 227:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 228:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         i++;
+ 229:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 230:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     while (i < numData && result == COAP_204_CHANGED);
+ 231:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 232:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     return result;
+ 233:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** }
+ 234:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 235:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** static uint8_t prv_firmware_execute(uint16_t instanceId,
+ 236:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                     uint16_t resourceId,
+ 237:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                     uint8_t *buffer,
+ 238:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                     int length,
+ 239:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****                                     lwm2m_object_t *objectP)
+ 240:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+ 241:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 242:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     // this is a single instance object
+ 243:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (instanceId != 0)
+ 244:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 245:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         return COAP_404_NOT_FOUND;
+ 246:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 247:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 248:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (length != 0) return COAP_400_BAD_REQUEST;
+ 249:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 250:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     // for execute callback, resId is always set.
+ 251:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     switch (resourceId)
+ 252:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 253:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     case RES_M_UPDATE:
+ 254:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 255:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         int ret = atiny_fota_manager_execute_update(atiny_fota_manager_get_instance());
+ 256:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         if (ATINY_OK == ret)
+ 257:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 258:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             return COAP_204_CHANGED;
+ 259:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 260:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         else
+ 261:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 262:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             // firmware update already running
+ 263:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             return COAP_400_BAD_REQUEST;
+ 264:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 265:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 266:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     default:
+ 267:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         return COAP_405_METHOD_NOT_ALLOWED;
+ 268:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 269:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 270:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 271:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** }
+ 272:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 273:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 274:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** lwm2m_object_t *get_object_firmware(atiny_param_t *atiny_params)
+ 275:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+ 276:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     /*
+ 277:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****      * The get_object_firmware function create the object itself and return a pointer to the struct
+GAS LISTING /tmp/ccKcRiIJ.s 			page 6
+
+
+ 278:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****      */
+ 279:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     lwm2m_object_t *firmwareObj;
+ 280:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 281:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     firmwareObj = (lwm2m_object_t *)lwm2m_malloc(sizeof(lwm2m_object_t));
+ 282:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 283:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (NULL != firmwareObj)
+ 284:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 285:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         memset(firmwareObj, 0, sizeof(lwm2m_object_t));
+ 286:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 287:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         /*
+ 288:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * It assigns its unique ID
+ 289:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * The 5 is the standard ID for the optional object "Object firmware".
+ 290:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          */
+ 291:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         firmwareObj->objID = LWM2M_FIRMWARE_UPDATE_OBJECT_ID;
+ 292:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 293:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         /*
+ 294:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * and its unique instance
+ 295:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          *
+ 296:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          */
+ 297:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         firmwareObj->instanceList = (lwm2m_list_t *)lwm2m_malloc(sizeof(lwm2m_list_t));
+ 298:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         if (NULL != firmwareObj->instanceList)
+ 299:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 300:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             memset(firmwareObj->instanceList, 0, sizeof(lwm2m_list_t));
+ 301:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 302:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         else
+ 303:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         {
+ 304:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             lwm2m_free(firmwareObj);
+ 305:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****             return NULL;
+ 306:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         }
+ 307:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 308:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         /*
+ 309:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * And the private function that will access the object.
+ 310:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * Those function will be called when a read/write/execute query is made by the server. In 
+ 311:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * know the resources of the object, only the server does.
+ 312:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          */
+ 313:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         firmwareObj->readFunc    = prv_firmware_read;
+ 314:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         firmwareObj->writeFunc   = prv_firmware_write;
+ 315:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         firmwareObj->executeFunc = prv_firmware_execute;
+ 316:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         firmwareObj->userData    = NULL;
+ 317:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 318:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         /*
+ 319:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          * Also some user data can be stored in the object with a private structure containing the 
+ 320:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****          */
+ 321:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 322:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 323:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     return firmwareObj;
+ 324:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** }
+ 325:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 326:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** void free_object_firmware(lwm2m_object_t *objectP)
+ 327:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+ 328:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (NULL != objectP->userData)
+ 329:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+ 330:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         lwm2m_free(objectP->userData);
+ 331:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         objectP->userData = NULL;
+ 332:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 333:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     if (NULL != objectP->instanceList)
+ 334:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     {
+GAS LISTING /tmp/ccKcRiIJ.s 			page 7
+
+
+ 335:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         lwm2m_free(objectP->instanceList);
+ 336:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****         objectP->instanceList = NULL;
+ 337:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     }
+ 338:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     lwm2m_free(objectP);
+ 339:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** }
+ 340:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 341:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** #else
+ 342:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 343:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 344:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** lwm2m_object_t *get_object_firmware(atiny_param_t *atiny_params)
+ 345:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+  10              		.loc 1 345 0
+  11              		.cfi_startproc
+  12              	.LVL0:
+ 346:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     (void)atiny_params;
+ 347:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c ****     return NULL;
+ 348:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** }
+  13              		.loc 1 348 0
+  14 0000 B8000000 		movl	$0, %eax
+  14      00
+  15 0005 C3       		ret
+  16              		.cfi_endproc
+  17              	.LFE63:
+  19              		.section	.text.free_object_firmware,"ax",@progbits
+  20              		.globl	free_object_firmware
+  22              	free_object_firmware:
+  23              	.LFB64:
+ 349:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 350:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** 
+ 351:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** void free_object_firmware(lwm2m_object_t *objectP)
+ 352:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/object_firmware.c **** {
+  24              		.loc 1 352 0
+  25              		.cfi_startproc
+  26              	.LVL1:
+  27 0000 F3C3     		rep ret
+  28              		.cfi_endproc
+  29              	.LFE64:
+  31              		.text
+  32              	.Letext0:
+  33              		.file 2 "/usr/include/stdint.h"
+  34              		.file 3 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h"
+  35              		.file 4 "/usr/include/x86_64-linux-gnu/bits/types.h"
+  36              		.file 5 "/usr/include/libio.h"
+  37              		.file 6 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/liblwm2m.h"
+  38              		.file 7 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/agent
+  39              		.file 8 "/usr/include/stdio.h"
+GAS LISTING /tmp/ccKcRiIJ.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 object_firmware.c
+     /tmp/ccKcRiIJ.s:7      .text.get_object_firmware:0000000000000000 get_object_firmware
+     /tmp/ccKcRiIJ.s:22     .text.free_object_firmware:0000000000000000 free_object_firmware
+
+NO UNDEFINED SYMBOLS

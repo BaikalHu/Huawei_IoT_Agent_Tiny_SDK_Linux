@@ -1,0 +1,3413 @@
+GAS LISTING /tmp/ccunSHko.s 			page 1
+
+
+   1              		.file	"atiny_rpt.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.text.atiny_is_uri_equal,"ax",@progbits
+   6              	atiny_is_uri_equal:
+   7              	.LFB57:
+   8              		.file 1 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny
+   1:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** /*----------------------------------------------------------------------------
+   2:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * All rights reserved.
+   4:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * are permitted provided that the following conditions are met:
+   6:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * conditions and the following disclaimer.
+   8:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * provided with the distribution.
+  11:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * permission.
+  14:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  *---------------------------------------------------------------------------*/
+  26:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** /*----------------------------------------------------------------------------
+  27:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * Notice of Export Control Law
+  28:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * ===============================================
+  29:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  * applicable export control laws and regulations.
+  33:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****  *---------------------------------------------------------------------------*/
+  34:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  35:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** #include "liblwm2m.h"
+  36:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** #include "atiny_rpt.h"
+  37:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** #include "atiny_log.h"
+  38:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  39:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** typedef struct _atiny_rpt_list_t
+  40:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+  41:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list node;
+  42:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     lwm2m_uri_t uri;
+  43:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list rpt_list;
+  44:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     uint32_t rpt_node_cnt;
+  45:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     uint32_t max_cnt;
+  46:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** } atiny_rpt_list_t;
+  47:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  48:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** typedef struct
+  49:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+  50:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list list;
+GAS LISTING /tmp/ccunSHko.s 			page 2
+
+
+  51:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     data_report_t data;
+  52:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** } atiny_rpt_node_t;
+  53:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  54:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static atiny_dl_list g_atiny_rpt_table;
+  55:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static void *g_mutex = NULL;
+  56:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  57:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** // TODO: when free, recorrect then callback code
+  58:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  59:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static int atiny_is_uri_equal(const lwm2m_uri_t *uri0, const lwm2m_uri_t *uri1)
+  60:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+   9              		.loc 1 60 0
+  10              		.cfi_startproc
+  11              	.LVL0:
+  61:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (LWM2M_URI_IS_SET_RESOURCE(uri0) && LWM2M_URI_IS_SET_RESOURCE(uri1))
+  12              		.loc 1 61 0
+  13 0000 F60701   		testb	$1, (%rdi)
+  14 0003 7429     		je	.L2
+  15              		.loc 1 61 0 is_stmt 0 discriminator 1
+  16 0005 F60601   		testb	$1, (%rsi)
+  17 0008 7424     		je	.L2
+  62:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return (uri0->objectId == uri1->objectId) && (uri0->instanceId == uri1->instanceId)
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****                && (uri0->resourceId == uri1->resourceId);
+  18              		.loc 1 64 0 is_stmt 1
+  19 000a 0FB74602 		movzwl	2(%rsi), %eax
+  20 000e 66394702 		cmpw	%ax, 2(%rdi)
+  21 0012 7534     		jne	.L4
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****                && (uri0->resourceId == uri1->resourceId);
+  22              		.loc 1 63 0
+  23 0014 0FB74604 		movzwl	4(%rsi), %eax
+  24 0018 66394704 		cmpw	%ax, 4(%rdi)
+  25 001c 7530     		jne	.L5
+  26              		.loc 1 64 0 discriminator 3
+  27 001e 0FB74606 		movzwl	6(%rsi), %eax
+  28 0022 66394706 		cmpw	%ax, 6(%rdi)
+  29 0026 742C     		je	.L6
+  30              		.loc 1 64 0 is_stmt 0
+  31 0028 B8000000 		movl	$0, %eax
+  31      00
+  32 002d C3       		ret
+  33              	.L2:
+  65:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+  66:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  67:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return (uri0->objectId == uri1->objectId) && (uri0->instanceId == uri1->instanceId);
+  34              		.loc 1 67 0 is_stmt 1
+  35 002e 0FB74602 		movzwl	2(%rsi), %eax
+  36 0032 66394702 		cmpw	%ax, 2(%rdi)
+  37 0036 7522     		jne	.L7
+  38              		.loc 1 67 0 is_stmt 0 discriminator 1
+  39 0038 0FB74604 		movzwl	4(%rsi), %eax
+  40 003c 66394704 		cmpw	%ax, 4(%rdi)
+  41 0040 741E     		je	.L8
+  42              		.loc 1 67 0
+  43 0042 B8000000 		movl	$0, %eax
+  43      00
+  44 0047 C3       		ret
+  45              	.L4:
+GAS LISTING /tmp/ccunSHko.s 			page 3
+
+
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+  46              		.loc 1 64 0 is_stmt 1
+  47 0048 B8000000 		movl	$0, %eax
+  47      00
+  48 004d C3       		ret
+  49              	.L5:
+  50 004e B8000000 		movl	$0, %eax
+  50      00
+  51 0053 C3       		ret
+  52              	.L6:
+  53 0054 B8010000 		movl	$1, %eax
+  53      00
+  54 0059 C3       		ret
+  55              	.L7:
+  56              		.loc 1 67 0
+  57 005a B8000000 		movl	$0, %eax
+  57      00
+  58 005f C3       		ret
+  59              	.L8:
+  60 0060 B8010000 		movl	$1, %eax
+  60      00
+  68:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+  61              		.loc 1 68 0
+  62 0065 C3       		ret
+  63              		.cfi_endproc
+  64              	.LFE57:
+  66              		.section	.text.atiny_find_rpt_list,"ax",@progbits
+  68              	atiny_find_rpt_list:
+  69              	.LFB58:
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static atiny_rpt_list_t *atiny_find_rpt_list(const lwm2m_uri_t *uri)
+  71:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+  70              		.loc 1 71 0
+  71              		.cfi_startproc
+  72              	.LVL1:
+  73 0000 4154     		pushq	%r12
+  74              	.LCFI0:
+  75              		.cfi_def_cfa_offset 16
+  76              		.cfi_offset 12, -16
+  77 0002 55       		pushq	%rbp
+  78              	.LCFI1:
+  79              		.cfi_def_cfa_offset 24
+  80              		.cfi_offset 6, -24
+  81 0003 53       		pushq	%rbx
+  82              	.LCFI2:
+  83              		.cfi_def_cfa_offset 32
+  84              		.cfi_offset 3, -32
+  85 0004 4989FC   		movq	%rdi, %r12
+  72:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *item;
+  73:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *next;
+  74:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     ATINY_DL_LIST_FOR_EACH_SAFE(item, next, &g_atiny_rpt_table)
+  86              		.loc 1 75 0
+  87 0007 488B1D00 		movq	g_atiny_rpt_table+8(%rip), %rbx
+  87      000000
+  88              	.LVL2:
+  89 000e 488B6B08 		movq	8(%rbx), %rbp
+GAS LISTING /tmp/ccunSHko.s 			page 4
+
+
+  90              	.LVL3:
+  91 0012 EB17     		jmp	.L10
+  92              	.LVL4:
+  93              	.L12:
+  94              	.LBB51:
+  76:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_list_t *data_node = (atiny_rpt_list_t *)item;
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (atiny_is_uri_equal(&data_node->uri, uri))
+  95              		.loc 1 79 0
+  96 0014 488D7B10 		leaq	16(%rbx), %rdi
+  97 0018 4C89E6   		movq	%r12, %rsi
+  98 001b E8000000 		call	atiny_is_uri_equal
+  98      00
+  99              	.LVL5:
+ 100 0020 85C0     		testl	%eax, %eax
+ 101 0022 7517     		jne	.L13
+ 102              	.LVL6:
+ 103              	.LBE51:
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 104              		.loc 1 75 0 discriminator 2
+ 105 0024 4889EB   		movq	%rbp, %rbx
+ 106              	.LVL7:
+ 107 0027 488B6D08 		movq	8(%rbp), %rbp
+ 108              	.LVL8:
+ 109              	.L10:
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 110              		.loc 1 75 0 is_stmt 0 discriminator 1
+ 111 002b 4881FB00 		cmpq	$g_atiny_rpt_table, %rbx
+ 111      000000
+ 112 0032 75E0     		jne	.L12
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             return data_node;
+  82:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+  83:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+  84:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return NULL;
+ 113              		.loc 1 85 0 is_stmt 1
+ 114 0034 B8000000 		movl	$0, %eax
+ 114      00
+ 115 0039 EB03     		jmp	.L11
+ 116              	.LVL9:
+ 117              	.L13:
+ 118              	.LBB52:
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 119              		.loc 1 81 0
+ 120 003b 4889D8   		movq	%rbx, %rax
+ 121              	.LVL10:
+ 122              	.L11:
+ 123              	.LBE52:
+  86:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 124              		.loc 1 86 0
+ 125 003e 5B       		popq	%rbx
+ 126              	.LCFI3:
+ 127              		.cfi_def_cfa_offset 24
+ 128              	.LVL11:
+ 129 003f 5D       		popq	%rbp
+GAS LISTING /tmp/ccunSHko.s 			page 5
+
+
+ 130              	.LCFI4:
+ 131              		.cfi_def_cfa_offset 16
+ 132              	.LVL12:
+ 133 0040 415C     		popq	%r12
+ 134              	.LCFI5:
+ 135              		.cfi_def_cfa_offset 8
+ 136              	.LVL13:
+ 137 0042 C3       		ret
+ 138              		.cfi_endproc
+ 139              	.LFE58:
+ 141              		.section	.text.atiny_visit_list,"ax",@progbits
+ 143              	atiny_visit_list:
+ 144              	.LFB60:
+  87:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  88:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static void atiny_free_list(atiny_dl_list *list,  void(*free_data)(atiny_dl_list *node, void *param
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+  90:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *item;
+  91:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *next;
+  92:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     ATINY_DL_LIST_FOR_EACH_SAFE(item, next, list)
+  94:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_list_delete(item);
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (free_data != NULL)
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             free_data(item, param);
+ 100:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         lwm2m_free(item);
+ 102:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 104:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 105:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static void atiny_visit_list(atiny_dl_list *list,  void(*visit_data)(atiny_dl_list *node, void *par
+ 106:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 145              		.loc 1 106 0
+ 146              		.cfi_startproc
+ 147              	.LVL14:
+ 148 0000 4155     		pushq	%r13
+ 149              	.LCFI6:
+ 150              		.cfi_def_cfa_offset 16
+ 151              		.cfi_offset 13, -16
+ 152 0002 4154     		pushq	%r12
+ 153              	.LCFI7:
+ 154              		.cfi_def_cfa_offset 24
+ 155              		.cfi_offset 12, -24
+ 156 0004 55       		pushq	%rbp
+ 157              	.LCFI8:
+ 158              		.cfi_def_cfa_offset 32
+ 159              		.cfi_offset 6, -32
+ 160 0005 53       		pushq	%rbx
+ 161              	.LCFI9:
+ 162              		.cfi_def_cfa_offset 40
+ 163              		.cfi_offset 3, -40
+ 164 0006 4883EC08 		subq	$8, %rsp
+ 165              	.LCFI10:
+ 166              		.cfi_def_cfa_offset 48
+ 167 000a 4889FD   		movq	%rdi, %rbp
+ 168 000d 4989F5   		movq	%rsi, %r13
+GAS LISTING /tmp/ccunSHko.s 			page 6
+
+
+ 169 0010 4989D4   		movq	%rdx, %r12
+ 107:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *item;
+ 108:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *next;
+ 109:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     ATINY_DL_LIST_FOR_EACH_SAFE(item, next, list)
+ 170              		.loc 1 110 0
+ 171 0013 488B7F08 		movq	8(%rdi), %rdi
+ 172              	.LVL15:
+ 173 0017 488B5F08 		movq	8(%rdi), %rbx
+ 174              	.LVL16:
+ 175 001b EB0D     		jmp	.L16
+ 176              	.LVL17:
+ 177              	.L17:
+ 111:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 112:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         visit_data(item, param);
+ 178              		.loc 1 112 0 discriminator 3
+ 179 001d 4C89E6   		movq	%r12, %rsi
+ 180 0020 41FFD5   		call	*%r13
+ 181              	.LVL18:
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 182              		.loc 1 110 0 discriminator 3
+ 183 0023 4889DF   		movq	%rbx, %rdi
+ 184 0026 488B5B08 		movq	8(%rbx), %rbx
+ 185              	.LVL19:
+ 186              	.L16:
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 187              		.loc 1 110 0 is_stmt 0 discriminator 1
+ 188 002a 4839EF   		cmpq	%rbp, %rdi
+ 189 002d 75EE     		jne	.L17
+ 113:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 114:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 190              		.loc 1 114 0 is_stmt 1
+ 191 002f 4883C408 		addq	$8, %rsp
+ 192              	.LCFI11:
+ 193              		.cfi_def_cfa_offset 40
+ 194 0033 5B       		popq	%rbx
+ 195              	.LCFI12:
+ 196              		.cfi_def_cfa_offset 32
+ 197              	.LVL20:
+ 198 0034 5D       		popq	%rbp
+ 199              	.LCFI13:
+ 200              		.cfi_def_cfa_offset 24
+ 201              	.LVL21:
+ 202 0035 415C     		popq	%r12
+ 203              	.LCFI14:
+ 204              		.cfi_def_cfa_offset 16
+ 205              	.LVL22:
+ 206 0037 415D     		popq	%r13
+ 207              	.LCFI15:
+ 208              		.cfi_def_cfa_offset 8
+ 209              	.LVL23:
+ 210 0039 C3       		ret
+ 211              		.cfi_endproc
+ 212              	.LFE60:
+ 214              		.section	.text.atiny_clear_rpt_list_node_data,"ax",@progbits
+ 216              	atiny_clear_rpt_list_node_data:
+ 217              	.LFB61:
+GAS LISTING /tmp/ccunSHko.s 			page 7
+
+
+ 115:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 116:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static void atiny_clear_rpt_list_node_data(atiny_dl_list *node,  void *result)
+ 117:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 218              		.loc 1 117 0
+ 219              		.cfi_startproc
+ 220              	.LVL24:
+ 221 0000 53       		pushq	%rbx
+ 222              	.LCFI16:
+ 223              		.cfi_def_cfa_offset 16
+ 224              		.cfi_offset 3, -16
+ 225 0001 4889FB   		movq	%rdi, %rbx
+ 226              	.LVL25:
+ 118:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_rpt_node_t *rpt_node = (atiny_rpt_node_t *)node;
+ 119:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 120:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (rpt_node->data.callback)
+ 227              		.loc 1 120 0
+ 228 0004 488B4728 		movq	40(%rdi), %rax
+ 229 0008 4885C0   		testq	%rax, %rax
+ 230 000b 740A     		je	.L20
+ 121:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 122:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_node->data.callback(rpt_node->data.type,
+ 231              		.loc 1 122 0
+ 232 000d 8B7F10   		movl	16(%rdi), %edi
+ 233              	.LVL26:
+ 234 0010 89F2     		movl	%esi, %edx
+ 235 0012 8B7314   		movl	20(%rbx), %esi
+ 236              	.LVL27:
+ 237 0015 FFD0     		call	*%rax
+ 238              	.LVL28:
+ 239              	.L20:
+ 123:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****                                 rpt_node->data.cookie, (data_send_status_e)(long)result);
+ 124:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 125:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 126:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (rpt_node->data.buf)
+ 240              		.loc 1 126 0
+ 241 0017 488B7B20 		movq	32(%rbx), %rdi
+ 242 001b 4885FF   		testq	%rdi, %rdi
+ 243 001e 740D     		je	.L19
+ 127:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 128:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         lwm2m_free(rpt_node->data.buf);
+ 244              		.loc 1 128 0
+ 245 0020 E8000000 		call	lwm2m_free
+ 245      00
+ 246              	.LVL29:
+ 129:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_node->data.buf = NULL;
+ 247              		.loc 1 129 0
+ 248 0025 48C74320 		movq	$0, 32(%rbx)
+ 248      00000000 
+ 249              	.L19:
+ 130:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 131:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 250              		.loc 1 131 0
+ 251 002d 5B       		popq	%rbx
+ 252              	.LCFI17:
+ 253              		.cfi_def_cfa_offset 8
+ 254              	.LVL30:
+ 255 002e C3       		ret
+GAS LISTING /tmp/ccunSHko.s 			page 8
+
+
+ 256              		.cfi_endproc
+ 257              	.LFE61:
+ 259              		.section	.text.atiny_free_list,"ax",@progbits
+ 261              	atiny_free_list:
+ 262              	.LFB59:
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_dl_list *item;
+ 263              		.loc 1 89 0
+ 264              		.cfi_startproc
+ 265              	.LVL31:
+ 266 0000 4156     		pushq	%r14
+ 267              	.LCFI18:
+ 268              		.cfi_def_cfa_offset 16
+ 269              		.cfi_offset 14, -16
+ 270 0002 4155     		pushq	%r13
+ 271              	.LCFI19:
+ 272              		.cfi_def_cfa_offset 24
+ 273              		.cfi_offset 13, -24
+ 274 0004 4154     		pushq	%r12
+ 275              	.LCFI20:
+ 276              		.cfi_def_cfa_offset 32
+ 277              		.cfi_offset 12, -32
+ 278 0006 55       		pushq	%rbp
+ 279              	.LCFI21:
+ 280              		.cfi_def_cfa_offset 40
+ 281              		.cfi_offset 6, -40
+ 282 0007 53       		pushq	%rbx
+ 283              	.LCFI22:
+ 284              		.cfi_def_cfa_offset 48
+ 285              		.cfi_offset 3, -48
+ 286 0008 4989FD   		movq	%rdi, %r13
+ 287 000b 4989F4   		movq	%rsi, %r12
+ 288 000e 4989D6   		movq	%rdx, %r14
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 289              		.loc 1 93 0
+ 290 0011 488B5F08 		movq	8(%rdi), %rbx
+ 291              	.LVL32:
+ 292 0015 488B6B08 		movq	8(%rbx), %rbp
+ 293              	.LVL33:
+ 294 0019 EB41     		jmp	.L24
+ 295              	.LVL34:
+ 296              	.L26:
+ 297              	.LBB53:
+ 298              	.LBB54:
+ 299              		.file 2 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent
+   1:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** /*----------------------------------------------------------------------------
+   2:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * All rights reserved.
+   4:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * are permitted provided that the following conditions are met:
+   6:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * conditions and the following disclaimer.
+   8:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * provided with the distribution.
+  11:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * to endorse or promote products derived from this software without specific prior written
+  13:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * permission.
+GAS LISTING /tmp/ccunSHko.s 			page 9
+
+
+  14:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  *---------------------------------------------------------------------------*/
+  26:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** /*----------------------------------------------------------------------------
+  27:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * Notice of Export Control Law
+  28:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * ===============================================
+  29:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  * applicable export control laws and regulations.
+  33:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  *---------------------------------------------------------------------------*/
+  34:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  35:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #ifndef _ATINY_LIST_H
+  36:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  37:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #define _ATINY_LIST_H
+  38:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #define ATINY_INLINE static inline
+  39:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  40:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  41:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #ifdef __cplusplus
+  42:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #if __cplusplus
+  43:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  44:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** extern "C" {
+  45:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  46:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #endif /* __cplusplus */
+  47:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  48:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #endif /* __cplusplus */
+  49:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  50:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  51:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** /**
+  52:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  53:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  *@ingroup atiny_list
+  54:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  55:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  *Structure of a node in a doubly linked list.
+  56:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  57:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****  */
+  58:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  59:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** typedef struct atiny_dl_list
+  60:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+  61:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     struct atiny_dl_list *prev;            /**< Current node's pointer to the previous node*/
+  62:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     struct atiny_dl_list *next;            /**< Current node's pointer to the next node*/
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** } atiny_dl_list;
+  65:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  66:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  67:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** ATINY_INLINE void atiny_list_init(atiny_dl_list *list)
+  68:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next = list;
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->prev = list;
+GAS LISTING /tmp/ccunSHko.s 			page 10
+
+
+  71:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+  72:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  73:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** #define ATINY_DL_LIST_FIRST(object) ((object)->next)
+  74:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** ATINY_INLINE void atiny_list_add(atiny_dl_list *list, atiny_dl_list *node)
+  76:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->next = list->next;
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev = list;
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next->prev = node;
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next = node;
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+  82:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  83:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** ATINY_INLINE void atiny_list_insert_tail(atiny_dl_list *list, atiny_dl_list *node)
+  84:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     atiny_list_add(list->prev, node);
+  86:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+  87:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  88:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** ATINY_INLINE atiny_dl_list * atiny_list_get_head(atiny_dl_list *header)
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+  90:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     return header->next;
+  91:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+  92:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** ATINY_INLINE void atiny_list_delete(atiny_dl_list *node)
+  94:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->next->prev = node->prev;
+ 300              		.loc 2 95 0
+ 301 001b 488B4308 		movq	8(%rbx), %rax
+ 302 001f 488B13   		movq	(%rbx), %rdx
+ 303 0022 488910   		movq	%rdx, (%rax)
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev->next = node->next;
+ 304              		.loc 2 96 0
+ 305 0025 488B03   		movq	(%rbx), %rax
+ 306 0028 488B5308 		movq	8(%rbx), %rdx
+ 307 002c 48895008 		movq	%rdx, 8(%rax)
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->next = (atiny_dl_list *)NULL;
+ 308              		.loc 2 97 0
+ 309 0030 48C74308 		movq	$0, 8(%rbx)
+ 309      00000000 
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev = (atiny_dl_list *)NULL;
+ 310              		.loc 2 98 0
+ 311 0038 48C70300 		movq	$0, (%rbx)
+ 311      000000
+ 312              	.LVL35:
+ 313              	.LBE54:
+ 314              	.LBE53:
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 315              		.loc 1 97 0
+ 316 003f 4D85E4   		testq	%r12, %r12
+ 317 0042 7409     		je	.L25
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 318              		.loc 1 99 0
+ 319 0044 4C89F6   		movq	%r14, %rsi
+ 320 0047 4889DF   		movq	%rbx, %rdi
+ 321 004a 41FFD4   		call	*%r12
+ 322              	.LVL36:
+ 323              	.L25:
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+GAS LISTING /tmp/ccunSHko.s 			page 11
+
+
+ 324              		.loc 1 101 0 discriminator 2
+ 325 004d 4889DF   		movq	%rbx, %rdi
+ 326 0050 E8000000 		call	lwm2m_free
+ 326      00
+ 327              	.LVL37:
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 328              		.loc 1 93 0 discriminator 2
+ 329 0055 4889EB   		movq	%rbp, %rbx
+ 330 0058 488B6D08 		movq	8(%rbp), %rbp
+ 331              	.LVL38:
+ 332              	.L24:
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 333              		.loc 1 93 0 is_stmt 0 discriminator 1
+ 334 005c 4C39EB   		cmpq	%r13, %rbx
+ 335 005f 75BA     		jne	.L26
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 336              		.loc 1 103 0 is_stmt 1
+ 337 0061 5B       		popq	%rbx
+ 338              	.LCFI23:
+ 339              		.cfi_def_cfa_offset 40
+ 340              	.LVL39:
+ 341 0062 5D       		popq	%rbp
+ 342              	.LCFI24:
+ 343              		.cfi_def_cfa_offset 32
+ 344              	.LVL40:
+ 345 0063 415C     		popq	%r12
+ 346              	.LCFI25:
+ 347              		.cfi_def_cfa_offset 24
+ 348              	.LVL41:
+ 349 0065 415D     		popq	%r13
+ 350              	.LCFI26:
+ 351              		.cfi_def_cfa_offset 16
+ 352              	.LVL42:
+ 353 0067 415E     		popq	%r14
+ 354              	.LCFI27:
+ 355              		.cfi_def_cfa_offset 8
+ 356              	.LVL43:
+ 357 0069 C3       		ret
+ 358              		.cfi_endproc
+ 359              	.LFE59:
+ 361              		.section	.text.atiny_clear_rpt_list,"ax",@progbits
+ 363              	atiny_clear_rpt_list:
+ 364              	.LFB62:
+ 132:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 133:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static void atiny_clear_rpt_list(atiny_dl_list *node, void *result)
+ 134:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 365              		.loc 1 134 0
+ 366              		.cfi_startproc
+ 367              	.LVL44:
+ 368 0000 4883EC08 		subq	$8, %rsp
+ 369              	.LCFI28:
+ 370              		.cfi_def_cfa_offset 16
+ 371 0004 4889F2   		movq	%rsi, %rdx
+ 372              	.LVL45:
+ 135:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_rpt_list_t *rpt_list = (atiny_rpt_list_t *)node;
+ 136:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_free_list(&rpt_list->rpt_list, atiny_clear_rpt_list_node_data, result);
+ 373              		.loc 1 136 0
+GAS LISTING /tmp/ccunSHko.s 			page 12
+
+
+ 374 0007 4883C718 		addq	$24, %rdi
+ 375              	.LVL46:
+ 376 000b BE000000 		movl	$atiny_clear_rpt_list_node_data, %esi
+ 376      00
+ 377              	.LVL47:
+ 378 0010 E8000000 		call	atiny_free_list
+ 378      00
+ 379              	.LVL48:
+ 137:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 380              		.loc 1 137 0
+ 381 0015 4883C408 		addq	$8, %rsp
+ 382              	.LCFI29:
+ 383              		.cfi_def_cfa_offset 8
+ 384 0019 C3       		ret
+ 385              		.cfi_endproc
+ 386              	.LFE62:
+ 388              		.section	.rodata.str1.8,"aMS",@progbits,1
+ 389              		.align 8
+ 390              	.LC0:
+ 391 0000 5B25735D 		.string	"[%s][%u][%s:%d] data change cnt %d uri(flag:0x%x, objId:%d, instId:%d, resId:%d)\r\n"
+ 391      5B25755D 
+ 391      5B25733A 
+ 391      25645D20 
+ 391      64617461 
+ 392              		.section	.text.atiny_notify_stack_rpt_data_change,"ax",@progbits
+ 394              	atiny_notify_stack_rpt_data_change:
+ 395              	.LFB63:
+ 138:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 139:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** static void atiny_notify_stack_rpt_data_change(atiny_dl_list *node, void *context)
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 396              		.loc 1 140 0
+ 397              		.cfi_startproc
+ 398              	.LVL49:
+ 141:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_rpt_list_t *rpt_list = (atiny_rpt_list_t *)node;
+ 142:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 143:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (!atiny_list_empty(&rpt_list->rpt_list))
+ 399              		.loc 1 143 0
+ 400 0000 488D4718 		leaq	24(%rdi), %rax
+ 401 0004 483B4720 		cmpq	32(%rdi), %rax
+ 402 0008 0F849900 		je	.L35
+ 402      0000
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_rpt_list_t *rpt_list = (atiny_rpt_list_t *)node;
+ 403              		.loc 1 140 0
+ 404 000e 4157     		pushq	%r15
+ 405              	.LCFI30:
+ 406              		.cfi_def_cfa_offset 16
+ 407              		.cfi_offset 15, -16
+ 408 0010 4156     		pushq	%r14
+ 409              	.LCFI31:
+ 410              		.cfi_def_cfa_offset 24
+ 411              		.cfi_offset 14, -24
+ 412 0012 4155     		pushq	%r13
+ 413              	.LCFI32:
+ 414              		.cfi_def_cfa_offset 32
+ 415              		.cfi_offset 13, -32
+ 416 0014 4154     		pushq	%r12
+ 417              	.LCFI33:
+GAS LISTING /tmp/ccunSHko.s 			page 13
+
+
+ 418              		.cfi_def_cfa_offset 40
+ 419              		.cfi_offset 12, -40
+ 420 0016 55       		pushq	%rbp
+ 421              	.LCFI34:
+ 422              		.cfi_def_cfa_offset 48
+ 423              		.cfi_offset 6, -48
+ 424 0017 53       		pushq	%rbx
+ 425              	.LCFI35:
+ 426              		.cfi_def_cfa_offset 56
+ 427              		.cfi_offset 3, -56
+ 428 0018 4883EC18 		subq	$24, %rsp
+ 429              	.LCFI36:
+ 430              		.cfi_def_cfa_offset 80
+ 431 001c 4889F5   		movq	%rsi, %rbp
+ 432 001f 4889FB   		movq	%rdi, %rbx
+ 144:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 145:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_INFO, "data change cnt %d "URI_FORMAT,  rpt_list->rpt_node_cnt, URI_LOG_PARAM
+ 433              		.loc 1 145 0
+ 434 0022 E8000000 		call	atiny_get_log_level
+ 434      00
+ 435              	.LVL50:
+ 436 0027 83F801   		cmpl	$1, %eax
+ 437 002a 7761     		ja	.L32
+ 438              		.loc 1 145 0 is_stmt 0 discriminator 1
+ 439 002c 440FB77B 		movzwl	22(%rbx), %r15d
+ 439      16
+ 440 0031 440FB773 		movzwl	20(%rbx), %r14d
+ 440      14
+ 441 0036 440FB76B 		movzwl	18(%rbx), %r13d
+ 441      12
+ 442 003b 440FB663 		movzbl	16(%rbx), %r12d
+ 442      10
+ 443 0040 8B4328   		movl	40(%rbx), %eax
+ 444 0043 89442404 		movl	%eax, 4(%rsp)
+ 445 0047 E8000000 		call	atiny_gettime_ms
+ 445      00
+ 446              	.LVL51:
+ 447 004c 48894424 		movq	%rax, 8(%rsp)
+ 447      08
+ 448 0051 BF010000 		movl	$1, %edi
+ 448      00
+ 449 0056 E8000000 		call	atiny_get_log_level_name
+ 449      00
+ 450              	.LVL52:
+ 451 005b 4157     		pushq	%r15
+ 452              	.LCFI37:
+ 453              		.cfi_def_cfa_offset 88
+ 454 005d 4156     		pushq	%r14
+ 455              	.LCFI38:
+ 456              		.cfi_def_cfa_offset 96
+ 457 005f 4155     		pushq	%r13
+ 458              	.LCFI39:
+ 459              		.cfi_def_cfa_offset 104
+ 460 0061 4154     		pushq	%r12
+ 461              	.LCFI40:
+ 462              		.cfi_def_cfa_offset 112
+ 463 0063 448B4C24 		movl	36(%rsp), %r9d
+GAS LISTING /tmp/ccunSHko.s 			page 14
+
+
+ 463      24
+ 464 0068 41B89100 		movl	$145, %r8d
+ 464      0000
+ 465 006e B9000000 		movl	$__FUNCTION__.4097, %ecx
+ 465      00
+ 466 0073 8B542428 		movl	40(%rsp), %edx
+ 467 0077 4889C6   		movq	%rax, %rsi
+ 468 007a BF000000 		movl	$.LC0, %edi
+ 468      00
+ 469 007f B8000000 		movl	$0, %eax
+ 469      00
+ 470 0084 E8000000 		call	atiny_printf
+ 470      00
+ 471              	.LVL53:
+ 472 0089 4883C420 		addq	$32, %rsp
+ 473              	.LCFI41:
+ 474              		.cfi_def_cfa_offset 80
+ 475              	.L32:
+ 146:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         lwm2m_resource_value_changed(context, &rpt_list->uri);
+ 476              		.loc 1 146 0 is_stmt 1
+ 477 008d 488D7310 		leaq	16(%rbx), %rsi
+ 478 0091 4889EF   		movq	%rbp, %rdi
+ 479 0094 E8000000 		call	lwm2m_resource_value_changed
+ 479      00
+ 480              	.LVL54:
+ 147:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 148:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 481              		.loc 1 148 0
+ 482 0099 4883C418 		addq	$24, %rsp
+ 483              	.LCFI42:
+ 484              		.cfi_def_cfa_offset 56
+ 485 009d 5B       		popq	%rbx
+ 486              	.LCFI43:
+ 487              		.cfi_restore 3
+ 488              		.cfi_def_cfa_offset 48
+ 489              	.LVL55:
+ 490 009e 5D       		popq	%rbp
+ 491              	.LCFI44:
+ 492              		.cfi_restore 6
+ 493              		.cfi_def_cfa_offset 40
+ 494              	.LVL56:
+ 495 009f 415C     		popq	%r12
+ 496              	.LCFI45:
+ 497              		.cfi_restore 12
+ 498              		.cfi_def_cfa_offset 32
+ 499 00a1 415D     		popq	%r13
+ 500              	.LCFI46:
+ 501              		.cfi_restore 13
+ 502              		.cfi_def_cfa_offset 24
+ 503 00a3 415E     		popq	%r14
+ 504              	.LCFI47:
+ 505              		.cfi_restore 14
+ 506              		.cfi_def_cfa_offset 16
+ 507 00a5 415F     		popq	%r15
+ 508              	.LCFI48:
+ 509              		.cfi_restore 15
+ 510              		.cfi_def_cfa_offset 8
+GAS LISTING /tmp/ccunSHko.s 			page 15
+
+
+ 511              	.L35:
+ 512 00a7 F3C3     		rep ret
+ 513              		.cfi_endproc
+ 514              	.LFE63:
+ 516              		.section	.rodata.str1.8
+ 517 0053 00000000 		.align 8
+ 517      00
+ 518              	.LC1:
+ 519 0058 5B25735D 		.string	"[%s][%u][%s:%d] atiny_mutex_create fail\r\n"
+ 519      5B25755D 
+ 519      5B25733A 
+ 519      25645D20 
+ 519      6174696E 
+ 520              		.section	.text.atiny_init_rpt,"ax",@progbits
+ 521              		.globl	atiny_init_rpt
+ 523              	atiny_init_rpt:
+ 524              	.LFB64:
+ 149:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 150:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_init_rpt(void)
+ 151:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 525              		.loc 1 151 0
+ 526              		.cfi_startproc
+ 527 0000 53       		pushq	%rbx
+ 528              	.LCFI49:
+ 529              		.cfi_def_cfa_offset 16
+ 530              		.cfi_offset 3, -16
+ 531              	.LVL57:
+ 532              	.LBB55:
+ 533              	.LBB56:
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->prev = list;
+ 534              		.loc 2 69 0
+ 535 0001 48C70500 		movq	$g_atiny_rpt_table, g_atiny_rpt_table+8(%rip)
+ 535      00000000 
+ 535      000000
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 536              		.loc 2 70 0
+ 537 000c 48C70500 		movq	$g_atiny_rpt_table, g_atiny_rpt_table(%rip)
+ 537      00000000 
+ 537      000000
+ 538              	.LVL58:
+ 539              	.LBE56:
+ 540              	.LBE55:
+ 152:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_list_init(&g_atiny_rpt_table);
+ 153:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     g_mutex = atiny_mutex_create();
+ 541              		.loc 1 153 0
+ 542 0017 E8000000 		call	atiny_mutex_create
+ 542      00
+ 543              	.LVL59:
+ 544 001c 48890500 		movq	%rax, g_mutex(%rip)
+ 544      000000
+ 154:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 155:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (NULL == g_mutex)
+ 545              		.loc 1 155 0
+ 546 0023 4885C0   		testq	%rax, %rax
+ 547 0026 7542     		jne	.L38
+ 156:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 157:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "atiny_mutex_create fail");
+GAS LISTING /tmp/ccunSHko.s 			page 16
+
+
+ 548              		.loc 1 157 0
+ 549 0028 E8000000 		call	atiny_get_log_level
+ 549      00
+ 550              	.LVL60:
+ 551 002d 83F803   		cmpl	$3, %eax
+ 552 0030 773F     		ja	.L39
+ 553              		.loc 1 157 0 is_stmt 0 discriminator 1
+ 554 0032 E8000000 		call	atiny_gettime_ms
+ 554      00
+ 555              	.LVL61:
+ 556 0037 4889C3   		movq	%rax, %rbx
+ 557 003a BF030000 		movl	$3, %edi
+ 557      00
+ 558 003f E8000000 		call	atiny_get_log_level_name
+ 558      00
+ 559              	.LVL62:
+ 560 0044 41B89D00 		movl	$157, %r8d
+ 560      0000
+ 561 004a B9000000 		movl	$__FUNCTION__.4101, %ecx
+ 561      00
+ 562 004f 89DA     		movl	%ebx, %edx
+ 563 0051 4889C6   		movq	%rax, %rsi
+ 564 0054 BF000000 		movl	$.LC1, %edi
+ 564      00
+ 565 0059 B8000000 		movl	$0, %eax
+ 565      00
+ 566 005e E8000000 		call	atiny_printf
+ 566      00
+ 567              	.LVL63:
+ 158:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_RESOURCE_NOT_ENOUGH;;
+ 568              		.loc 1 158 0 is_stmt 1 discriminator 1
+ 569 0063 B8FAFFFF 		movl	$-6, %eax
+ 569      FF
+ 570 0068 EB0C     		jmp	.L37
+ 571              	.L38:
+ 159:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 160:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 161:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ATINY_OK;
+ 572              		.loc 1 161 0
+ 573 006a B8000000 		movl	$0, %eax
+ 573      00
+ 574 006f EB05     		jmp	.L37
+ 575              	.L39:
+ 158:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_RESOURCE_NOT_ENOUGH;;
+ 576              		.loc 1 158 0
+ 577 0071 B8FAFFFF 		movl	$-6, %eax
+ 577      FF
+ 578              	.L37:
+ 162:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 579              		.loc 1 162 0
+ 580 0076 5B       		popq	%rbx
+ 581              	.LCFI50:
+ 582              		.cfi_def_cfa_offset 8
+ 583 0077 C3       		ret
+ 584              		.cfi_endproc
+ 585              	.LFE64:
+ 587              		.section	.rodata.str1.1,"aMS",@progbits,1
+GAS LISTING /tmp/ccunSHko.s 			page 17
+
+
+ 588              	.LC2:
+ 589 0000 5B25735D 		.string	"[%s][%u][%s:%d] null point\r\n"
+ 589      5B25755D 
+ 589      5B25733A 
+ 589      25645D20 
+ 589      6E756C6C 
+ 590              		.section	.rodata.str1.8
+ 591 0082 00000000 		.align 8
+ 591      0000
+ 592              	.LC3:
+ 593 0088 5B25735D 		.string	"[%s][%u][%s:%d] uri exist,uri(flag:0x%x, objId:%d, instId:%d, resId:%d)\r\n"
+ 593      5B25755D 
+ 593      5B25733A 
+ 593      25645D20 
+ 593      75726920 
+ 594 00d2 00000000 		.align 8
+ 594      0000
+ 595              	.LC4:
+ 596 00d8 5B25735D 		.string	"[%s][%u][%s:%d] lwm2m_malloc fail,uri(flag:0x%x, objId:%d, instId:%d, resId:%d)\r\n"
+ 596      5B25755D 
+ 596      5B25733A 
+ 596      25645D20 
+ 596      6C776D32 
+ 597              		.section	.text.atiny_add_rpt_uri,"ax",@progbits
+ 598              		.globl	atiny_add_rpt_uri
+ 600              	atiny_add_rpt_uri:
+ 601              	.LFB65:
+ 163:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 164:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_add_rpt_uri(const lwm2m_uri_t *uri,  rpt_list_t *list)
+ 165:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 602              		.loc 1 165 0
+ 603              		.cfi_startproc
+ 604              	.LVL64:
+ 605 0000 4157     		pushq	%r15
+ 606              	.LCFI51:
+ 607              		.cfi_def_cfa_offset 16
+ 608              		.cfi_offset 15, -16
+ 609 0002 4156     		pushq	%r14
+ 610              	.LCFI52:
+ 611              		.cfi_def_cfa_offset 24
+ 612              		.cfi_offset 14, -24
+ 613 0004 4155     		pushq	%r13
+ 614              	.LCFI53:
+ 615              		.cfi_def_cfa_offset 32
+ 616              		.cfi_offset 13, -32
+ 617 0006 4154     		pushq	%r12
+ 618              	.LCFI54:
+ 619              		.cfi_def_cfa_offset 40
+ 620              		.cfi_offset 12, -40
+ 621 0008 55       		pushq	%rbp
+ 622              	.LCFI55:
+ 623              		.cfi_def_cfa_offset 48
+ 624              		.cfi_offset 6, -48
+ 625 0009 53       		pushq	%rbx
+ 626              	.LCFI56:
+ 627              		.cfi_def_cfa_offset 56
+ 628              		.cfi_offset 3, -56
+GAS LISTING /tmp/ccunSHko.s 			page 18
+
+
+ 629 000a 4883EC18 		subq	$24, %rsp
+ 630              	.LCFI57:
+ 631              		.cfi_def_cfa_offset 80
+ 632              	.LVL65:
+ 166:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_rpt_list_t *rpt_list  = NULL;
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     int ret = ATINY_ARG_INVALID;
+ 168:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 169:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (NULL == uri)
+ 633              		.loc 1 169 0
+ 634 000e 4885FF   		testq	%rdi, %rdi
+ 635 0011 7549     		jne	.L42
+ 170:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 171:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "null point");
+ 636              		.loc 1 171 0
+ 637 0013 E8000000 		call	atiny_get_log_level
+ 637      00
+ 638              	.LVL66:
+ 639 0018 83F803   		cmpl	$3, %eax
+ 640 001b 0F873D02 		ja	.L48
+ 640      0000
+ 641              		.loc 1 171 0 is_stmt 0 discriminator 1
+ 642 0021 E8000000 		call	atiny_gettime_ms
+ 642      00
+ 643              	.LVL67:
+ 644 0026 4889C3   		movq	%rax, %rbx
+ 645 0029 BF030000 		movl	$3, %edi
+ 645      00
+ 646 002e E8000000 		call	atiny_get_log_level_name
+ 646      00
+ 647              	.LVL68:
+ 648 0033 41B8AB00 		movl	$171, %r8d
+ 648      0000
+ 649 0039 B9000000 		movl	$__FUNCTION__.4108, %ecx
+ 649      00
+ 650 003e 89DA     		movl	%ebx, %edx
+ 651 0040 4889C6   		movq	%rax, %rsi
+ 652 0043 BF000000 		movl	$.LC2, %edi
+ 652      00
+ 653 0048 B8000000 		movl	$0, %eax
+ 653      00
+ 654 004d E8000000 		call	atiny_printf
+ 654      00
+ 655              	.LVL69:
+ 172:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_ARG_INVALID;
+ 656              		.loc 1 172 0 is_stmt 1 discriminator 1
+ 657 0052 B8FFFFFF 		movl	$-1, %eax
+ 657      FF
+ 658 0057 E90E0200 		jmp	.L43
+ 658      00
+ 659              	.LVL70:
+ 660              	.L42:
+ 661 005c 4989FC   		movq	%rdi, %r12
+ 662 005f 4889F5   		movq	%rsi, %rbp
+ 173:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 174:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 175:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (NULL == list)
+ 663              		.loc 1 175 0
+GAS LISTING /tmp/ccunSHko.s 			page 19
+
+
+ 664 0062 4885F6   		testq	%rsi, %rsi
+ 665 0065 7549     		jne	.L44
+ 176:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 177:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "null point");
+ 666              		.loc 1 177 0
+ 667 0067 E8000000 		call	atiny_get_log_level
+ 667      00
+ 668              	.LVL71:
+ 669 006c 83F803   		cmpl	$3, %eax
+ 670 006f 0F87F001 		ja	.L49
+ 670      0000
+ 671              		.loc 1 177 0 is_stmt 0 discriminator 1
+ 672 0075 E8000000 		call	atiny_gettime_ms
+ 672      00
+ 673              	.LVL72:
+ 674 007a 4889C3   		movq	%rax, %rbx
+ 675 007d BF030000 		movl	$3, %edi
+ 675      00
+ 676 0082 E8000000 		call	atiny_get_log_level_name
+ 676      00
+ 677              	.LVL73:
+ 678 0087 41B8B100 		movl	$177, %r8d
+ 678      0000
+ 679 008d B9000000 		movl	$__FUNCTION__.4108, %ecx
+ 679      00
+ 680 0092 89DA     		movl	%ebx, %edx
+ 681 0094 4889C6   		movq	%rax, %rsi
+ 682 0097 BF000000 		movl	$.LC2, %edi
+ 682      00
+ 683 009c B8000000 		movl	$0, %eax
+ 683      00
+ 684 00a1 E8000000 		call	atiny_printf
+ 684      00
+ 685              	.LVL74:
+ 178:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_ARG_INVALID;
+ 686              		.loc 1 178 0 is_stmt 1 discriminator 1
+ 687 00a6 B8FFFFFF 		movl	$-1, %eax
+ 687      FF
+ 688 00ab E9BA0100 		jmp	.L43
+ 688      00
+ 689              	.LVL75:
+ 690              	.L44:
+ 179:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 180:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 181:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     *list = NULL;
+ 691              		.loc 1 181 0
+ 692 00b0 48C70600 		movq	$0, (%rsi)
+ 692      000000
+ 182:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 183:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+ 693              		.loc 1 183 0
+ 694 00b7 488B3D00 		movq	g_mutex(%rip), %rdi
+ 694      000000
+ 695              	.LVL76:
+ 696 00be E8000000 		call	atiny_mutex_lock
+ 696      00
+ 697              	.LVL77:
+GAS LISTING /tmp/ccunSHko.s 			page 20
+
+
+ 184:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 185:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     do
+ 186:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 187:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list = atiny_find_rpt_list(uri);
+ 698              		.loc 1 187 0
+ 699 00c3 4C89E7   		movq	%r12, %rdi
+ 700 00c6 E8000000 		call	atiny_find_rpt_list
+ 700      00
+ 701              	.LVL78:
+ 702 00cb 4889C3   		movq	%rax, %rbx
+ 703              	.LVL79:
+ 188:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 189:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (rpt_list != NULL)
+ 704              		.loc 1 189 0
+ 705 00ce 4885C0   		testq	%rax, %rax
+ 706 00d1 7476     		je	.L45
+ 190:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 191:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_ERR, "uri exist," URI_FORMAT, URI_LOG_PARAM(uri));
+ 707              		.loc 1 191 0
+ 708 00d3 E8000000 		call	atiny_get_log_level
+ 708      00
+ 709              	.LVL80:
+ 710 00d8 83F803   		cmpl	$3, %eax
+ 711 00db 0F875A01 		ja	.L50
+ 711      0000
+ 712              		.loc 1 191 0 is_stmt 0 discriminator 1
+ 713 00e1 450FB77C 		movzwl	6(%r12), %r15d
+ 713      2406
+ 714 00e7 450FB774 		movzwl	4(%r12), %r14d
+ 714      2404
+ 715 00ed 450FB76C 		movzwl	2(%r12), %r13d
+ 715      2402
+ 716 00f3 450FB624 		movzbl	(%r12), %r12d
+ 716      24
+ 717              	.LVL81:
+ 718 00f8 E8000000 		call	atiny_gettime_ms
+ 718      00
+ 719              	.LVL82:
+ 720 00fd 48894424 		movq	%rax, 8(%rsp)
+ 720      08
+ 721 0102 BF030000 		movl	$3, %edi
+ 721      00
+ 722 0107 E8000000 		call	atiny_get_log_level_name
+ 722      00
+ 723              	.LVL83:
+ 724 010c 4883EC08 		subq	$8, %rsp
+ 725              	.LCFI58:
+ 726              		.cfi_def_cfa_offset 88
+ 727 0110 4157     		pushq	%r15
+ 728              	.LCFI59:
+ 729              		.cfi_def_cfa_offset 96
+ 730 0112 4156     		pushq	%r14
+ 731              	.LCFI60:
+ 732              		.cfi_def_cfa_offset 104
+ 733 0114 4155     		pushq	%r13
+ 734              	.LCFI61:
+ 735              		.cfi_def_cfa_offset 112
+GAS LISTING /tmp/ccunSHko.s 			page 21
+
+
+ 736 0116 4589E1   		movl	%r12d, %r9d
+ 737 0119 41B8BF00 		movl	$191, %r8d
+ 737      0000
+ 738 011f B9000000 		movl	$__FUNCTION__.4108, %ecx
+ 738      00
+ 739 0124 8B542428 		movl	40(%rsp), %edx
+ 740 0128 4889C6   		movq	%rax, %rsi
+ 741 012b BF000000 		movl	$.LC3, %edi
+ 741      00
+ 742 0130 B8000000 		movl	$0, %eax
+ 742      00
+ 743 0135 E8000000 		call	atiny_printf
+ 743      00
+ 744              	.LVL84:
+ 745 013a 4883C420 		addq	$32, %rsp
+ 746              	.LCFI62:
+ 747              		.cfi_def_cfa_offset 80
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 748              		.loc 1 167 0 is_stmt 1 discriminator 1
+ 749 013e 41BCFFFF 		movl	$-1, %r12d
+ 749      FFFF
+ 750 0144 E9000100 		jmp	.L46
+ 750      00
+ 751              	.LVL85:
+ 752              	.L45:
+ 192:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 193:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 194:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 195:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list = lwm2m_malloc(sizeof(*rpt_list));
+ 753              		.loc 1 195 0
+ 754 0149 BF300000 		movl	$48, %edi
+ 754      00
+ 755 014e E8000000 		call	lwm2m_malloc
+ 755      00
+ 756              	.LVL86:
+ 757 0153 4889C3   		movq	%rax, %rbx
+ 758              	.LVL87:
+ 196:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 197:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (NULL == rpt_list)
+ 759              		.loc 1 197 0
+ 760 0156 4885C0   		testq	%rax, %rax
+ 761 0159 7573     		jne	.L47
+ 198:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 199:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_ERR, "lwm2m_malloc fail," URI_FORMAT, URI_LOG_PARAM(uri));
+ 762              		.loc 1 199 0
+ 763 015b E8000000 		call	atiny_get_log_level
+ 763      00
+ 764              	.LVL88:
+ 765 0160 83F803   		cmpl	$3, %eax
+ 766 0163 0F87DA00 		ja	.L51
+ 766      0000
+ 767              		.loc 1 199 0 is_stmt 0 discriminator 1
+ 768 0169 450FB77C 		movzwl	6(%r12), %r15d
+ 768      2406
+ 769 016f 450FB774 		movzwl	4(%r12), %r14d
+ 769      2404
+ 770 0175 450FB76C 		movzwl	2(%r12), %r13d
+GAS LISTING /tmp/ccunSHko.s 			page 22
+
+
+ 770      2402
+ 771 017b 450FB624 		movzbl	(%r12), %r12d
+ 771      24
+ 772              	.LVL89:
+ 773 0180 E8000000 		call	atiny_gettime_ms
+ 773      00
+ 774              	.LVL90:
+ 775 0185 48894424 		movq	%rax, 8(%rsp)
+ 775      08
+ 776 018a BF030000 		movl	$3, %edi
+ 776      00
+ 777 018f E8000000 		call	atiny_get_log_level_name
+ 777      00
+ 778              	.LVL91:
+ 779 0194 4883EC08 		subq	$8, %rsp
+ 780              	.LCFI63:
+ 781              		.cfi_def_cfa_offset 88
+ 782 0198 4157     		pushq	%r15
+ 783              	.LCFI64:
+ 784              		.cfi_def_cfa_offset 96
+ 785 019a 4156     		pushq	%r14
+ 786              	.LCFI65:
+ 787              		.cfi_def_cfa_offset 104
+ 788 019c 4155     		pushq	%r13
+ 789              	.LCFI66:
+ 790              		.cfi_def_cfa_offset 112
+ 791 019e 4589E1   		movl	%r12d, %r9d
+ 792 01a1 41B8C700 		movl	$199, %r8d
+ 792      0000
+ 793 01a7 B9000000 		movl	$__FUNCTION__.4108, %ecx
+ 793      00
+ 794 01ac 8B542428 		movl	40(%rsp), %edx
+ 795 01b0 4889C6   		movq	%rax, %rsi
+ 796 01b3 BF000000 		movl	$.LC4, %edi
+ 796      00
+ 797 01b8 B8000000 		movl	$0, %eax
+ 797      00
+ 798 01bd E8000000 		call	atiny_printf
+ 798      00
+ 799              	.LVL92:
+ 800 01c2 4883C420 		addq	$32, %rsp
+ 801              	.LCFI67:
+ 802              		.cfi_def_cfa_offset 80
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 803              		.loc 1 167 0 is_stmt 1 discriminator 1
+ 804 01c6 41BCFFFF 		movl	$-1, %r12d
+ 804      FFFF
+ 805 01cc EB7B     		jmp	.L46
+ 806              	.LVL93:
+ 807              	.L47:
+ 808              	.LBB57:
+ 809              	.LBB58:
+ 810              		.file 3 "/usr/include/x86_64-linux-gnu/bits/string3.h"
+   1:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* Copyright (C) 2004-2016 Free Software Foundation, Inc.
+   2:/usr/include/x86_64-linux-gnu/bits/string3.h ****    This file is part of the GNU C Library.
+   3:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   4:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is free software; you can redistribute it and/or
+GAS LISTING /tmp/ccunSHko.s 			page 23
+
+
+   5:/usr/include/x86_64-linux-gnu/bits/string3.h ****    modify it under the terms of the GNU Lesser General Public
+   6:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License as published by the Free Software Foundation; either
+   7:/usr/include/x86_64-linux-gnu/bits/string3.h ****    version 2.1 of the License, or (at your option) any later version.
+   8:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   9:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  10:/usr/include/x86_64-linux-gnu/bits/string3.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:/usr/include/x86_64-linux-gnu/bits/string3.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  12:/usr/include/x86_64-linux-gnu/bits/string3.h ****    Lesser General Public License for more details.
+  13:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  14:/usr/include/x86_64-linux-gnu/bits/string3.h ****    You should have received a copy of the GNU Lesser General Public
+  15:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License along with the GNU C Library; if not, see
+  16:/usr/include/x86_64-linux-gnu/bits/string3.h ****    <http://www.gnu.org/licenses/>.  */
+  17:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  18:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef _STRING_H
+  19:/usr/include/x86_64-linux-gnu/bits/string3.h **** # error "Never use <bits/string3.h> directly; include <string.h> instead."
+  20:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  21:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  22:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  23:/usr/include/x86_64-linux-gnu/bits/string3.h **** __warndecl (__warn_memset_zero_len,
+  24:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	    "memset used with constant zero length parameter; this could be due to transposed parameters")
+  25:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  26:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  27:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef __cplusplus
+  28:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* XXX This is temporarily.  We should not redefine any of the symbols
+  29:/usr/include/x86_64-linux-gnu/bits/string3.h ****    and instead integrate the error checking into the original
+  30:/usr/include/x86_64-linux-gnu/bits/string3.h ****    definitions.  */
+  31:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memcpy
+  32:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memmove
+  33:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memset
+  34:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcat
+  35:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcpy
+  36:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncat
+  37:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncpy
+  38:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_GNU
+  39:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef mempcpy
+  40:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef stpcpy
+  41:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  42:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_MISC
+  43:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bcopy
+  44:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bzero
+  45:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  46:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  47:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  48:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  49:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  50:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memcpy (void *__restrict __dest, const void *__restrict __src,
+  51:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	       size_t __len))
+  52:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  54:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  55:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  56:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  57:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memmove (void *__dest, const void *__src, size_t __len))
+  58:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  59:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memmove_chk (__dest, __src, __len, __bos0 (__dest));
+  60:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  61:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+GAS LISTING /tmp/ccunSHko.s 			page 24
+
+
+  62:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifdef __USE_GNU
+  63:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  64:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (mempcpy (void *__restrict __dest, const void *__restrict __src,
+  65:/usr/include/x86_64-linux-gnu/bits/string3.h **** 		size_t __len))
+  66:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  67:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___mempcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  68:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  69:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  70:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  71:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  72:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* The first two tests here help to catch a somewhat common problem
+  73:/usr/include/x86_64-linux-gnu/bits/string3.h ****    where the second and third parameter are transposed.  This is
+  74:/usr/include/x86_64-linux-gnu/bits/string3.h ****    especially problematic if the intended fill value is zero.  In this
+  75:/usr/include/x86_64-linux-gnu/bits/string3.h ****    case no work is done at all.  We detect these problems by referring
+  76:/usr/include/x86_64-linux-gnu/bits/string3.h ****    non-existing functions.  */
+  77:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  78:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memset (void *__dest, int __ch, size_t __len))
+  79:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  80:/usr/include/x86_64-linux-gnu/bits/string3.h ****   /* GCC-5.0 and newer implements these checks in the compiler, so we don't
+  81:/usr/include/x86_64-linux-gnu/bits/string3.h ****      need them here.  */
+  82:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  83:/usr/include/x86_64-linux-gnu/bits/string3.h ****   if (__builtin_constant_p (__len) && __len == 0
+  84:/usr/include/x86_64-linux-gnu/bits/string3.h ****       && (!__builtin_constant_p (__ch) || __ch != 0))
+  85:/usr/include/x86_64-linux-gnu/bits/string3.h ****     {
+  86:/usr/include/x86_64-linux-gnu/bits/string3.h ****       __warn_memset_zero_len ();
+  87:/usr/include/x86_64-linux-gnu/bits/string3.h ****       return __dest;
+  88:/usr/include/x86_64-linux-gnu/bits/string3.h ****     }
+  89:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  90:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memset_chk (__dest, __ch, __len, __bos0 (__dest));
+ 811              		.loc 3 90 0
+ 812 01ce 48C70000 		movq	$0, (%rax)
+ 812      000000
+ 813 01d5 48C74028 		movq	$0, 40(%rax)
+ 813      00000000 
+ 814 01dd 488D7808 		leaq	8(%rax), %rdi
+ 815 01e1 4883E7F8 		andq	$-8, %rdi
+ 816 01e5 4889C1   		movq	%rax, %rcx
+ 817 01e8 4829F9   		subq	%rdi, %rcx
+ 818 01eb 83C130   		addl	$48, %ecx
+ 819 01ee C1E903   		shrl	$3, %ecx
+ 820 01f1 89C9     		movl	%ecx, %ecx
+ 821 01f3 B8000000 		movl	$0, %eax
+ 821      00
+ 822              	.LVL94:
+ 823 01f8 F348AB   		rep stosq
+ 824              	.LVL95:
+ 825              	.LBE58:
+ 826              	.LBE57:
+ 200:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 201:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 202:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 203:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         memset(rpt_list, 0, sizeof(*rpt_list));
+ 204:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_list_init(&rpt_list->rpt_list);
+ 827              		.loc 1 204 0
+ 828 01fb 488D4318 		leaq	24(%rbx), %rax
+ 829              	.LVL96:
+ 830              	.LBB59:
+GAS LISTING /tmp/ccunSHko.s 			page 25
+
+
+ 831              	.LBB60:
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->prev = list;
+ 832              		.loc 2 69 0
+ 833 01ff 48894320 		movq	%rax, 32(%rbx)
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 834              		.loc 2 70 0
+ 835 0203 48894318 		movq	%rax, 24(%rbx)
+ 836              	.LVL97:
+ 837 0207 498B0424 		movq	(%r12), %rax
+ 838              	.LBE60:
+ 839              	.LBE59:
+ 840              	.LBB61:
+ 841              	.LBB62:
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+ 842              		.loc 3 53 0
+ 843 020b 48894310 		movq	%rax, 16(%rbx)
+ 844              	.LVL98:
+ 845              	.LBE62:
+ 846              	.LBE61:
+ 205:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         memcpy(&rpt_list->uri, uri, sizeof(rpt_list->uri));
+ 206:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list->max_cnt = MAX_BUFFER_REPORT_CNT;
+ 847              		.loc 1 206 0
+ 848 020f C7432C08 		movl	$8, 44(%rbx)
+ 848      000000
+ 849              	.LVL99:
+ 850              	.LBB63:
+ 851              	.LBB64:
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 852              		.loc 2 85 0
+ 853 0216 488B0500 		movq	g_atiny_rpt_table(%rip), %rax
+ 853      000000
+ 854              	.LVL100:
+ 855              	.LBB65:
+ 856              	.LBB66:
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev = list;
+ 857              		.loc 2 77 0
+ 858 021d 488B5008 		movq	8(%rax), %rdx
+ 859 0221 48895308 		movq	%rdx, 8(%rbx)
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next->prev = node;
+ 860              		.loc 2 78 0
+ 861 0225 488903   		movq	%rax, (%rbx)
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next = node;
+ 862              		.loc 2 79 0
+ 863 0228 488B5008 		movq	8(%rax), %rdx
+ 864 022c 48891A   		movq	%rbx, (%rdx)
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 865              		.loc 2 80 0
+ 866 022f 48895808 		movq	%rbx, 8(%rax)
+ 867              	.LVL101:
+ 868              	.LBE66:
+ 869              	.LBE65:
+ 870              	.LBE64:
+ 871              	.LBE63:
+ 207:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_list_insert_tail(&g_atiny_rpt_table, &rpt_list->node);
+ 208:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ret = ATINY_OK;
+ 872              		.loc 1 208 0
+ 873 0233 41BC0000 		movl	$0, %r12d
+GAS LISTING /tmp/ccunSHko.s 			page 26
+
+
+ 873      0000
+ 874              	.LVL102:
+ 875 0239 EB0E     		jmp	.L46
+ 876              	.LVL103:
+ 877              	.L50:
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 878              		.loc 1 167 0
+ 879 023b 41BCFFFF 		movl	$-1, %r12d
+ 879      FFFF
+ 880              	.LVL104:
+ 881 0241 EB06     		jmp	.L46
+ 882              	.LVL105:
+ 883              	.L51:
+ 884 0243 41BCFFFF 		movl	$-1, %r12d
+ 884      FFFF
+ 885              	.LVL106:
+ 886              	.L46:
+ 209:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 210:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 211:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     while (0);
+ 212:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 213:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 887              		.loc 1 213 0
+ 888 0249 488B3D00 		movq	g_mutex(%rip), %rdi
+ 888      000000
+ 889 0250 E8000000 		call	atiny_mutex_unlock
+ 889      00
+ 890              	.LVL107:
+ 214:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 215:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     *list = rpt_list;
+ 891              		.loc 1 215 0
+ 892 0255 48895D00 		movq	%rbx, 0(%rbp)
+ 216:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 217:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ret;
+ 893              		.loc 1 217 0
+ 894 0259 4489E0   		movl	%r12d, %eax
+ 895 025c EB0C     		jmp	.L43
+ 896              	.LVL108:
+ 897              	.L48:
+ 172:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 898              		.loc 1 172 0
+ 899 025e B8FFFFFF 		movl	$-1, %eax
+ 899      FF
+ 900 0263 EB05     		jmp	.L43
+ 901              	.LVL109:
+ 902              	.L49:
+ 178:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 903              		.loc 1 178 0
+ 904 0265 B8FFFFFF 		movl	$-1, %eax
+ 904      FF
+ 905              	.LVL110:
+ 906              	.L43:
+ 218:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 907              		.loc 1 218 0
+ 908 026a 4883C418 		addq	$24, %rsp
+ 909              	.LCFI68:
+ 910              		.cfi_def_cfa_offset 56
+GAS LISTING /tmp/ccunSHko.s 			page 27
+
+
+ 911 026e 5B       		popq	%rbx
+ 912              	.LCFI69:
+ 913              		.cfi_def_cfa_offset 48
+ 914 026f 5D       		popq	%rbp
+ 915              	.LCFI70:
+ 916              		.cfi_def_cfa_offset 40
+ 917 0270 415C     		popq	%r12
+ 918              	.LCFI71:
+ 919              		.cfi_def_cfa_offset 32
+ 920 0272 415D     		popq	%r13
+ 921              	.LCFI72:
+ 922              		.cfi_def_cfa_offset 24
+ 923 0274 415E     		popq	%r14
+ 924              	.LCFI73:
+ 925              		.cfi_def_cfa_offset 16
+ 926 0276 415F     		popq	%r15
+ 927              	.LCFI74:
+ 928              		.cfi_def_cfa_offset 8
+ 929 0278 C3       		ret
+ 930              		.cfi_endproc
+ 931              	.LFE65:
+ 933              		.section	.rodata.str1.8
+ 934 012a 00000000 		.align 8
+ 934      0000
+ 935              	.LC5:
+ 936 0130 5B25735D 		.string	"[%s][%u][%s:%d] uri not exit,uri(flag:0x%x, objId:%d, instId:%d, resId:%d)\r\n"
+ 936      5B25755D 
+ 936      5B25733A 
+ 936      25645D20 
+ 936      75726920 
+ 937              		.section	.text.atiny_rm_rpt_uri,"ax",@progbits
+ 938              		.globl	atiny_rm_rpt_uri
+ 940              	atiny_rm_rpt_uri:
+ 941              	.LFB66:
+ 219:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 220:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_rm_rpt_uri(const lwm2m_uri_t *uri)
+ 221:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 942              		.loc 1 221 0
+ 943              		.cfi_startproc
+ 944              	.LVL111:
+ 945 0000 4156     		pushq	%r14
+ 946              	.LCFI75:
+ 947              		.cfi_def_cfa_offset 16
+ 948              		.cfi_offset 14, -16
+ 949 0002 4155     		pushq	%r13
+ 950              	.LCFI76:
+ 951              		.cfi_def_cfa_offset 24
+ 952              		.cfi_offset 13, -24
+ 953 0004 4154     		pushq	%r12
+ 954              	.LCFI77:
+ 955              		.cfi_def_cfa_offset 32
+ 956              		.cfi_offset 12, -32
+ 957 0006 55       		pushq	%rbp
+ 958              	.LCFI78:
+ 959              		.cfi_def_cfa_offset 40
+ 960              		.cfi_offset 6, -40
+ 961 0007 53       		pushq	%rbx
+GAS LISTING /tmp/ccunSHko.s 			page 28
+
+
+ 962              	.LCFI79:
+ 963              		.cfi_def_cfa_offset 48
+ 964              		.cfi_offset 3, -48
+ 965              	.LVL112:
+ 222:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 223:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     int ret = ATINY_ARG_INVALID;
+ 224:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 225:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (NULL == uri)
+ 966              		.loc 1 225 0
+ 967 0008 4885FF   		testq	%rdi, %rdi
+ 968 000b 7549     		jne	.L54
+ 226:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 227:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "null point");
+ 969              		.loc 1 227 0
+ 970 000d E8000000 		call	atiny_get_log_level
+ 970      00
+ 971              	.LVL113:
+ 972 0012 83F803   		cmpl	$3, %eax
+ 973 0015 0F871F01 		ja	.L58
+ 973      0000
+ 974              		.loc 1 227 0 is_stmt 0 discriminator 1
+ 975 001b E8000000 		call	atiny_gettime_ms
+ 975      00
+ 976              	.LVL114:
+ 977 0020 4889C3   		movq	%rax, %rbx
+ 978 0023 BF030000 		movl	$3, %edi
+ 978      00
+ 979 0028 E8000000 		call	atiny_get_log_level_name
+ 979      00
+ 980              	.LVL115:
+ 981 002d 41B8E300 		movl	$227, %r8d
+ 981      0000
+ 982 0033 B9000000 		movl	$__FUNCTION__.4114, %ecx
+ 982      00
+ 983 0038 89DA     		movl	%ebx, %edx
+ 984 003a 4889C6   		movq	%rax, %rsi
+ 985 003d BF000000 		movl	$.LC2, %edi
+ 985      00
+ 986 0042 B8000000 		movl	$0, %eax
+ 986      00
+ 987 0047 E8000000 		call	atiny_printf
+ 987      00
+ 988              	.LVL116:
+ 228:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_ARG_INVALID;
+ 989              		.loc 1 228 0 is_stmt 1 discriminator 1
+ 990 004c B8FFFFFF 		movl	$-1, %eax
+ 990      FF
+ 991 0051 E9E90000 		jmp	.L55
+ 991      00
+ 992              	.LVL117:
+ 993              	.L54:
+ 994 0056 4889FD   		movq	%rdi, %rbp
+ 229:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 230:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 231:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+ 995              		.loc 1 231 0
+ 996 0059 488B3D00 		movq	g_mutex(%rip), %rdi
+GAS LISTING /tmp/ccunSHko.s 			page 29
+
+
+ 996      000000
+ 997              	.LVL118:
+ 998 0060 E8000000 		call	atiny_mutex_lock
+ 998      00
+ 999              	.LVL119:
+ 1000              	.LBB67:
+ 232:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 233:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     do
+ 234:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 235:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_list_t *rpt_list  = NULL;
+ 236:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list = atiny_find_rpt_list(uri);
+ 1001              		.loc 1 236 0
+ 1002 0065 4889EF   		movq	%rbp, %rdi
+ 1003 0068 E8000000 		call	atiny_find_rpt_list
+ 1003      00
+ 1004              	.LVL120:
+ 1005 006d 4889C3   		movq	%rax, %rbx
+ 1006              	.LVL121:
+ 237:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 238:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (NULL == rpt_list)
+ 1007              		.loc 1 238 0
+ 1008 0070 4885C0   		testq	%rax, %rax
+ 1009 0073 756A     		jne	.L56
+ 239:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 240:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_ERR, "uri not exit," URI_FORMAT, URI_LOG_PARAM(uri));
+ 1010              		.loc 1 240 0
+ 1011 0075 E8000000 		call	atiny_get_log_level
+ 1011      00
+ 1012              	.LVL122:
+ 1013 007a 83F803   		cmpl	$3, %eax
+ 1014 007d 0F87A200 		ja	.L59
+ 1014      0000
+ 1015              		.loc 1 240 0 is_stmt 0 discriminator 1
+ 1016 0083 440FB775 		movzwl	6(%rbp), %r14d
+ 1016      06
+ 1017 0088 440FB76D 		movzwl	4(%rbp), %r13d
+ 1017      04
+ 1018 008d 440FB765 		movzwl	2(%rbp), %r12d
+ 1018      02
+ 1019 0092 0FB66D00 		movzbl	0(%rbp), %ebp
+ 1020              	.LVL123:
+ 1021 0096 E8000000 		call	atiny_gettime_ms
+ 1021      00
+ 1022              	.LVL124:
+ 1023 009b 4889C3   		movq	%rax, %rbx
+ 1024              	.LVL125:
+ 1025 009e BF030000 		movl	$3, %edi
+ 1025      00
+ 1026 00a3 E8000000 		call	atiny_get_log_level_name
+ 1026      00
+ 1027              	.LVL126:
+ 1028 00a8 4883EC08 		subq	$8, %rsp
+ 1029              	.LCFI80:
+ 1030              		.cfi_def_cfa_offset 56
+ 1031 00ac 4156     		pushq	%r14
+ 1032              	.LCFI81:
+ 1033              		.cfi_def_cfa_offset 64
+GAS LISTING /tmp/ccunSHko.s 			page 30
+
+
+ 1034 00ae 4155     		pushq	%r13
+ 1035              	.LCFI82:
+ 1036              		.cfi_def_cfa_offset 72
+ 1037 00b0 4154     		pushq	%r12
+ 1038              	.LCFI83:
+ 1039              		.cfi_def_cfa_offset 80
+ 1040 00b2 4189E9   		movl	%ebp, %r9d
+ 1041 00b5 41B8F000 		movl	$240, %r8d
+ 1041      0000
+ 1042 00bb B9000000 		movl	$__FUNCTION__.4114, %ecx
+ 1042      00
+ 1043 00c0 89DA     		movl	%ebx, %edx
+ 1044 00c2 4889C6   		movq	%rax, %rsi
+ 1045 00c5 BF000000 		movl	$.LC5, %edi
+ 1045      00
+ 1046 00ca B8000000 		movl	$0, %eax
+ 1046      00
+ 1047 00cf E8000000 		call	atiny_printf
+ 1047      00
+ 1048              	.LVL127:
+ 1049 00d4 4883C420 		addq	$32, %rsp
+ 1050              	.LCFI84:
+ 1051              		.cfi_def_cfa_offset 48
+ 1052              	.LBE67:
+ 223:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1053              		.loc 1 223 0 is_stmt 1 discriminator 1
+ 1054 00d8 BBFFFFFF 		movl	$-1, %ebx
+ 1054      FF
+ 1055 00dd EB4B     		jmp	.L57
+ 1056              	.LVL128:
+ 1057              	.L56:
+ 1058              	.LBB70:
+ 1059              	.LBB68:
+ 1060              	.LBB69:
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev->next = node->next;
+ 1061              		.loc 2 95 0
+ 1062 00df 488B4008 		movq	8(%rax), %rax
+ 1063              	.LVL129:
+ 1064 00e3 488B13   		movq	(%rbx), %rdx
+ 1065 00e6 488910   		movq	%rdx, (%rax)
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->next = (atiny_dl_list *)NULL;
+ 1066              		.loc 2 96 0
+ 1067 00e9 488B03   		movq	(%rbx), %rax
+ 1068 00ec 488B5308 		movq	8(%rbx), %rdx
+ 1069 00f0 48895008 		movq	%rdx, 8(%rax)
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev = (atiny_dl_list *)NULL;
+ 1070              		.loc 2 97 0
+ 1071 00f4 48C74308 		movq	$0, 8(%rbx)
+ 1071      00000000 
+ 1072              		.loc 2 98 0
+ 1073 00fc 48C70300 		movq	$0, (%rbx)
+ 1073      000000
+ 1074              	.LVL130:
+ 1075              	.LBE69:
+ 1076              	.LBE68:
+ 241:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 242:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+GAS LISTING /tmp/ccunSHko.s 			page 31
+
+
+ 243:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 244:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_list_delete(&rpt_list->node);
+ 245:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_free_list(&rpt_list->rpt_list, atiny_clear_rpt_list_node_data,  (void *)NOT_SENT);
+ 1077              		.loc 1 245 0
+ 1078 0103 488D7B18 		leaq	24(%rbx), %rdi
+ 1079 0107 BA000000 		movl	$0, %edx
+ 1079      00
+ 1080 010c BE000000 		movl	$atiny_clear_rpt_list_node_data, %esi
+ 1080      00
+ 1081 0111 E8000000 		call	atiny_free_list
+ 1081      00
+ 1082              	.LVL131:
+ 246:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         lwm2m_free(rpt_list);
+ 1083              		.loc 1 246 0
+ 1084 0116 4889DF   		movq	%rbx, %rdi
+ 1085 0119 E8000000 		call	lwm2m_free
+ 1085      00
+ 1086              	.LVL132:
+ 247:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 248:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ret = ATINY_OK;
+ 1087              		.loc 1 248 0
+ 1088 011e BB000000 		movl	$0, %ebx
+ 1088      00
+ 1089              	.LVL133:
+ 1090 0123 EB05     		jmp	.L57
+ 1091              	.LVL134:
+ 1092              	.L59:
+ 1093              	.LBE70:
+ 223:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1094              		.loc 1 223 0
+ 1095 0125 BBFFFFFF 		movl	$-1, %ebx
+ 1095      FF
+ 1096              	.LVL135:
+ 1097              	.L57:
+ 249:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 250:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     while (0);
+ 251:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 252:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 1098              		.loc 1 252 0
+ 1099 012a 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1099      000000
+ 1100 0131 E8000000 		call	atiny_mutex_unlock
+ 1100      00
+ 1101              	.LVL136:
+ 253:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 254:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ret;
+ 1102              		.loc 1 254 0
+ 1103 0136 89D8     		movl	%ebx, %eax
+ 1104 0138 EB05     		jmp	.L55
+ 1105              	.LVL137:
+ 1106              	.L58:
+ 228:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 1107              		.loc 1 228 0
+ 1108 013a B8FFFFFF 		movl	$-1, %eax
+ 1108      FF
+ 1109              	.LVL138:
+ 1110              	.L55:
+GAS LISTING /tmp/ccunSHko.s 			page 32
+
+
+ 255:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 1111              		.loc 1 255 0
+ 1112 013f 5B       		popq	%rbx
+ 1113              	.LCFI85:
+ 1114              		.cfi_def_cfa_offset 40
+ 1115 0140 5D       		popq	%rbp
+ 1116              	.LCFI86:
+ 1117              		.cfi_def_cfa_offset 32
+ 1118 0141 415C     		popq	%r12
+ 1119              	.LCFI87:
+ 1120              		.cfi_def_cfa_offset 24
+ 1121 0143 415D     		popq	%r13
+ 1122              	.LCFI88:
+ 1123              		.cfi_def_cfa_offset 16
+ 1124 0145 415E     		popq	%r14
+ 1125              	.LCFI89:
+ 1126              		.cfi_def_cfa_offset 8
+ 1127 0147 C3       		ret
+ 1128              		.cfi_endproc
+ 1129              	.LFE66:
+ 1131              		.section	.rodata.str1.8
+ 1132 017d 000000   		.align 8
+ 1133              	.LC6:
+ 1134 0180 5B25735D 		.string	"[%s][%u][%s:%d] dequeue empty rpt list\r\n"
+ 1134      5B25755D 
+ 1134      5B25733A 
+ 1134      25645D20 
+ 1134      64657175 
+ 1135              		.section	.text.atiny_dequeue_rpt_data,"ax",@progbits
+ 1136              		.globl	atiny_dequeue_rpt_data
+ 1138              	atiny_dequeue_rpt_data:
+ 1139              	.LFB67:
+ 256:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 257:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_dequeue_rpt_data(rpt_list_t rpt_list,  data_report_t *data)
+ 258:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 1140              		.loc 1 258 0
+ 1141              		.cfi_startproc
+ 1142              	.LVL139:
+ 1143 0000 55       		pushq	%rbp
+ 1144              	.LCFI90:
+ 1145              		.cfi_def_cfa_offset 16
+ 1146              		.cfi_offset 6, -16
+ 1147 0001 53       		pushq	%rbx
+ 1148              	.LCFI91:
+ 1149              		.cfi_def_cfa_offset 24
+ 1150              		.cfi_offset 3, -24
+ 1151 0002 4883EC08 		subq	$8, %rsp
+ 1152              	.LCFI92:
+ 1153              		.cfi_def_cfa_offset 32
+ 1154              	.LVL140:
+ 259:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     int ret = ATINY_RESOURCE_NOT_FOUND;
+ 260:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 261:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (NULL == rpt_list || (NULL == data))
+ 1155              		.loc 1 261 0
+ 1156 0006 4885FF   		testq	%rdi, %rdi
+ 1157 0009 0F94C2   		sete	%dl
+ 1158 000c 4885F6   		testq	%rsi, %rsi
+GAS LISTING /tmp/ccunSHko.s 			page 33
+
+
+ 1159 000f 0F94C0   		sete	%al
+ 1160 0012 08C2     		orb	%al, %dl
+ 1161 0014 7449     		je	.L62
+ 262:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 263:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "null point");
+ 1162              		.loc 1 263 0
+ 1163 0016 E8000000 		call	atiny_get_log_level
+ 1163      00
+ 1164              	.LVL141:
+ 1165 001b 83F803   		cmpl	$3, %eax
+ 1166 001e 0F870E01 		ja	.L66
+ 1166      0000
+ 1167              		.loc 1 263 0 is_stmt 0 discriminator 1
+ 1168 0024 E8000000 		call	atiny_gettime_ms
+ 1168      00
+ 1169              	.LVL142:
+ 1170 0029 4889C3   		movq	%rax, %rbx
+ 1171 002c BF030000 		movl	$3, %edi
+ 1171      00
+ 1172 0031 E8000000 		call	atiny_get_log_level_name
+ 1172      00
+ 1173              	.LVL143:
+ 1174 0036 41B80701 		movl	$263, %r8d
+ 1174      0000
+ 1175 003c B9000000 		movl	$__FUNCTION__.4122, %ecx
+ 1175      00
+ 1176 0041 89DA     		movl	%ebx, %edx
+ 1177 0043 4889C6   		movq	%rax, %rsi
+ 1178 0046 BF000000 		movl	$.LC2, %edi
+ 1178      00
+ 1179 004b B8000000 		movl	$0, %eax
+ 1179      00
+ 1180 0050 E8000000 		call	atiny_printf
+ 1180      00
+ 1181              	.LVL144:
+ 264:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_ARG_INVALID;
+ 1182              		.loc 1 264 0 is_stmt 1 discriminator 1
+ 1183 0055 B8FFFFFF 		movl	$-1, %eax
+ 1183      FF
+ 1184 005a E9D80000 		jmp	.L63
+ 1184      00
+ 1185              	.LVL145:
+ 1186              	.L62:
+ 1187 005f 4889FB   		movq	%rdi, %rbx
+ 1188 0062 4889F5   		movq	%rsi, %rbp
+ 265:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 266:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 267:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+ 1189              		.loc 1 267 0
+ 1190 0065 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1190      000000
+ 1191              	.LVL146:
+ 1192 006c E8000000 		call	atiny_mutex_lock
+ 1192      00
+ 1193              	.LVL147:
+ 1194              	.LBB71:
+ 268:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+GAS LISTING /tmp/ccunSHko.s 			page 34
+
+
+ 269:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     do
+ 270:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 271:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_node_t *data_node;
+ 272:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 273:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (atiny_list_empty(&rpt_list->rpt_list))
+ 1195              		.loc 1 273 0
+ 1196 0071 488D4318 		leaq	24(%rbx), %rax
+ 1197              	.LVL148:
+ 1198              	.LBB72:
+ 1199              	.LBB73:
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 100:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** 
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** ATINY_INLINE int atiny_list_empty(atiny_dl_list *node)
+ 102:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** {
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     return (node->next == node);
+ 1200              		.loc 2 103 0
+ 1201 0075 488B7B20 		movq	32(%rbx), %rdi
+ 1202              	.LVL149:
+ 1203              	.LBE73:
+ 1204              	.LBE72:
+ 1205              		.loc 1 273 0
+ 1206 0079 4839F8   		cmpq	%rdi, %rax
+ 1207 007c 7546     		jne	.L64
+ 274:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 275:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 276:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_INFO, "dequeue empty rpt list");
+ 1208              		.loc 1 276 0
+ 1209 007e E8000000 		call	atiny_get_log_level
+ 1209      00
+ 1210              	.LVL150:
+ 1211 0083 83F801   		cmpl	$1, %eax
+ 1212 0086 0F879100 		ja	.L67
+ 1212      0000
+ 1213              		.loc 1 276 0 is_stmt 0 discriminator 1
+ 1214 008c E8000000 		call	atiny_gettime_ms
+ 1214      00
+ 1215              	.LVL151:
+ 1216 0091 4889C3   		movq	%rax, %rbx
+ 1217              	.LVL152:
+ 1218 0094 BF010000 		movl	$1, %edi
+ 1218      00
+ 1219 0099 E8000000 		call	atiny_get_log_level_name
+ 1219      00
+ 1220              	.LVL153:
+ 1221 009e 41B81401 		movl	$276, %r8d
+ 1221      0000
+ 1222 00a4 B9000000 		movl	$__FUNCTION__.4122, %ecx
+ 1222      00
+ 1223 00a9 89DA     		movl	%ebx, %edx
+ 1224 00ab 4889C6   		movq	%rax, %rsi
+ 1225 00ae BF000000 		movl	$.LC6, %edi
+ 1225      00
+ 1226 00b3 B8000000 		movl	$0, %eax
+ 1226      00
+ 1227 00b8 E8000000 		call	atiny_printf
+ 1227      00
+ 1228              	.LVL154:
+GAS LISTING /tmp/ccunSHko.s 			page 35
+
+
+ 1229              	.LBE71:
+ 259:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1230              		.loc 1 259 0 is_stmt 1 discriminator 1
+ 1231 00bd BBFBFFFF 		movl	$-5, %ebx
+ 1231      FF
+ 1232 00c2 EB5E     		jmp	.L65
+ 1233              	.LVL155:
+ 1234              	.L64:
+ 1235              	.LBB78:
+ 1236              	.LBB74:
+ 1237              	.LBB75:
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev->next = node->next;
+ 1238              		.loc 2 95 0
+ 1239 00c4 488B4708 		movq	8(%rdi), %rax
+ 1240 00c8 488B17   		movq	(%rdi), %rdx
+ 1241 00cb 488910   		movq	%rdx, (%rax)
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->next = (atiny_dl_list *)NULL;
+ 1242              		.loc 2 96 0
+ 1243 00ce 488B07   		movq	(%rdi), %rax
+ 1244 00d1 488B5708 		movq	8(%rdi), %rdx
+ 1245 00d5 48895008 		movq	%rdx, 8(%rax)
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev = (atiny_dl_list *)NULL;
+ 1246              		.loc 2 97 0
+ 1247 00d9 48C74708 		movq	$0, 8(%rdi)
+ 1247      00000000 
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 1248              		.loc 2 98 0
+ 1249 00e1 48C70700 		movq	$0, (%rdi)
+ 1249      000000
+ 1250              	.LVL156:
+ 1251              	.LBE75:
+ 1252              	.LBE74:
+ 277:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 278:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 279:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 280:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         data_node = (atiny_rpt_node_t *)rpt_list->rpt_list.next;
+ 281:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_list_delete(&data_node->list);
+ 282:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list->rpt_node_cnt--;
+ 1253              		.loc 1 282 0
+ 1254 00e8 8B4328   		movl	40(%rbx), %eax
+ 1255 00eb 83E801   		subl	$1, %eax
+ 1256 00ee 894328   		movl	%eax, 40(%rbx)
+ 1257              	.LVL157:
+ 1258              	.LBB76:
+ 1259              	.LBB77:
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+ 1260              		.loc 3 53 0
+ 1261 00f1 488B5710 		movq	16(%rdi), %rdx
+ 1262 00f5 48895500 		movq	%rdx, 0(%rbp)
+ 1263 00f9 488B5718 		movq	24(%rdi), %rdx
+ 1264 00fd 48895508 		movq	%rdx, 8(%rbp)
+ 1265 0101 488B5720 		movq	32(%rdi), %rdx
+ 1266 0105 48895510 		movq	%rdx, 16(%rbp)
+ 1267 0109 488B4728 		movq	40(%rdi), %rax
+ 1268 010d 48894518 		movq	%rax, 24(%rbp)
+ 1269              	.LVL158:
+ 1270              	.LBE77:
+GAS LISTING /tmp/ccunSHko.s 			page 36
+
+
+ 1271              	.LBE76:
+ 283:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 284:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         memcpy((void *)data, (void *)&data_node->data, sizeof(*data));
+ 285:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         lwm2m_free(data_node);
+ 1272              		.loc 1 285 0
+ 1273 0111 E8000000 		call	lwm2m_free
+ 1273      00
+ 1274              	.LVL159:
+ 286:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 287:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ret = ATINY_OK;
+ 1275              		.loc 1 287 0
+ 1276 0116 BB000000 		movl	$0, %ebx
+ 1276      00
+ 1277              	.LVL160:
+ 1278 011b EB05     		jmp	.L65
+ 1279              	.LVL161:
+ 1280              	.L67:
+ 1281              	.LBE78:
+ 259:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1282              		.loc 1 259 0
+ 1283 011d BBFBFFFF 		movl	$-5, %ebx
+ 1283      FF
+ 1284              	.LVL162:
+ 1285              	.L65:
+ 288:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 289:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     while (0);
+ 290:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 291:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 1286              		.loc 1 291 0
+ 1287 0122 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1287      000000
+ 1288 0129 E8000000 		call	atiny_mutex_unlock
+ 1288      00
+ 1289              	.LVL163:
+ 292:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 293:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ret;
+ 1290              		.loc 1 293 0
+ 1291 012e 89D8     		movl	%ebx, %eax
+ 1292 0130 EB05     		jmp	.L63
+ 1293              	.LVL164:
+ 1294              	.L66:
+ 264:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 1295              		.loc 1 264 0
+ 1296 0132 B8FFFFFF 		movl	$-1, %eax
+ 1296      FF
+ 1297              	.LVL165:
+ 1298              	.L63:
+ 294:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 1299              		.loc 1 294 0
+ 1300 0137 4883C408 		addq	$8, %rsp
+ 1301              	.LCFI93:
+ 1302              		.cfi_def_cfa_offset 24
+ 1303 013b 5B       		popq	%rbx
+ 1304              	.LCFI94:
+ 1305              		.cfi_def_cfa_offset 16
+ 1306 013c 5D       		popq	%rbp
+ 1307              	.LCFI95:
+GAS LISTING /tmp/ccunSHko.s 			page 37
+
+
+ 1308              		.cfi_def_cfa_offset 8
+ 1309 013d C3       		ret
+ 1310              		.cfi_endproc
+ 1311              	.LFE67:
+ 1313              		.section	.rodata.str1.8
+ 1314 01a9 00000000 		.align 8
+ 1314      000000
+ 1315              	.LC7:
+ 1316 01b0 5B25735D 		.string	"[%s][%u][%s:%d] uri rpt list not exit,uri(flag:0x%x, objId:%d, instId:%d, resId:%d)\r\n"
+ 1316      5B25755D 
+ 1316      5B25733A 
+ 1316      25645D20 
+ 1316      75726920 
+ 1317 0206 0000     		.align 8
+ 1318              	.LC8:
+ 1319 0208 5B25735D 		.string	"[%s][%u][%s:%d] uri rpt exceed rpt cnt %d max cnt %d,uri(flag:0x%x, objId:%d, instId:%d, 
+ 1319      5B25755D 
+ 1319      5B25733A 
+ 1319      25645D20 
+ 1319      75726920 
+ 1320 026d 000000   		.align 8
+ 1321              	.LC9:
+ 1322 0270 5B25735D 		.string	"[%s][%u][%s:%d] malloc fail,uri(flag:0x%x, objId:%d, instId:%d, resId:%d)\r\n"
+ 1322      5B25755D 
+ 1322      5B25733A 
+ 1322      25645D20 
+ 1322      6D616C6C 
+ 1323              		.section	.text.atiny_queue_rpt_data,"ax",@progbits
+ 1324              		.globl	atiny_queue_rpt_data
+ 1326              	atiny_queue_rpt_data:
+ 1327              	.LFB68:
+ 295:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 296:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_queue_rpt_data(const lwm2m_uri_t *uri, const data_report_t *data)
+ 297:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 1328              		.loc 1 297 0
+ 1329              		.cfi_startproc
+ 1330              	.LVL166:
+ 1331 0000 4157     		pushq	%r15
+ 1332              	.LCFI96:
+ 1333              		.cfi_def_cfa_offset 16
+ 1334              		.cfi_offset 15, -16
+ 1335 0002 4156     		pushq	%r14
+ 1336              	.LCFI97:
+ 1337              		.cfi_def_cfa_offset 24
+ 1338              		.cfi_offset 14, -24
+ 1339 0004 4155     		pushq	%r13
+ 1340              	.LCFI98:
+ 1341              		.cfi_def_cfa_offset 32
+ 1342              		.cfi_offset 13, -32
+ 1343 0006 4154     		pushq	%r12
+ 1344              	.LCFI99:
+ 1345              		.cfi_def_cfa_offset 40
+ 1346              		.cfi_offset 12, -40
+ 1347 0008 55       		pushq	%rbp
+ 1348              	.LCFI100:
+ 1349              		.cfi_def_cfa_offset 48
+ 1350              		.cfi_offset 6, -48
+GAS LISTING /tmp/ccunSHko.s 			page 38
+
+
+ 1351 0009 53       		pushq	%rbx
+ 1352              	.LCFI101:
+ 1353              		.cfi_def_cfa_offset 56
+ 1354              		.cfi_offset 3, -56
+ 1355 000a 4883EC18 		subq	$24, %rsp
+ 1356              	.LCFI102:
+ 1357              		.cfi_def_cfa_offset 80
+ 1358              	.LVL167:
+ 298:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     int ret = ATINY_MALLOC_FAILED;
+ 299:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 300:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if ((NULL == uri) || (NULL == data))
+ 1359              		.loc 1 300 0
+ 1360 000e 4885FF   		testq	%rdi, %rdi
+ 1361 0011 0F94C2   		sete	%dl
+ 1362 0014 4885F6   		testq	%rsi, %rsi
+ 1363 0017 0F94C0   		sete	%al
+ 1364 001a 08C2     		orb	%al, %dl
+ 1365 001c 7449     		je	.L70
+ 301:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 302:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "null point");
+ 1366              		.loc 1 302 0
+ 1367 001e E8000000 		call	atiny_get_log_level
+ 1367      00
+ 1368              	.LVL168:
+ 1369 0023 83F803   		cmpl	$3, %eax
+ 1370 0026 0F874B02 		ja	.L76
+ 1370      0000
+ 1371              		.loc 1 302 0 is_stmt 0 discriminator 1
+ 1372 002c E8000000 		call	atiny_gettime_ms
+ 1372      00
+ 1373              	.LVL169:
+ 1374 0031 4889C3   		movq	%rax, %rbx
+ 1375 0034 BF030000 		movl	$3, %edi
+ 1375      00
+ 1376 0039 E8000000 		call	atiny_get_log_level_name
+ 1376      00
+ 1377              	.LVL170:
+ 1378 003e 41B82E01 		movl	$302, %r8d
+ 1378      0000
+ 1379 0044 B9000000 		movl	$__FUNCTION__.4130, %ecx
+ 1379      00
+ 1380 0049 89DA     		movl	%ebx, %edx
+ 1381 004b 4889C6   		movq	%rax, %rsi
+ 1382 004e BF000000 		movl	$.LC2, %edi
+ 1382      00
+ 1383 0053 B8000000 		movl	$0, %eax
+ 1383      00
+ 1384 0058 E8000000 		call	atiny_printf
+ 1384      00
+ 1385              	.LVL171:
+ 303:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_ARG_INVALID;
+ 1386              		.loc 1 303 0 is_stmt 1 discriminator 1
+ 1387 005d B8FFFFFF 		movl	$-1, %eax
+ 1387      FF
+ 1388 0062 E9150200 		jmp	.L71
+ 1388      00
+ 1389              	.LVL172:
+GAS LISTING /tmp/ccunSHko.s 			page 39
+
+
+ 1390              	.L70:
+ 1391 0067 4989FC   		movq	%rdi, %r12
+ 1392 006a 4889F5   		movq	%rsi, %rbp
+ 304:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 305:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 306:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+ 1393              		.loc 1 306 0
+ 1394 006d 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1394      000000
+ 1395              	.LVL173:
+ 1396 0074 E8000000 		call	atiny_mutex_lock
+ 1396      00
+ 1397              	.LVL174:
+ 1398              	.LBB79:
+ 307:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 308:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     do
+ 309:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 310:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_list_t *rpt_list;
+ 311:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_node_t *data_node;
+ 312:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 313:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list = atiny_find_rpt_list(uri);
+ 1399              		.loc 1 313 0
+ 1400 0079 4C89E7   		movq	%r12, %rdi
+ 1401 007c E8000000 		call	atiny_find_rpt_list
+ 1401      00
+ 1402              	.LVL175:
+ 1403 0081 4889C3   		movq	%rax, %rbx
+ 1404              	.LVL176:
+ 314:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 315:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (NULL == rpt_list)
+ 1405              		.loc 1 315 0
+ 1406 0084 4885C0   		testq	%rax, %rax
+ 1407 0087 7570     		jne	.L72
+ 316:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 317:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_INFO, "uri rpt list not exit," URI_FORMAT, URI_LOG_PARAM(uri));
+ 1408              		.loc 1 317 0
+ 1409 0089 E8000000 		call	atiny_get_log_level
+ 1409      00
+ 1410              	.LVL177:
+ 1411 008e 83F801   		cmpl	$1, %eax
+ 1412 0091 0F87BD01 		ja	.L77
+ 1412      0000
+ 1413              		.loc 1 317 0 is_stmt 0 discriminator 1
+ 1414 0097 450FB774 		movzwl	6(%r12), %r14d
+ 1414      2406
+ 1415 009d 450FB76C 		movzwl	4(%r12), %r13d
+ 1415      2404
+ 1416 00a3 410FB76C 		movzwl	2(%r12), %ebp
+ 1416      2402
+ 1417              	.LVL178:
+ 1418 00a9 450FB624 		movzbl	(%r12), %r12d
+ 1418      24
+ 1419              	.LVL179:
+ 1420 00ae E8000000 		call	atiny_gettime_ms
+ 1420      00
+ 1421              	.LVL180:
+ 1422 00b3 4889C3   		movq	%rax, %rbx
+GAS LISTING /tmp/ccunSHko.s 			page 40
+
+
+ 1423              	.LVL181:
+ 1424 00b6 BF010000 		movl	$1, %edi
+ 1424      00
+ 1425 00bb E8000000 		call	atiny_get_log_level_name
+ 1425      00
+ 1426              	.LVL182:
+ 1427 00c0 4883EC08 		subq	$8, %rsp
+ 1428              	.LCFI103:
+ 1429              		.cfi_def_cfa_offset 88
+ 1430 00c4 4156     		pushq	%r14
+ 1431              	.LCFI104:
+ 1432              		.cfi_def_cfa_offset 96
+ 1433 00c6 4155     		pushq	%r13
+ 1434              	.LCFI105:
+ 1435              		.cfi_def_cfa_offset 104
+ 1436 00c8 55       		pushq	%rbp
+ 1437              	.LCFI106:
+ 1438              		.cfi_def_cfa_offset 112
+ 1439 00c9 4589E1   		movl	%r12d, %r9d
+ 1440 00cc 41B83D01 		movl	$317, %r8d
+ 1440      0000
+ 1441 00d2 B9000000 		movl	$__FUNCTION__.4130, %ecx
+ 1441      00
+ 1442 00d7 89DA     		movl	%ebx, %edx
+ 1443 00d9 4889C6   		movq	%rax, %rsi
+ 1444 00dc BF000000 		movl	$.LC7, %edi
+ 1444      00
+ 1445 00e1 B8000000 		movl	$0, %eax
+ 1445      00
+ 1446 00e6 E8000000 		call	atiny_printf
+ 1446      00
+ 1447              	.LVL183:
+ 1448 00eb 4883C420 		addq	$32, %rsp
+ 1449              	.LCFI107:
+ 1450              		.cfi_def_cfa_offset 80
+ 318:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ret = ATINY_RESOURCE_NOT_FOUND;
+ 1451              		.loc 1 318 0 is_stmt 1 discriminator 1
+ 1452 00ef BBFBFFFF 		movl	$-5, %ebx
+ 1452      FF
+ 1453 00f4 E96E0100 		jmp	.L73
+ 1453      00
+ 1454              	.LVL184:
+ 1455              	.L72:
+ 319:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 320:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 321:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 322:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (rpt_list->rpt_node_cnt >= rpt_list->max_cnt)
+ 1456              		.loc 1 322 0
+ 1457 00f9 8B402C   		movl	44(%rax), %eax
+ 1458              	.LVL185:
+ 1459 00fc 394328   		cmpl	%eax, 40(%rbx)
+ 1460 00ff 727E     		jb	.L74
+ 323:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 324:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_INFO, "uri rpt exceed rpt cnt %d max cnt %d," URI_FORMAT,
+ 1461              		.loc 1 324 0
+ 1462 0101 E8000000 		call	atiny_get_log_level
+ 1462      00
+GAS LISTING /tmp/ccunSHko.s 			page 41
+
+
+ 1463              	.LVL186:
+ 1464 0106 83F801   		cmpl	$1, %eax
+ 1465 0109 0F874C01 		ja	.L78
+ 1465      0000
+ 1466              		.loc 1 324 0 is_stmt 0 discriminator 1
+ 1467 010f 450FB77C 		movzwl	6(%r12), %r15d
+ 1467      2406
+ 1468 0115 450FB774 		movzwl	4(%r12), %r14d
+ 1468      2404
+ 1469 011b 450FB76C 		movzwl	2(%r12), %r13d
+ 1469      2402
+ 1470 0121 450FB624 		movzbl	(%r12), %r12d
+ 1470      24
+ 1471              	.LVL187:
+ 1472 0126 8B6B2C   		movl	44(%rbx), %ebp
+ 1473              	.LVL188:
+ 1474 0129 8B5B28   		movl	40(%rbx), %ebx
+ 1475              	.LVL189:
+ 1476 012c E8000000 		call	atiny_gettime_ms
+ 1476      00
+ 1477              	.LVL190:
+ 1478 0131 48894424 		movq	%rax, 8(%rsp)
+ 1478      08
+ 1479 0136 BF010000 		movl	$1, %edi
+ 1479      00
+ 1480 013b E8000000 		call	atiny_get_log_level_name
+ 1480      00
+ 1481              	.LVL191:
+ 1482 0140 4883EC08 		subq	$8, %rsp
+ 1483              	.LCFI108:
+ 1484              		.cfi_def_cfa_offset 88
+ 1485 0144 4157     		pushq	%r15
+ 1486              	.LCFI109:
+ 1487              		.cfi_def_cfa_offset 96
+ 1488 0146 4156     		pushq	%r14
+ 1489              	.LCFI110:
+ 1490              		.cfi_def_cfa_offset 104
+ 1491 0148 4155     		pushq	%r13
+ 1492              	.LCFI111:
+ 1493              		.cfi_def_cfa_offset 112
+ 1494 014a 4154     		pushq	%r12
+ 1495              	.LCFI112:
+ 1496              		.cfi_def_cfa_offset 120
+ 1497 014c 55       		pushq	%rbp
+ 1498              	.LCFI113:
+ 1499              		.cfi_def_cfa_offset 128
+ 1500 014d 4189D9   		movl	%ebx, %r9d
+ 1501 0150 41B84501 		movl	$325, %r8d
+ 1501      0000
+ 1502 0156 B9000000 		movl	$__FUNCTION__.4130, %ecx
+ 1502      00
+ 1503 015b 8B542438 		movl	56(%rsp), %edx
+ 1504 015f 4889C6   		movq	%rax, %rsi
+ 1505 0162 BF000000 		movl	$.LC8, %edi
+ 1505      00
+ 1506 0167 B8000000 		movl	$0, %eax
+ 1506      00
+GAS LISTING /tmp/ccunSHko.s 			page 42
+
+
+ 1507 016c E8000000 		call	atiny_printf
+ 1507      00
+ 1508              	.LVL192:
+ 1509 0171 4883C430 		addq	$48, %rsp
+ 1510              	.LCFI114:
+ 1511              		.cfi_def_cfa_offset 80
+ 325:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****                       rpt_list->rpt_node_cnt, rpt_list->max_cnt, URI_LOG_PARAM(uri));
+ 326:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ret = ATINY_RESOURCE_NOT_ENOUGH;
+ 1512              		.loc 1 326 0 is_stmt 1 discriminator 1
+ 1513 0175 BBFAFFFF 		movl	$-6, %ebx
+ 1513      FF
+ 1514 017a E9E80000 		jmp	.L73
+ 1514      00
+ 1515              	.LVL193:
+ 1516              	.L74:
+ 327:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 328:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 329:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 330:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         data_node = lwm2m_malloc(sizeof(*data_node));
+ 1517              		.loc 1 330 0
+ 1518 017f BF300000 		movl	$48, %edi
+ 1518      00
+ 1519 0184 E8000000 		call	lwm2m_malloc
+ 1519      00
+ 1520              	.LVL194:
+ 331:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 332:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (NULL == data_node)
+ 1521              		.loc 1 332 0
+ 1522 0189 4885C0   		testq	%rax, %rax
+ 1523 018c 756D     		jne	.L75
+ 333:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 334:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_ERR, "malloc fail," URI_FORMAT, URI_LOG_PARAM(uri));
+ 1524              		.loc 1 334 0
+ 1525 018e E8000000 		call	atiny_get_log_level
+ 1525      00
+ 1526              	.LVL195:
+ 1527 0193 83F803   		cmpl	$3, %eax
+ 1528 0196 0F87C600 		ja	.L79
+ 1528      0000
+ 1529              		.loc 1 334 0 is_stmt 0 discriminator 1
+ 1530 019c 450FB774 		movzwl	6(%r12), %r14d
+ 1530      2406
+ 1531 01a2 450FB76C 		movzwl	4(%r12), %r13d
+ 1531      2404
+ 1532 01a8 410FB76C 		movzwl	2(%r12), %ebp
+ 1532      2402
+ 1533              	.LVL196:
+ 1534 01ae 450FB624 		movzbl	(%r12), %r12d
+ 1534      24
+ 1535              	.LVL197:
+ 1536 01b3 E8000000 		call	atiny_gettime_ms
+ 1536      00
+ 1537              	.LVL198:
+ 1538 01b8 4889C3   		movq	%rax, %rbx
+ 1539              	.LVL199:
+ 1540 01bb BF030000 		movl	$3, %edi
+ 1540      00
+GAS LISTING /tmp/ccunSHko.s 			page 43
+
+
+ 1541 01c0 E8000000 		call	atiny_get_log_level_name
+ 1541      00
+ 1542              	.LVL200:
+ 1543 01c5 4883EC08 		subq	$8, %rsp
+ 1544              	.LCFI115:
+ 1545              		.cfi_def_cfa_offset 88
+ 1546 01c9 4156     		pushq	%r14
+ 1547              	.LCFI116:
+ 1548              		.cfi_def_cfa_offset 96
+ 1549 01cb 4155     		pushq	%r13
+ 1550              	.LCFI117:
+ 1551              		.cfi_def_cfa_offset 104
+ 1552 01cd 55       		pushq	%rbp
+ 1553              	.LCFI118:
+ 1554              		.cfi_def_cfa_offset 112
+ 1555 01ce 4589E1   		movl	%r12d, %r9d
+ 1556 01d1 41B84E01 		movl	$334, %r8d
+ 1556      0000
+ 1557 01d7 B9000000 		movl	$__FUNCTION__.4130, %ecx
+ 1557      00
+ 1558 01dc 89DA     		movl	%ebx, %edx
+ 1559 01de 4889C6   		movq	%rax, %rsi
+ 1560 01e1 BF000000 		movl	$.LC9, %edi
+ 1560      00
+ 1561 01e6 B8000000 		movl	$0, %eax
+ 1561      00
+ 1562 01eb E8000000 		call	atiny_printf
+ 1562      00
+ 1563              	.LVL201:
+ 1564 01f0 4883C420 		addq	$32, %rsp
+ 1565              	.LCFI119:
+ 1566              		.cfi_def_cfa_offset 80
+ 1567              	.LBE79:
+ 298:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1568              		.loc 1 298 0 is_stmt 1 discriminator 1
+ 1569 01f4 BBFCFFFF 		movl	$-4, %ebx
+ 1569      FF
+ 1570 01f9 EB6C     		jmp	.L73
+ 1571              	.LVL202:
+ 1572              	.L75:
+ 1573              	.LBB88:
+ 1574              	.LBB80:
+ 1575              	.LBB81:
+ 1576              		.loc 3 90 0
+ 1577 01fb 48C70000 		movq	$0, (%rax)
+ 1577      000000
+ 1578 0202 48C74008 		movq	$0, 8(%rax)
+ 1578      00000000 
+ 1579              	.LVL203:
+ 1580              	.LBE81:
+ 1581              	.LBE80:
+ 1582              	.LBB82:
+ 1583              	.LBB83:
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+ 1584              		.loc 3 53 0
+ 1585 020a 488B4D00 		movq	0(%rbp), %rcx
+ 1586 020e 48894810 		movq	%rcx, 16(%rax)
+GAS LISTING /tmp/ccunSHko.s 			page 44
+
+
+ 1587 0212 488B4D08 		movq	8(%rbp), %rcx
+ 1588 0216 48894818 		movq	%rcx, 24(%rax)
+ 1589 021a 488B4D10 		movq	16(%rbp), %rcx
+ 1590 021e 48894820 		movq	%rcx, 32(%rax)
+ 1591 0222 488B4D18 		movq	24(%rbp), %rcx
+ 1592 0226 48894828 		movq	%rcx, 40(%rax)
+ 1593              	.LVL204:
+ 1594              	.LBE83:
+ 1595              	.LBE82:
+ 1596              	.LBB84:
+ 1597              	.LBB85:
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 1598              		.loc 2 85 0
+ 1599 022a 488B5318 		movq	24(%rbx), %rdx
+ 1600              	.LVL205:
+ 1601              	.LBB86:
+ 1602              	.LBB87:
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     node->prev = list;
+ 1603              		.loc 2 77 0
+ 1604 022e 488B4A08 		movq	8(%rdx), %rcx
+ 1605 0232 48894808 		movq	%rcx, 8(%rax)
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next->prev = node;
+ 1606              		.loc 2 78 0
+ 1607 0236 488910   		movq	%rdx, (%rax)
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h ****     list->next = node;
+ 1608              		.loc 2 79 0
+ 1609 0239 488B4A08 		movq	8(%rdx), %rcx
+ 1610 023d 488901   		movq	%rax, (%rcx)
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/comm/include/agent_list.h **** }
+ 1611              		.loc 2 80 0
+ 1612 0240 48894208 		movq	%rax, 8(%rdx)
+ 1613              	.LVL206:
+ 1614              	.LBE87:
+ 1615              	.LBE86:
+ 1616              	.LBE85:
+ 1617              	.LBE84:
+ 335:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 336:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 337:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 338:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         memset((void *)&data_node->list, 0, sizeof(data_node->list));
+ 339:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         memcpy((void *)&data_node->data, (void *)data, sizeof(data_node->data));
+ 340:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_list_insert_tail(&rpt_list->rpt_list, &data_node->list);
+ 341:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list->rpt_node_cnt++;
+ 1618              		.loc 1 341 0
+ 1619 0244 8B4328   		movl	40(%rbx), %eax
+ 1620              	.LVL207:
+ 1621 0247 83C001   		addl	$1, %eax
+ 1622 024a 894328   		movl	%eax, 40(%rbx)
+ 1623              	.LVL208:
+ 342:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 343:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ret = ATINY_OK;
+ 1624              		.loc 1 343 0
+ 1625 024d BB000000 		movl	$0, %ebx
+ 1625      00
+ 1626              	.LVL209:
+ 1627 0252 EB13     		jmp	.L73
+ 1628              	.LVL210:
+GAS LISTING /tmp/ccunSHko.s 			page 45
+
+
+ 1629              	.L77:
+ 318:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 1630              		.loc 1 318 0
+ 1631 0254 BBFBFFFF 		movl	$-5, %ebx
+ 1631      FF
+ 1632              	.LVL211:
+ 1633 0259 EB0C     		jmp	.L73
+ 1634              	.LVL212:
+ 1635              	.L78:
+ 326:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 1636              		.loc 1 326 0
+ 1637 025b BBFAFFFF 		movl	$-6, %ebx
+ 1637      FF
+ 1638              	.LVL213:
+ 1639 0260 EB05     		jmp	.L73
+ 1640              	.LVL214:
+ 1641              	.L79:
+ 1642              	.LBE88:
+ 298:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1643              		.loc 1 298 0
+ 1644 0262 BBFCFFFF 		movl	$-4, %ebx
+ 1644      FF
+ 1645              	.LVL215:
+ 1646              	.L73:
+ 344:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 345:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 346:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     while (0);
+ 347:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 348:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 1647              		.loc 1 348 0
+ 1648 0267 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1648      000000
+ 1649 026e E8000000 		call	atiny_mutex_unlock
+ 1649      00
+ 1650              	.LVL216:
+ 349:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 350:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ret;
+ 1651              		.loc 1 350 0
+ 1652 0273 89D8     		movl	%ebx, %eax
+ 1653 0275 EB05     		jmp	.L71
+ 1654              	.LVL217:
+ 1655              	.L76:
+ 303:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 1656              		.loc 1 303 0
+ 1657 0277 B8FFFFFF 		movl	$-1, %eax
+ 1657      FF
+ 1658              	.LVL218:
+ 1659              	.L71:
+ 351:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 352:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 1660              		.loc 1 352 0
+ 1661 027c 4883C418 		addq	$24, %rsp
+ 1662              	.LCFI120:
+ 1663              		.cfi_def_cfa_offset 56
+ 1664 0280 5B       		popq	%rbx
+ 1665              	.LCFI121:
+ 1666              		.cfi_def_cfa_offset 48
+GAS LISTING /tmp/ccunSHko.s 			page 46
+
+
+ 1667 0281 5D       		popq	%rbp
+ 1668              	.LCFI122:
+ 1669              		.cfi_def_cfa_offset 40
+ 1670 0282 415C     		popq	%r12
+ 1671              	.LCFI123:
+ 1672              		.cfi_def_cfa_offset 32
+ 1673 0284 415D     		popq	%r13
+ 1674              	.LCFI124:
+ 1675              		.cfi_def_cfa_offset 24
+ 1676 0286 415E     		popq	%r14
+ 1677              	.LCFI125:
+ 1678              		.cfi_def_cfa_offset 16
+ 1679 0288 415F     		popq	%r15
+ 1680              	.LCFI126:
+ 1681              		.cfi_def_cfa_offset 8
+ 1682 028a C3       		ret
+ 1683              		.cfi_endproc
+ 1684              	.LFE68:
+ 1686              		.section	.text.atiny_clear_rpt_data,"ax",@progbits
+ 1687              		.globl	atiny_clear_rpt_data
+ 1689              	atiny_clear_rpt_data:
+ 1690              	.LFB69:
+ 353:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 354:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_clear_rpt_data(const lwm2m_uri_t *uri, int result)
+ 355:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 1691              		.loc 1 355 0
+ 1692              		.cfi_startproc
+ 1693              	.LVL219:
+ 1694 0000 4156     		pushq	%r14
+ 1695              	.LCFI127:
+ 1696              		.cfi_def_cfa_offset 16
+ 1697              		.cfi_offset 14, -16
+ 1698 0002 4155     		pushq	%r13
+ 1699              	.LCFI128:
+ 1700              		.cfi_def_cfa_offset 24
+ 1701              		.cfi_offset 13, -24
+ 1702 0004 4154     		pushq	%r12
+ 1703              	.LCFI129:
+ 1704              		.cfi_def_cfa_offset 32
+ 1705              		.cfi_offset 12, -32
+ 1706 0006 55       		pushq	%rbp
+ 1707              	.LCFI130:
+ 1708              		.cfi_def_cfa_offset 40
+ 1709              		.cfi_offset 6, -40
+ 1710 0007 53       		pushq	%rbx
+ 1711              	.LCFI131:
+ 1712              		.cfi_def_cfa_offset 48
+ 1713              		.cfi_offset 3, -48
+ 1714              	.LVL220:
+ 356:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     int ret = ATINY_RESOURCE_NOT_FOUND;
+ 357:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 358:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     if (NULL == uri)
+ 1715              		.loc 1 358 0
+ 1716 0008 4885FF   		testq	%rdi, %rdi
+ 1717 000b 7549     		jne	.L82
+ 359:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 360:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ATINY_LOG(LOG_ERR, "null point");
+GAS LISTING /tmp/ccunSHko.s 			page 47
+
+
+ 1718              		.loc 1 360 0
+ 1719 000d E8000000 		call	atiny_get_log_level
+ 1719      00
+ 1720              	.LVL221:
+ 1721 0012 83F803   		cmpl	$3, %eax
+ 1722 0015 0F87F900 		ja	.L86
+ 1722      0000
+ 1723              		.loc 1 360 0 is_stmt 0 discriminator 1
+ 1724 001b E8000000 		call	atiny_gettime_ms
+ 1724      00
+ 1725              	.LVL222:
+ 1726 0020 4889C3   		movq	%rax, %rbx
+ 1727 0023 BF030000 		movl	$3, %edi
+ 1727      00
+ 1728 0028 E8000000 		call	atiny_get_log_level_name
+ 1728      00
+ 1729              	.LVL223:
+ 1730 002d 41B86801 		movl	$360, %r8d
+ 1730      0000
+ 1731 0033 B9000000 		movl	$__FUNCTION__.4139, %ecx
+ 1731      00
+ 1732 0038 89DA     		movl	%ebx, %edx
+ 1733 003a 4889C6   		movq	%rax, %rsi
+ 1734 003d BF000000 		movl	$.LC2, %edi
+ 1734      00
+ 1735 0042 B8000000 		movl	$0, %eax
+ 1735      00
+ 1736 0047 E8000000 		call	atiny_printf
+ 1736      00
+ 1737              	.LVL224:
+ 361:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         return ATINY_ARG_INVALID;
+ 1738              		.loc 1 361 0 is_stmt 1 discriminator 1
+ 1739 004c B8FFFFFF 		movl	$-1, %eax
+ 1739      FF
+ 1740 0051 E9C30000 		jmp	.L83
+ 1740      00
+ 1741              	.LVL225:
+ 1742              	.L82:
+ 1743 0056 4989FC   		movq	%rdi, %r12
+ 1744 0059 89F3     		movl	%esi, %ebx
+ 362:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 363:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 364:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+ 1745              		.loc 1 364 0
+ 1746 005b 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1746      000000
+ 1747              	.LVL226:
+ 1748 0062 E8000000 		call	atiny_mutex_lock
+ 1748      00
+ 1749              	.LVL227:
+ 1750              	.LBB89:
+ 365:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 366:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     do
+ 367:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 368:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_list_t *rpt_list;
+ 369:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 370:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list = atiny_find_rpt_list(uri);
+GAS LISTING /tmp/ccunSHko.s 			page 48
+
+
+ 1751              		.loc 1 370 0
+ 1752 0067 4C89E7   		movq	%r12, %rdi
+ 1753 006a E8000000 		call	atiny_find_rpt_list
+ 1753      00
+ 1754              	.LVL228:
+ 1755 006f 4889C5   		movq	%rax, %rbp
+ 1756              	.LVL229:
+ 371:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 372:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (NULL == rpt_list)
+ 1757              		.loc 1 372 0
+ 1758 0072 4885C0   		testq	%rax, %rax
+ 1759 0075 7569     		jne	.L84
+ 373:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 374:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_ERR, "uri rpt list not exit," URI_FORMAT, URI_LOG_PARAM(uri));
+ 1760              		.loc 1 374 0
+ 1761 0077 E8000000 		call	atiny_get_log_level
+ 1761      00
+ 1762              	.LVL230:
+ 1763 007c 83F803   		cmpl	$3, %eax
+ 1764 007f 777E     		ja	.L87
+ 1765              		.loc 1 374 0 is_stmt 0 discriminator 1
+ 1766 0081 450FB774 		movzwl	6(%r12), %r14d
+ 1766      2406
+ 1767 0087 450FB76C 		movzwl	4(%r12), %r13d
+ 1767      2404
+ 1768 008d 410FB76C 		movzwl	2(%r12), %ebp
+ 1768      2402
+ 1769              	.LVL231:
+ 1770 0093 450FB624 		movzbl	(%r12), %r12d
+ 1770      24
+ 1771              	.LVL232:
+ 1772 0098 E8000000 		call	atiny_gettime_ms
+ 1772      00
+ 1773              	.LVL233:
+ 1774 009d 4889C3   		movq	%rax, %rbx
+ 1775              	.LVL234:
+ 1776 00a0 BF030000 		movl	$3, %edi
+ 1776      00
+ 1777 00a5 E8000000 		call	atiny_get_log_level_name
+ 1777      00
+ 1778              	.LVL235:
+ 1779 00aa 4883EC08 		subq	$8, %rsp
+ 1780              	.LCFI132:
+ 1781              		.cfi_def_cfa_offset 56
+ 1782 00ae 4156     		pushq	%r14
+ 1783              	.LCFI133:
+ 1784              		.cfi_def_cfa_offset 64
+ 1785 00b0 4155     		pushq	%r13
+ 1786              	.LCFI134:
+ 1787              		.cfi_def_cfa_offset 72
+ 1788 00b2 55       		pushq	%rbp
+ 1789              	.LCFI135:
+ 1790              		.cfi_def_cfa_offset 80
+ 1791 00b3 4589E1   		movl	%r12d, %r9d
+ 1792 00b6 41B87601 		movl	$374, %r8d
+ 1792      0000
+ 1793 00bc B9000000 		movl	$__FUNCTION__.4139, %ecx
+GAS LISTING /tmp/ccunSHko.s 			page 49
+
+
+ 1793      00
+ 1794 00c1 89DA     		movl	%ebx, %edx
+ 1795 00c3 4889C6   		movq	%rax, %rsi
+ 1796 00c6 BF000000 		movl	$.LC7, %edi
+ 1796      00
+ 1797 00cb B8000000 		movl	$0, %eax
+ 1797      00
+ 1798 00d0 E8000000 		call	atiny_printf
+ 1798      00
+ 1799              	.LVL236:
+ 1800 00d5 4883C420 		addq	$32, %rsp
+ 1801              	.LCFI136:
+ 1802              		.cfi_def_cfa_offset 48
+ 1803              	.LBE89:
+ 356:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1804              		.loc 1 356 0 is_stmt 1 discriminator 1
+ 1805 00d9 BBFBFFFF 		movl	$-5, %ebx
+ 1805      FF
+ 1806 00de EB24     		jmp	.L85
+ 1807              	.LVL237:
+ 1808              	.L84:
+ 1809              	.LBB90:
+ 375:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 376:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 377:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 378:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_free_list(&rpt_list->rpt_list, atiny_clear_rpt_list_node_data, (void *)result);
+ 1810              		.loc 1 378 0
+ 1811 00e0 4863D3   		movslq	%ebx, %rdx
+ 1812 00e3 488D7818 		leaq	24(%rax), %rdi
+ 1813 00e7 BE000000 		movl	$atiny_clear_rpt_list_node_data, %esi
+ 1813      00
+ 1814 00ec E8000000 		call	atiny_free_list
+ 1814      00
+ 1815              	.LVL238:
+ 379:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list->rpt_node_cnt = 0;
+ 1816              		.loc 1 379 0
+ 1817 00f1 C7452800 		movl	$0, 40(%rbp)
+ 1817      000000
+ 1818              	.LVL239:
+ 380:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 381:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ret = ATINY_OK;
+ 1819              		.loc 1 381 0
+ 1820 00f8 BB000000 		movl	$0, %ebx
+ 1820      00
+ 1821              	.LVL240:
+ 1822 00fd EB05     		jmp	.L85
+ 1823              	.LVL241:
+ 1824              	.L87:
+ 1825              	.LBE90:
+ 356:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 1826              		.loc 1 356 0
+ 1827 00ff BBFBFFFF 		movl	$-5, %ebx
+ 1827      FF
+ 1828              	.LVL242:
+ 1829              	.L85:
+ 382:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 383:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     while (0);
+GAS LISTING /tmp/ccunSHko.s 			page 50
+
+
+ 384:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 385:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 1830              		.loc 1 385 0
+ 1831 0104 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1831      000000
+ 1832 010b E8000000 		call	atiny_mutex_unlock
+ 1832      00
+ 1833              	.LVL243:
+ 386:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 387:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ret;
+ 1834              		.loc 1 387 0
+ 1835 0110 89D8     		movl	%ebx, %eax
+ 1836 0112 EB05     		jmp	.L83
+ 1837              	.LVL244:
+ 1838              	.L86:
+ 361:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 1839              		.loc 1 361 0
+ 1840 0114 B8FFFFFF 		movl	$-1, %eax
+ 1840      FF
+ 1841              	.LVL245:
+ 1842              	.L83:
+ 388:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 1843              		.loc 1 388 0
+ 1844 0119 5B       		popq	%rbx
+ 1845              	.LCFI137:
+ 1846              		.cfi_def_cfa_offset 40
+ 1847 011a 5D       		popq	%rbp
+ 1848              	.LCFI138:
+ 1849              		.cfi_def_cfa_offset 32
+ 1850 011b 415C     		popq	%r12
+ 1851              	.LCFI139:
+ 1852              		.cfi_def_cfa_offset 24
+ 1853 011d 415D     		popq	%r13
+ 1854              	.LCFI140:
+ 1855              		.cfi_def_cfa_offset 16
+ 1856 011f 415E     		popq	%r14
+ 1857              	.LCFI141:
+ 1858              		.cfi_def_cfa_offset 8
+ 1859 0121 C3       		ret
+ 1860              		.cfi_endproc
+ 1861              	.LFE69:
+ 1863              		.section	.text.atiny_step_rpt,"ax",@progbits
+ 1864              		.globl	atiny_step_rpt
+ 1866              	atiny_step_rpt:
+ 1867              	.LFB70:
+ 389:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 390:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_step_rpt(lwm2m_context_t *context)
+ 391:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 1868              		.loc 1 391 0
+ 1869              		.cfi_startproc
+ 1870              	.LVL246:
+ 1871 0000 53       		pushq	%rbx
+ 1872              	.LCFI142:
+ 1873              		.cfi_def_cfa_offset 16
+ 1874              		.cfi_offset 3, -16
+ 1875 0001 4889FB   		movq	%rdi, %rbx
+ 392:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+GAS LISTING /tmp/ccunSHko.s 			page 51
+
+
+ 1876              		.loc 1 392 0
+ 1877 0004 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1877      000000
+ 1878              	.LVL247:
+ 1879 000b E8000000 		call	atiny_mutex_lock
+ 1879      00
+ 1880              	.LVL248:
+ 393:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_visit_list(&g_atiny_rpt_table, atiny_notify_stack_rpt_data_change, context);
+ 1881              		.loc 1 393 0
+ 1882 0010 4889DA   		movq	%rbx, %rdx
+ 1883 0013 BE000000 		movl	$atiny_notify_stack_rpt_data_change, %esi
+ 1883      00
+ 1884 0018 BF000000 		movl	$g_atiny_rpt_table, %edi
+ 1884      00
+ 1885 001d E8000000 		call	atiny_visit_list
+ 1885      00
+ 1886              	.LVL249:
+ 394:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 1887              		.loc 1 394 0
+ 1888 0022 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1888      000000
+ 1889 0029 E8000000 		call	atiny_mutex_unlock
+ 1889      00
+ 1890              	.LVL250:
+ 395:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ATINY_OK;
+ 396:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 1891              		.loc 1 396 0
+ 1892 002e B8000000 		movl	$0, %eax
+ 1892      00
+ 1893 0033 5B       		popq	%rbx
+ 1894              	.LCFI143:
+ 1895              		.cfi_def_cfa_offset 8
+ 1896              	.LVL251:
+ 1897 0034 C3       		ret
+ 1898              		.cfi_endproc
+ 1899              	.LFE70:
+ 1901              		.section	.text.atiny_destroy_rpt,"ax",@progbits
+ 1902              		.globl	atiny_destroy_rpt
+ 1904              	atiny_destroy_rpt:
+ 1905              	.LFB71:
+ 397:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 398:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** void atiny_destroy_rpt(void)
+ 399:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 1906              		.loc 1 399 0
+ 1907              		.cfi_startproc
+ 1908 0000 4883EC08 		subq	$8, %rsp
+ 1909              	.LCFI144:
+ 1910              		.cfi_def_cfa_offset 16
+ 400:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_free_list(&g_atiny_rpt_table, atiny_clear_rpt_list, (void *)NOT_SENT);
+ 1911              		.loc 1 400 0
+ 1912 0004 BA000000 		movl	$0, %edx
+ 1912      00
+ 1913 0009 BE000000 		movl	$atiny_clear_rpt_list, %esi
+ 1913      00
+ 1914 000e BF000000 		movl	$g_atiny_rpt_table, %edi
+ 1914      00
+ 1915 0013 E8000000 		call	atiny_free_list
+GAS LISTING /tmp/ccunSHko.s 			page 52
+
+
+ 1915      00
+ 1916              	.LVL252:
+ 401:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_destroy(g_mutex);
+ 1917              		.loc 1 401 0
+ 1918 0018 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1918      000000
+ 1919 001f E8000000 		call	atiny_mutex_destroy
+ 1919      00
+ 1920              	.LVL253:
+ 402:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     g_mutex = NULL;
+ 1921              		.loc 1 402 0
+ 1922 0024 48C70500 		movq	$0, g_mutex(%rip)
+ 1922      00000000 
+ 1922      000000
+ 403:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 1923              		.loc 1 403 0
+ 1924 002f 4883C408 		addq	$8, %rsp
+ 1925              	.LCFI145:
+ 1926              		.cfi_def_cfa_offset 8
+ 1927 0033 C3       		ret
+ 1928              		.cfi_endproc
+ 1929              	.LFE71:
+ 1931              		.section	.text.atiny_set_max_rpt_cnt,"ax",@progbits
+ 1932              		.globl	atiny_set_max_rpt_cnt
+ 1934              	atiny_set_max_rpt_cnt:
+ 1935              	.LFB72:
+ 404:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 405:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** int atiny_set_max_rpt_cnt(const lwm2m_uri_t *uri, uint32_t max_rpt_cnt)
+ 406:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** {
+ 1936              		.loc 1 406 0
+ 1937              		.cfi_startproc
+ 1938              	.LVL254:
+ 1939 0000 4156     		pushq	%r14
+ 1940              	.LCFI146:
+ 1941              		.cfi_def_cfa_offset 16
+ 1942              		.cfi_offset 14, -16
+ 1943 0002 4155     		pushq	%r13
+ 1944              	.LCFI147:
+ 1945              		.cfi_def_cfa_offset 24
+ 1946              		.cfi_offset 13, -24
+ 1947 0004 4154     		pushq	%r12
+ 1948              	.LCFI148:
+ 1949              		.cfi_def_cfa_offset 32
+ 1950              		.cfi_offset 12, -32
+ 1951 0006 55       		pushq	%rbp
+ 1952              	.LCFI149:
+ 1953              		.cfi_def_cfa_offset 40
+ 1954              		.cfi_offset 6, -40
+ 1955 0007 53       		pushq	%rbx
+ 1956              	.LCFI150:
+ 1957              		.cfi_def_cfa_offset 48
+ 1958              		.cfi_offset 3, -48
+ 1959 0008 4889FB   		movq	%rdi, %rbx
+ 1960 000b 89F5     		movl	%esi, %ebp
+ 1961              	.LVL255:
+ 407:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     int ret = ATINY_RESOURCE_NOT_FOUND;
+ 408:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+GAS LISTING /tmp/ccunSHko.s 			page 53
+
+
+ 409:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_lock(g_mutex);
+ 1962              		.loc 1 409 0
+ 1963 000d 488B3D00 		movq	g_mutex(%rip), %rdi
+ 1963      000000
+ 1964              	.LVL256:
+ 1965 0014 E8000000 		call	atiny_mutex_lock
+ 1965      00
+ 1966              	.LVL257:
+ 1967              	.LBB91:
+ 410:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 411:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     do
+ 412:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     {
+ 413:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         atiny_rpt_list_t *rpt_list;
+ 414:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 415:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list = atiny_find_rpt_list(uri);
+ 1968              		.loc 1 415 0
+ 1969 0019 4889DF   		movq	%rbx, %rdi
+ 1970 001c E8000000 		call	atiny_find_rpt_list
+ 1970      00
+ 1971              	.LVL258:
+ 416:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 417:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         if (NULL == rpt_list)
+ 1972              		.loc 1 417 0
+ 1973 0021 4885C0   		testq	%rax, %rax
+ 1974 0024 7564     		jne	.L94
+ 418:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         {
+ 419:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             ATINY_LOG(LOG_ERR, "uri rpt list not exit," URI_FORMAT, URI_LOG_PARAM(uri));
+ 1975              		.loc 1 419 0
+ 1976 0026 E8000000 		call	atiny_get_log_level
+ 1976      00
+ 1977              	.LVL259:
+ 1978 002b 83F803   		cmpl	$3, %eax
+ 1979 002e 7764     		ja	.L96
+ 1980              		.loc 1 419 0 is_stmt 0 discriminator 1
+ 1981 0030 440FB76B 		movzwl	6(%rbx), %r13d
+ 1981      06
+ 1982 0035 440FB763 		movzwl	4(%rbx), %r12d
+ 1982      04
+ 1983 003a 0FB76B02 		movzwl	2(%rbx), %ebp
+ 1984              	.LVL260:
+ 1985 003e 440FB633 		movzbl	(%rbx), %r14d
+ 1986 0042 E8000000 		call	atiny_gettime_ms
+ 1986      00
+ 1987              	.LVL261:
+ 1988 0047 4889C3   		movq	%rax, %rbx
+ 1989              	.LVL262:
+ 1990 004a BF030000 		movl	$3, %edi
+ 1990      00
+ 1991 004f E8000000 		call	atiny_get_log_level_name
+ 1991      00
+ 1992              	.LVL263:
+ 1993 0054 4883EC08 		subq	$8, %rsp
+ 1994              	.LCFI151:
+ 1995              		.cfi_def_cfa_offset 56
+ 1996 0058 4155     		pushq	%r13
+ 1997              	.LCFI152:
+ 1998              		.cfi_def_cfa_offset 64
+GAS LISTING /tmp/ccunSHko.s 			page 54
+
+
+ 1999 005a 4154     		pushq	%r12
+ 2000              	.LCFI153:
+ 2001              		.cfi_def_cfa_offset 72
+ 2002 005c 55       		pushq	%rbp
+ 2003              	.LCFI154:
+ 2004              		.cfi_def_cfa_offset 80
+ 2005 005d 4589F1   		movl	%r14d, %r9d
+ 2006 0060 41B8A301 		movl	$419, %r8d
+ 2006      0000
+ 2007 0066 B9000000 		movl	$__FUNCTION__.4154, %ecx
+ 2007      00
+ 2008 006b 89DA     		movl	%ebx, %edx
+ 2009 006d 4889C6   		movq	%rax, %rsi
+ 2010 0070 BF000000 		movl	$.LC7, %edi
+ 2010      00
+ 2011 0075 B8000000 		movl	$0, %eax
+ 2011      00
+ 2012 007a E8000000 		call	atiny_printf
+ 2012      00
+ 2013              	.LVL264:
+ 2014 007f 4883C420 		addq	$32, %rsp
+ 2015              	.LCFI155:
+ 2016              		.cfi_def_cfa_offset 48
+ 2017              	.LBE91:
+ 407:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 2018              		.loc 1 407 0 is_stmt 1 discriminator 1
+ 2019 0083 BBFBFFFF 		movl	$-5, %ebx
+ 2019      FF
+ 2020 0088 EB0F     		jmp	.L95
+ 2021              	.LVL265:
+ 2022              	.L94:
+ 2023              	.LBB92:
+ 420:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****             break;
+ 421:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         }
+ 422:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 423:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         rpt_list->max_cnt = max_rpt_cnt;
+ 2024              		.loc 1 423 0
+ 2025 008a 89682C   		movl	%ebp, 44(%rax)
+ 2026              	.LVL266:
+ 424:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****         ret = ATINY_OK;
+ 2027              		.loc 1 424 0
+ 2028 008d BB000000 		movl	$0, %ebx
+ 2028      00
+ 2029              	.LVL267:
+ 2030 0092 EB05     		jmp	.L95
+ 2031              	.LVL268:
+ 2032              	.L96:
+ 2033              	.LBE92:
+ 407:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 2034              		.loc 1 407 0
+ 2035 0094 BBFBFFFF 		movl	$-5, %ebx
+ 2035      FF
+ 2036              	.LVL269:
+ 2037              	.L95:
+ 425:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     }
+ 426:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     while (0);
+ 427:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+GAS LISTING /tmp/ccunSHko.s 			page 55
+
+
+ 428:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     atiny_mutex_unlock(g_mutex);
+ 2038              		.loc 1 428 0
+ 2039 0099 488B3D00 		movq	g_mutex(%rip), %rdi
+ 2039      000000
+ 2040 00a0 E8000000 		call	atiny_mutex_unlock
+ 2040      00
+ 2041              	.LVL270:
+ 429:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** 
+ 430:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c ****     return ret;
+ 431:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atiny_rpt.c **** }
+ 2042              		.loc 1 431 0
+ 2043 00a5 89D8     		movl	%ebx, %eax
+ 2044 00a7 5B       		popq	%rbx
+ 2045              	.LCFI156:
+ 2046              		.cfi_def_cfa_offset 40
+ 2047              	.LVL271:
+ 2048 00a8 5D       		popq	%rbp
+ 2049              	.LCFI157:
+ 2050              		.cfi_def_cfa_offset 32
+ 2051 00a9 415C     		popq	%r12
+ 2052              	.LCFI158:
+ 2053              		.cfi_def_cfa_offset 24
+ 2054 00ab 415D     		popq	%r13
+ 2055              	.LCFI159:
+ 2056              		.cfi_def_cfa_offset 16
+ 2057 00ad 415E     		popq	%r14
+ 2058              	.LCFI160:
+ 2059              		.cfi_def_cfa_offset 8
+ 2060 00af C3       		ret
+ 2061              		.cfi_endproc
+ 2062              	.LFE72:
+ 2064              		.section	.rodata.__FUNCTION__.4154,"a",@progbits
+ 2065              		.align 16
+ 2068              	__FUNCTION__.4154:
+ 2069 0000 6174696E 		.string	"atiny_set_max_rpt_cnt"
+ 2069      795F7365 
+ 2069      745F6D61 
+ 2069      785F7270 
+ 2069      745F636E 
+ 2070              		.section	.rodata.__FUNCTION__.4097,"a",@progbits
+ 2071              		.align 32
+ 2074              	__FUNCTION__.4097:
+ 2075 0000 6174696E 		.string	"atiny_notify_stack_rpt_data_change"
+ 2075      795F6E6F 
+ 2075      74696679 
+ 2075      5F737461 
+ 2075      636B5F72 
+ 2076              		.section	.rodata.__FUNCTION__.4139,"a",@progbits
+ 2077              		.align 16
+ 2080              	__FUNCTION__.4139:
+ 2081 0000 6174696E 		.string	"atiny_clear_rpt_data"
+ 2081      795F636C 
+ 2081      6561725F 
+ 2081      7270745F 
+ 2081      64617461 
+ 2082              		.section	.rodata.__FUNCTION__.4130,"a",@progbits
+ 2083              		.align 16
+GAS LISTING /tmp/ccunSHko.s 			page 56
+
+
+ 2086              	__FUNCTION__.4130:
+ 2087 0000 6174696E 		.string	"atiny_queue_rpt_data"
+ 2087      795F7175 
+ 2087      6575655F 
+ 2087      7270745F 
+ 2087      64617461 
+ 2088              		.section	.rodata.__FUNCTION__.4122,"a",@progbits
+ 2089              		.align 16
+ 2092              	__FUNCTION__.4122:
+ 2093 0000 6174696E 		.string	"atiny_dequeue_rpt_data"
+ 2093      795F6465 
+ 2093      71756575 
+ 2093      655F7270 
+ 2093      745F6461 
+ 2094              		.section	.rodata.__FUNCTION__.4114,"a",@progbits
+ 2095              		.align 16
+ 2098              	__FUNCTION__.4114:
+ 2099 0000 6174696E 		.string	"atiny_rm_rpt_uri"
+ 2099      795F726D 
+ 2099      5F727074 
+ 2099      5F757269 
+ 2099      00
+ 2100              		.section	.rodata.__FUNCTION__.4108,"a",@progbits
+ 2101              		.align 16
+ 2104              	__FUNCTION__.4108:
+ 2105 0000 6174696E 		.string	"atiny_add_rpt_uri"
+ 2105      795F6164 
+ 2105      645F7270 
+ 2105      745F7572 
+ 2105      6900
+ 2106              		.section	.rodata.__FUNCTION__.4101,"a",@progbits
+ 2107              		.align 8
+ 2110              	__FUNCTION__.4101:
+ 2111 0000 6174696E 		.string	"atiny_init_rpt"
+ 2111      795F696E 
+ 2111      69745F72 
+ 2111      707400
+ 2112              		.section	.bss.g_mutex,"aw",@nobits
+ 2113              		.align 8
+ 2116              	g_mutex:
+ 2117 0000 00000000 		.zero	8
+ 2117      00000000 
+ 2118              		.section	.bss.g_atiny_rpt_table,"aw",@nobits
+ 2119              		.align 16
+ 2122              	g_atiny_rpt_table:
+ 2123 0000 00000000 		.zero	16
+ 2123      00000000 
+ 2123      00000000 
+ 2123      00000000 
+ 2124              		.text
+ 2125              	.Letext0:
+ 2126              		.file 4 "/usr/include/stdint.h"
+ 2127              		.file 5 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h"
+ 2128              		.file 6 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 2129              		.file 7 "/usr/include/time.h"
+ 2130              		.file 8 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/er-coap-13/er-coap
+ 2131              		.file 9 "/usr/include/libio.h"
+GAS LISTING /tmp/ccunSHko.s 			page 57
+
+
+ 2132              		.file 10 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/liblwm2m.h"
+ 2133              		.file 11 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atin
+ 2134              		.file 12 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/agen
+ 2135              		.file 13 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/lwm2m_client/atin
+ 2136              		.file 14 "/usr/include/stdio.h"
+ 2137              		.file 15 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_a
+GAS LISTING /tmp/ccunSHko.s 			page 58
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 atiny_rpt.c
+     /tmp/ccunSHko.s:6      .text.atiny_is_uri_equal:0000000000000000 atiny_is_uri_equal
+     /tmp/ccunSHko.s:68     .text.atiny_find_rpt_list:0000000000000000 atiny_find_rpt_list
+     /tmp/ccunSHko.s:2122   .bss.g_atiny_rpt_table:0000000000000000 g_atiny_rpt_table
+     /tmp/ccunSHko.s:143    .text.atiny_visit_list:0000000000000000 atiny_visit_list
+     /tmp/ccunSHko.s:216    .text.atiny_clear_rpt_list_node_data:0000000000000000 atiny_clear_rpt_list_node_data
+     /tmp/ccunSHko.s:261    .text.atiny_free_list:0000000000000000 atiny_free_list
+     /tmp/ccunSHko.s:363    .text.atiny_clear_rpt_list:0000000000000000 atiny_clear_rpt_list
+     /tmp/ccunSHko.s:394    .text.atiny_notify_stack_rpt_data_change:0000000000000000 atiny_notify_stack_rpt_data_change
+     /tmp/ccunSHko.s:2074   .rodata.__FUNCTION__.4097:0000000000000000 __FUNCTION__.4097
+     /tmp/ccunSHko.s:523    .text.atiny_init_rpt:0000000000000000 atiny_init_rpt
+     /tmp/ccunSHko.s:2116   .bss.g_mutex:0000000000000000 g_mutex
+     /tmp/ccunSHko.s:2110   .rodata.__FUNCTION__.4101:0000000000000000 __FUNCTION__.4101
+     /tmp/ccunSHko.s:600    .text.atiny_add_rpt_uri:0000000000000000 atiny_add_rpt_uri
+     /tmp/ccunSHko.s:2104   .rodata.__FUNCTION__.4108:0000000000000000 __FUNCTION__.4108
+     /tmp/ccunSHko.s:940    .text.atiny_rm_rpt_uri:0000000000000000 atiny_rm_rpt_uri
+     /tmp/ccunSHko.s:2098   .rodata.__FUNCTION__.4114:0000000000000000 __FUNCTION__.4114
+     /tmp/ccunSHko.s:1138   .text.atiny_dequeue_rpt_data:0000000000000000 atiny_dequeue_rpt_data
+     /tmp/ccunSHko.s:2092   .rodata.__FUNCTION__.4122:0000000000000000 __FUNCTION__.4122
+     /tmp/ccunSHko.s:1326   .text.atiny_queue_rpt_data:0000000000000000 atiny_queue_rpt_data
+     /tmp/ccunSHko.s:2086   .rodata.__FUNCTION__.4130:0000000000000000 __FUNCTION__.4130
+     /tmp/ccunSHko.s:1689   .text.atiny_clear_rpt_data:0000000000000000 atiny_clear_rpt_data
+     /tmp/ccunSHko.s:2080   .rodata.__FUNCTION__.4139:0000000000000000 __FUNCTION__.4139
+     /tmp/ccunSHko.s:1866   .text.atiny_step_rpt:0000000000000000 atiny_step_rpt
+     /tmp/ccunSHko.s:1904   .text.atiny_destroy_rpt:0000000000000000 atiny_destroy_rpt
+     /tmp/ccunSHko.s:1934   .text.atiny_set_max_rpt_cnt:0000000000000000 atiny_set_max_rpt_cnt
+     /tmp/ccunSHko.s:2068   .rodata.__FUNCTION__.4154:0000000000000000 __FUNCTION__.4154
+
+UNDEFINED SYMBOLS
+lwm2m_free
+atiny_get_log_level
+atiny_gettime_ms
+atiny_get_log_level_name
+atiny_printf
+lwm2m_resource_value_changed
+atiny_mutex_create
+atiny_mutex_lock
+lwm2m_malloc
+atiny_mutex_unlock
+atiny_mutex_destroy

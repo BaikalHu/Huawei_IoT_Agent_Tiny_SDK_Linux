@@ -1,0 +1,2080 @@
+GAS LISTING /tmp/ccVxl2N6.s 			page 1
+
+
+   1              		.file	"transaction.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.text.prv_checkFinished,"ax",@progbits
+   6              	prv_checkFinished:
+   7              	.LFB63:
+   8              		.file 1 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c"
+   1:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /*----------------------------------------------------------------------------
+   2:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * All rights reserved.
+   4:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * are permitted provided that the following conditions are met:
+   6:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * conditions and the following disclaimer.
+   8:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * provided with the distribution.
+  11:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * permission.
+  14:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *---------------------------------------------------------------------------*/
+  26:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /*----------------------------------------------------------------------------
+  27:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Notice of Export Control Law
+  28:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * ===============================================
+  29:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * applicable export control laws and regulations.
+  33:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *---------------------------------------------------------------------------*/
+  34:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  35:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /*******************************************************************************
+  36:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+  37:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Copyright (c) 2013, 2014 Intel Corporation and others.
+  38:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * All rights reserved. This program and the accompanying materials
+  39:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * are made available under the terms of the Eclipse Public License v1.0
+  40:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * and Eclipse Distribution License v1.0 which accompany this distribution.
+  41:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+  42:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * The Eclipse Public License is available at
+  43:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    http://www.eclipse.org/legal/epl-v10.html
+  44:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * The Eclipse Distribution License is available at
+  45:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    http://www.eclipse.org/org/documents/edl-v10.php.
+  46:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+  47:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Contributors:
+  48:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    David Navarro, Intel Corporation - initial API and implementation
+  49:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    Simon Bernard - Please refer to git log
+  50:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    Toby Jaffey - Please refer to git log
+GAS LISTING /tmp/ccVxl2N6.s 			page 2
+
+
+  51:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    Pascal Rieux - Please refer to git log
+  52:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    Bosch Software Innovations GmbH - Please refer to git log
+  53:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+  54:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *******************************************************************************/
+  55:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  56:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /*
+  57:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  Copyright (c) 2013, 2014 Intel Corporation
+  58:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  59:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  Redistribution and use in source and binary forms, with or without modification,
+  60:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  are permitted provided that the following conditions are met:
+  61:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  62:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****      * Redistributions of source code must retain the above copyright notice,
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****        this list of conditions and the following disclaimer.
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****      * Redistributions in binary form must reproduce the above copyright notice,
+  65:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****        this list of conditions and the following disclaimer in the documentation
+  66:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****        and/or other materials provided with the distribution.
+  67:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****      * Neither the name of Intel Corporation nor the names of its contributors
+  68:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****        may be used to endorse or promote products derived from this software
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****        without specific prior written permission.
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  71:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  72:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  73:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  74:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  76:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  THE POSSIBILITY OF SUCH DAMAGE.
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  82:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  David Navarro <david.navarro@intel.com>
+  83:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  84:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** */
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  86:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /*
+  87:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** Contains code snippets which are:
+  88:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Copyright (c) 2013, Institute for Pervasive Computing, ETH Zurich
+  90:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * All rights reserved.
+  91:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+  92:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Redistribution and use in source and binary forms, with or without
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * modification, are permitted provided that the following conditions
+  94:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * are met:
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * 1. Redistributions of source code must retain the above copyright
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    notice, this list of conditions and the following disclaimer.
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * 2. Redistributions in binary form must reproduce the above copyright
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    notice, this list of conditions and the following disclaimer in the
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    documentation and/or other materials provided with the distribution.
+ 100:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * 3. Neither the name of the Institute nor the names of its contributors
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    may be used to endorse or promote products derived from this software
+ 102:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *    without specific prior written permission.
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+ 104:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * THIS SOFTWARE IS PROVIDED BY THE INSTITUTE AND CONTRIBUTORS ``AS IS'' AND
+ 105:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ 106:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ 107:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * ARE DISCLAIMED.  IN NO EVENT SHALL THE INSTITUTE OR CONTRIBUTORS BE LIABLE
+GAS LISTING /tmp/ccVxl2N6.s 			page 3
+
+
+ 108:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ 109:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ 111:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ 112:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ 113:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ 114:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * SUCH DAMAGE.
+ 115:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 116:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** */
+ 117:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 118:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /************************************************************************
+ 119:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  Function for communications transactions.
+ 120:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+ 121:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  Basic specification: rfc7252
+ 122:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+ 123:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  Transaction implements processing of piggybacked and separate response communication
+ 124:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  dialogs specified in section 2.2 of the above specification.
+ 125:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  The caller registers a callback function, which is called, when either the result is
+ 126:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  received or a timeout occurs.
+ 127:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *
+ 128:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  Supported dialogs:
+ 129:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  Requests (GET - DELETE):
+ 130:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  - CON with mid, without token => regular finished with corresponding ACK.MID
+ 131:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  - CON with mid, with token => regular finished with corresponding ACK.MID and response containi
+ 132:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *                  the token. Supports both versions, with piggybacked ACK and separate ACK/respon
+ 133:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *                  Though the ACK.MID may be lost in the separate version, a matching response may
+ 134:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *                  finish the transaction even without the ACK.MID.
+ 135:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  - NON without token => no transaction, no result expected!
+ 136:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  - NON with token => regular finished with response containing the token.
+ 137:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  Responses (COAP_201_CREATED - ?):
+ 138:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  *  - CON with mid => regular finished with corresponding ACK.MID
+ 139:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  */
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 141:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** #include "internals.h"
+ 142:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** //#include "pdu.h"
+ 143:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** #include "commandline.h"
+ 144:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 145:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 146:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** /*
+ 147:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * Modulo mask (+1 and +0.5 for rounding) for a random number to get the tick number for the random
+ 148:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  * retransmission time between COAP_RESPONSE_TIMEOUT and COAP_RESPONSE_TIMEOUT*COAP_RESPONSE_RANDOM
+ 149:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****  */
+ 150:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** #define COAP_RESPONSE_TIMEOUT_TICKS         (CLOCK_SECOND * COAP_RESPONSE_TIMEOUT)
+ 151:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** #define COAP_RESPONSE_TIMEOUT_BACKOFF_MASK  ((CLOCK_SECOND * COAP_RESPONSE_TIMEOUT * (COAP_RESPONSE
+ 152:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 153:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** static int prv_checkFinished(lwm2m_transaction_t *transacP,
+ 154:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                              coap_packet_t *receivedMessage)
+ 155:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+   9              		.loc 1 155 0
+  10              		.cfi_startproc
+  11              	.LVL0:
+  12 0000 4154     		pushq	%r12
+  13              	.LCFI0:
+  14              		.cfi_def_cfa_offset 16
+  15              		.cfi_offset 12, -16
+  16 0002 55       		pushq	%rbp
+  17              	.LCFI1:
+GAS LISTING /tmp/ccVxl2N6.s 			page 4
+
+
+  18              		.cfi_def_cfa_offset 24
+  19              		.cfi_offset 6, -24
+  20 0003 53       		pushq	%rbx
+  21              	.LCFI2:
+  22              		.cfi_def_cfa_offset 32
+  23              		.cfi_offset 3, -32
+  24 0004 4883EC10 		subq	$16, %rsp
+  25              	.LCFI3:
+  26              		.cfi_def_cfa_offset 48
+ 156:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     int len;
+ 157:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     const uint8_t *token;
+ 158:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_packet_t *transactionMessage = transacP->message;
+  27              		.loc 1 158 0
+  28 0008 488B5F38 		movq	56(%rdi), %rbx
+  29              	.LVL1:
+ 159:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 160:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (COAP_DELETE < transactionMessage->code)
+  30              		.loc 1 160 0
+  31 000c 807B1004 		cmpb	$4, 16(%rbx)
+  32 0010 760C     		jbe	.L2
+ 161:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 162:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         // response
+ 163:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         return transacP->ack_received ? 1 : 0;
+  33              		.loc 1 163 0
+  34 0012 807F1800 		cmpb	$0, 24(%rdi)
+  35 0016 0F95C0   		setne	%al
+  36 0019 0FB6C0   		movzbl	%al, %eax
+  37 001c EB76     		jmp	.L3
+  38              	.L2:
+ 164:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 165:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (!IS_OPTION(transactionMessage, COAP_OPTION_TOKEN))
+  39              		.loc 1 165 0
+  40 001e F6431608 		testb	$8, 22(%rbx)
+  41 0022 750C     		jne	.L4
+ 166:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         // request without token
+ 168:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         return transacP->ack_received ? 1 : 0;
+  42              		.loc 1 168 0
+  43 0024 807F1800 		cmpb	$0, 24(%rdi)
+  44 0028 0F95C0   		setne	%al
+  45 002b 0FB6C0   		movzbl	%al, %eax
+  46 002e EB64     		jmp	.L3
+  47              	.L4:
+  48 0030 4889F7   		movq	%rsi, %rdi
+  49              	.LVL2:
+ 169:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 170:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 171:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     len = coap_get_header_token(receivedMessage, &token);
+  50              		.loc 1 171 0
+  51 0033 488D7424 		leaq	8(%rsp), %rsi
+  51      08
+  52              	.LVL3:
+  53 0038 E8000000 		call	coap_get_header_token
+  53      00
+  54              	.LVL4:
+  55 003d 89C5     		movl	%eax, %ebp
+  56              	.LVL5:
+GAS LISTING /tmp/ccVxl2N6.s 			page 5
+
+
+ 172:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (transactionMessage->token_len == len)
+  57              		.loc 1 172 0
+  58 003f 440FB6A3 		movzbl	132(%rbx), %r12d
+  58      84000000 
+  59 0047 4439E0   		cmpl	%r12d, %eax
+  60 004a 7524     		jne	.L9
+ 173:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 174:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (memcmp(transactionMessage->token, token, len) == 0) return 1;
+  61              		.loc 1 174 0
+  62 004c 488DBB85 		leaq	133(%rbx), %rdi
+  62      000000
+  63 0053 4863D0   		movslq	%eax, %rdx
+  64 0056 488B7424 		movq	8(%rsp), %rsi
+  64      08
+  65 005b E8000000 		call	memcmp
+  65      00
+  66              	.LVL6:
+  67 0060 85C0     		testl	%eax, %eax
+  68 0062 742B     		je	.L10
+  69 0064 B8000000 		movl	$0, %eax
+  69      00
+  70 0069 EB0A     		jmp	.L5
+  71              	.LVL7:
+  72              	.L6:
+ 175:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 176:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG_ARG("transactionMessage->token_len is %d, len is %d\n", transactionMessage->token_len, len)
+ 177:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     int i = 0;
+ 178:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     for(i = 0; i < transactionMessage->token_len; i++ )
+  73              		.loc 1 178 0 discriminator 3
+  74 006b 83C001   		addl	$1, %eax
+  75              	.LVL8:
+  76 006e EB05     		jmp	.L5
+  77              	.LVL9:
+  78              	.L9:
+  79 0070 B8000000 		movl	$0, %eax
+  79      00
+  80              	.LVL10:
+  81              	.L5:
+  82              		.loc 1 178 0 is_stmt 0 discriminator 1
+  83 0075 4439E0   		cmpl	%r12d, %eax
+  84 0078 7CF1     		jl	.L6
+  85 007a B8000000 		movl	$0, %eax
+  85      00
+  86              	.LVL11:
+  87 007f EB03     		jmp	.L7
+  88              	.LVL12:
+  89              	.L8:
+ 179:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         LOG_ARG("%d\n", transactionMessage->token[i]);
+ 180:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("\n\n");
+ 181:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     for(i = 0; i < len; i++)
+  90              		.loc 1 181 0 is_stmt 1 discriminator 3
+  91 0081 83C001   		addl	$1, %eax
+  92              	.LVL13:
+  93              	.L7:
+  94              		.loc 1 181 0 is_stmt 0 discriminator 1
+  95 0084 39E8     		cmpl	%ebp, %eax
+  96 0086 7CF9     		jl	.L8
+GAS LISTING /tmp/ccVxl2N6.s 			page 6
+
+
+ 182:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         LOG_ARG("%d\n", token[i]);
+ 183:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("prv_checkFinished not finish!!!\n");
+ 184:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     return 0;
+  97              		.loc 1 184 0 is_stmt 1
+  98 0088 B8000000 		movl	$0, %eax
+  98      00
+  99              	.LVL14:
+ 100 008d EB05     		jmp	.L3
+ 101              	.L10:
+ 174:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 102              		.loc 1 174 0
+ 103 008f B8010000 		movl	$1, %eax
+ 103      00
+ 104              	.LVL15:
+ 105              	.L3:
+ 185:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 106              		.loc 1 185 0
+ 107 0094 4883C410 		addq	$16, %rsp
+ 108              	.LCFI4:
+ 109              		.cfi_def_cfa_offset 32
+ 110 0098 5B       		popq	%rbx
+ 111              	.LCFI5:
+ 112              		.cfi_def_cfa_offset 24
+ 113              	.LVL16:
+ 114 0099 5D       		popq	%rbp
+ 115              	.LCFI6:
+ 116              		.cfi_def_cfa_offset 16
+ 117 009a 415C     		popq	%r12
+ 118              	.LCFI7:
+ 119              		.cfi_def_cfa_offset 8
+ 120 009c C3       		ret
+ 121              		.cfi_endproc
+ 122              	.LFE63:
+ 124              		.section	.text.transaction_new,"ax",@progbits
+ 125              		.globl	transaction_new
+ 127              	transaction_new:
+ 128              	.LFB64:
+ 186:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** //transaction_new(server->sessionH, COAP_POST, NULL, NULL, contextP->nextMID++, 4, NULL)
+ 187:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** lwm2m_transaction_t *transaction_new(void *sessionH,
+ 188:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                      unsigned char method,
+ 189:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                      char *altPath,
+ 190:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                      lwm2m_uri_t *uriP,
+ 191:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                      uint16_t mID,
+ 192:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                      uint8_t token_len,
+ 193:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                      uint8_t *token)
+ 194:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+ 129              		.loc 1 194 0
+ 130              		.cfi_startproc
+ 131              	.LVL17:
+ 195:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_transaction_t *transacP;
+ 196:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     int result;
+ 197:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 198:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG_ARG("method: %d, altPath: \"%s\", mID: %d, token_len: %d",
+ 199:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             method, altPath, mID, token_len);
+ 200:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG_URI(uriP);
+ 201:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 202:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     // no transactions without peer
+GAS LISTING /tmp/ccVxl2N6.s 			page 7
+
+
+ 203:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (NULL == sessionH) return NULL;
+ 132              		.loc 1 203 0
+ 133 0000 4885FF   		testq	%rdi, %rdi
+ 134 0003 0F840C02 		je	.L24
+ 134      0000
+ 194:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_transaction_t *transacP;
+ 135              		.loc 1 194 0
+ 136 0009 4157     		pushq	%r15
+ 137              	.LCFI8:
+ 138              		.cfi_def_cfa_offset 16
+ 139              		.cfi_offset 15, -16
+ 140 000b 4156     		pushq	%r14
+ 141              	.LCFI9:
+ 142              		.cfi_def_cfa_offset 24
+ 143              		.cfi_offset 14, -24
+ 144 000d 4155     		pushq	%r13
+ 145              	.LCFI10:
+ 146              		.cfi_def_cfa_offset 32
+ 147              		.cfi_offset 13, -32
+ 148 000f 4154     		pushq	%r12
+ 149              	.LCFI11:
+ 150              		.cfi_def_cfa_offset 40
+ 151              		.cfi_offset 12, -40
+ 152 0011 55       		pushq	%rbp
+ 153              	.LCFI12:
+ 154              		.cfi_def_cfa_offset 48
+ 155              		.cfi_offset 6, -48
+ 156 0012 53       		pushq	%rbx
+ 157              	.LCFI13:
+ 158              		.cfi_def_cfa_offset 56
+ 159              		.cfi_offset 3, -56
+ 160 0013 4883EC28 		subq	$40, %rsp
+ 161              	.LCFI14:
+ 162              		.cfi_def_cfa_offset 96
+ 163 0017 4589CF   		movl	%r9d, %r15d
+ 164 001a 44894C24 		movl	%r9d, 12(%rsp)
+ 164      0C
+ 165 001f 4589C5   		movl	%r8d, %r13d
+ 166 0022 4989CC   		movq	%rcx, %r12
+ 167 0025 4889D5   		movq	%rdx, %rbp
+ 168 0028 89742408 		movl	%esi, 8(%rsp)
+ 169 002c 4989FE   		movq	%rdi, %r14
+ 204:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 205:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transacP = (lwm2m_transaction_t *)lwm2m_malloc(sizeof(lwm2m_transaction_t));
+ 170              		.loc 1 205 0
+ 171 002f BF700000 		movl	$112, %edi
+ 171      00
+ 172              	.LVL18:
+ 173 0034 E8000000 		call	lwm2m_malloc
+ 173      00
+ 174              	.LVL19:
+ 175 0039 4889C3   		movq	%rax, %rbx
+ 176              	.LVL20:
+ 206:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 207:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (NULL == transacP) return NULL;
+ 177              		.loc 1 207 0
+ 178 003c 4885C0   		testq	%rax, %rax
+GAS LISTING /tmp/ccVxl2N6.s 			page 8
+
+
+ 179 003f 0F84D601 		je	.L25
+ 179      0000
+ 180              	.LVL21:
+ 181              	.LBB6:
+ 182              	.LBB7:
+ 183              		.file 2 "/usr/include/x86_64-linux-gnu/bits/string3.h"
+   1:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* Copyright (C) 2004-2016 Free Software Foundation, Inc.
+   2:/usr/include/x86_64-linux-gnu/bits/string3.h ****    This file is part of the GNU C Library.
+   3:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   4:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is free software; you can redistribute it and/or
+   5:/usr/include/x86_64-linux-gnu/bits/string3.h ****    modify it under the terms of the GNU Lesser General Public
+   6:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License as published by the Free Software Foundation; either
+   7:/usr/include/x86_64-linux-gnu/bits/string3.h ****    version 2.1 of the License, or (at your option) any later version.
+   8:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   9:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  10:/usr/include/x86_64-linux-gnu/bits/string3.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:/usr/include/x86_64-linux-gnu/bits/string3.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  12:/usr/include/x86_64-linux-gnu/bits/string3.h ****    Lesser General Public License for more details.
+  13:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  14:/usr/include/x86_64-linux-gnu/bits/string3.h ****    You should have received a copy of the GNU Lesser General Public
+  15:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License along with the GNU C Library; if not, see
+  16:/usr/include/x86_64-linux-gnu/bits/string3.h ****    <http://www.gnu.org/licenses/>.  */
+  17:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  18:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef _STRING_H
+  19:/usr/include/x86_64-linux-gnu/bits/string3.h **** # error "Never use <bits/string3.h> directly; include <string.h> instead."
+  20:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  21:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  22:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  23:/usr/include/x86_64-linux-gnu/bits/string3.h **** __warndecl (__warn_memset_zero_len,
+  24:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	    "memset used with constant zero length parameter; this could be due to transposed parameters")
+  25:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  26:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  27:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef __cplusplus
+  28:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* XXX This is temporarily.  We should not redefine any of the symbols
+  29:/usr/include/x86_64-linux-gnu/bits/string3.h ****    and instead integrate the error checking into the original
+  30:/usr/include/x86_64-linux-gnu/bits/string3.h ****    definitions.  */
+  31:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memcpy
+  32:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memmove
+  33:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memset
+  34:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcat
+  35:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcpy
+  36:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncat
+  37:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncpy
+  38:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_GNU
+  39:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef mempcpy
+  40:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef stpcpy
+  41:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  42:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_MISC
+  43:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bcopy
+  44:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bzero
+  45:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  46:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  47:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  48:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  49:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  50:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memcpy (void *__restrict __dest, const void *__restrict __src,
+  51:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	       size_t __len))
+GAS LISTING /tmp/ccVxl2N6.s 			page 9
+
+
+  52:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  54:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  55:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  56:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  57:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memmove (void *__dest, const void *__src, size_t __len))
+  58:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  59:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memmove_chk (__dest, __src, __len, __bos0 (__dest));
+  60:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  61:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  62:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifdef __USE_GNU
+  63:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  64:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (mempcpy (void *__restrict __dest, const void *__restrict __src,
+  65:/usr/include/x86_64-linux-gnu/bits/string3.h **** 		size_t __len))
+  66:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  67:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___mempcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  68:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  69:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  70:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  71:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  72:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* The first two tests here help to catch a somewhat common problem
+  73:/usr/include/x86_64-linux-gnu/bits/string3.h ****    where the second and third parameter are transposed.  This is
+  74:/usr/include/x86_64-linux-gnu/bits/string3.h ****    especially problematic if the intended fill value is zero.  In this
+  75:/usr/include/x86_64-linux-gnu/bits/string3.h ****    case no work is done at all.  We detect these problems by referring
+  76:/usr/include/x86_64-linux-gnu/bits/string3.h ****    non-existing functions.  */
+  77:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  78:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memset (void *__dest, int __ch, size_t __len))
+  79:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  80:/usr/include/x86_64-linux-gnu/bits/string3.h ****   /* GCC-5.0 and newer implements these checks in the compiler, so we don't
+  81:/usr/include/x86_64-linux-gnu/bits/string3.h ****      need them here.  */
+  82:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  83:/usr/include/x86_64-linux-gnu/bits/string3.h ****   if (__builtin_constant_p (__len) && __len == 0
+  84:/usr/include/x86_64-linux-gnu/bits/string3.h ****       && (!__builtin_constant_p (__ch) || __ch != 0))
+  85:/usr/include/x86_64-linux-gnu/bits/string3.h ****     {
+  86:/usr/include/x86_64-linux-gnu/bits/string3.h ****       __warn_memset_zero_len ();
+  87:/usr/include/x86_64-linux-gnu/bits/string3.h ****       return __dest;
+  88:/usr/include/x86_64-linux-gnu/bits/string3.h ****     }
+  89:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  90:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memset_chk (__dest, __ch, __len, __bos0 (__dest));
+ 184              		.loc 2 90 0
+ 185 0045 48C70000 		movq	$0, (%rax)
+ 185      000000
+ 186 004c 48C74068 		movq	$0, 104(%rax)
+ 186      00000000 
+ 187 0054 488D7808 		leaq	8(%rax), %rdi
+ 188 0058 4883E7F8 		andq	$-8, %rdi
+ 189 005c 4889C1   		movq	%rax, %rcx
+ 190 005f 4829F9   		subq	%rdi, %rcx
+ 191 0062 83C170   		addl	$112, %ecx
+ 192 0065 C1E903   		shrl	$3, %ecx
+ 193 0068 89C9     		movl	%ecx, %ecx
+ 194 006a B8000000 		movl	$0, %eax
+ 194      00
+ 195              	.LVL22:
+ 196 006f F348AB   		rep stosq
+ 197              	.LVL23:
+ 198              	.LBE7:
+GAS LISTING /tmp/ccVxl2N6.s 			page 10
+
+
+ 199              	.LBE6:
+ 208:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     memset(transacP, 0, sizeof(lwm2m_transaction_t));
+ 209:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 210:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transacP->message = lwm2m_malloc(sizeof(coap_packet_t));
+ 200              		.loc 1 210 0
+ 201 0072 BFD00000 		movl	$208, %edi
+ 201      00
+ 202 0077 E8000000 		call	lwm2m_malloc
+ 202      00
+ 203              	.LVL24:
+ 204 007c 48894338 		movq	%rax, 56(%rbx)
+ 211:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (NULL == transacP->message) goto error;
+ 205              		.loc 1 211 0
+ 206 0080 4885C0   		testq	%rax, %rax
+ 207 0083 0F847D01 		je	.L14
+ 207      0000
+ 212:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 213:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_init_message(transacP->message, COAP_TYPE_CON, method, mID);
+ 208              		.loc 1 213 0
+ 209 0089 410FB7CD 		movzwl	%r13w, %ecx
+ 210 008d 0FB65424 		movzbl	8(%rsp), %edx
+ 210      08
+ 211 0092 BE000000 		movl	$0, %esi
+ 211      00
+ 212 0097 4889C7   		movq	%rax, %rdi
+ 213 009a E8000000 		call	coap_init_message
+ 213      00
+ 214              	.LVL25:
+ 214:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 215:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transacP->peerH = sessionH;
+ 215              		.loc 1 215 0
+ 216 009f 4C897310 		movq	%r14, 16(%rbx)
+ 216:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 217:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transacP->mID = mID;
+ 217              		.loc 1 217 0
+ 218 00a3 6644896B 		movw	%r13w, 8(%rbx)
+ 218      08
+ 218:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 219:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (altPath != NULL)
+ 219              		.loc 1 219 0
+ 220 00a8 4885ED   		testq	%rbp, %rbp
+ 221 00ab 740D     		je	.L15
+ 220:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 221:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         // TODO: Support multi-segment alternative path
+ 222:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         coap_set_header_uri_path_segment(transacP->message, altPath + 1);
+ 222              		.loc 1 222 0
+ 223 00ad 488B7B38 		movq	56(%rbx), %rdi
+ 224 00b1 488D7501 		leaq	1(%rbp), %rsi
+ 225 00b5 E8000000 		call	coap_set_header_uri_path_segment
+ 225      00
+ 226              	.LVL26:
+ 227              	.L15:
+ 223:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 224:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (NULL != uriP)
+ 228              		.loc 1 224 0
+ 229 00ba 4D85E4   		testq	%r12, %r12
+ 230 00bd 0F84BA00 		je	.L16
+GAS LISTING /tmp/ccVxl2N6.s 			page 11
+
+
+ 230      0000
+ 231              	.LBB8:
+ 225:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 226:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         char stringID[LWM2M_STRING_ID_MAX_LEN];
+ 227:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 228:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         result = utils_intToText(uriP->objectId, (uint8_t *)stringID, LWM2M_STRING_ID_MAX_LEN);
+ 232              		.loc 1 228 0
+ 233 00c3 410FB77C 		movzwl	2(%r12), %edi
+ 233      2402
+ 234 00c9 BA060000 		movl	$6, %edx
+ 234      00
+ 235 00ce 488D7424 		leaq	16(%rsp), %rsi
+ 235      10
+ 236 00d3 E8000000 		call	utils_intToText
+ 236      00
+ 237              	.LVL27:
+ 229:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (result == 0) goto error;
+ 238              		.loc 1 229 0
+ 239 00d8 85C0     		testl	%eax, %eax
+ 240 00da 0F842601 		je	.L14
+ 240      0000
+ 230:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         stringID[result] = 0;
+ 241              		.loc 1 230 0
+ 242 00e0 4898     		cltq
+ 243 00e2 C6440410 		movb	$0, 16(%rsp,%rax)
+ 243      00
+ 231:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         coap_set_header_uri_path_segment(transacP->message, stringID);
+ 244              		.loc 1 231 0
+ 245 00e7 488B7B38 		movq	56(%rbx), %rdi
+ 246 00eb 488D7424 		leaq	16(%rsp), %rsi
+ 246      10
+ 247 00f0 E8000000 		call	coap_set_header_uri_path_segment
+ 247      00
+ 248              	.LVL28:
+ 232:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 233:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (LWM2M_URI_IS_SET_INSTANCE(uriP))
+ 249              		.loc 1 233 0
+ 250 00f5 410FB604 		movzbl	(%r12), %eax
+ 250      24
+ 251 00fa A802     		testb	$2, %al
+ 252 00fc 7434     		je	.L18
+ 234:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 235:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             result = utils_intToText(uriP->instanceId, (uint8_t *)stringID, LWM2M_STRING_ID_MAX_LEN
+ 253              		.loc 1 235 0
+ 254 00fe 410FB77C 		movzwl	4(%r12), %edi
+ 254      2404
+ 255 0104 BA060000 		movl	$6, %edx
+ 255      00
+ 256 0109 488D7424 		leaq	16(%rsp), %rsi
+ 256      10
+ 257 010e E8000000 		call	utils_intToText
+ 257      00
+ 258              	.LVL29:
+ 236:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (result == 0) goto error;
+ 259              		.loc 1 236 0
+ 260 0113 85C0     		testl	%eax, %eax
+ 261 0115 0F84EB00 		je	.L14
+GAS LISTING /tmp/ccVxl2N6.s 			page 12
+
+
+ 261      0000
+ 237:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             stringID[result] = 0;
+ 262              		.loc 1 237 0
+ 263 011b 4898     		cltq
+ 264 011d C6440410 		movb	$0, 16(%rsp,%rax)
+ 264      00
+ 238:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             coap_set_header_uri_path_segment(transacP->message, stringID);
+ 265              		.loc 1 238 0
+ 266 0122 488B7B38 		movq	56(%rbx), %rdi
+ 267 0126 488D7424 		leaq	16(%rsp), %rsi
+ 267      10
+ 268 012b E8000000 		call	coap_set_header_uri_path_segment
+ 268      00
+ 269              	.LVL30:
+ 270 0130 EB12     		jmp	.L19
+ 271              	.L18:
+ 239:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 240:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         else
+ 241:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 242:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (LWM2M_URI_IS_SET_RESOURCE(uriP))
+ 272              		.loc 1 242 0
+ 273 0132 A801     		testb	$1, %al
+ 274 0134 740E     		je	.L19
+ 243:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 244:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 coap_set_header_uri_path_segment(transacP->message, NULL);
+ 275              		.loc 1 244 0
+ 276 0136 488B7B38 		movq	56(%rbx), %rdi
+ 277 013a BE000000 		movl	$0, %esi
+ 277      00
+ 278 013f E8000000 		call	coap_set_header_uri_path_segment
+ 278      00
+ 279              	.LVL31:
+ 280              	.L19:
+ 245:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 246:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 247:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (LWM2M_URI_IS_SET_RESOURCE(uriP))
+ 281              		.loc 1 247 0
+ 282 0144 41F60424 		testb	$1, (%r12)
+ 282      01
+ 283 0149 7432     		je	.L16
+ 248:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 249:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             result = utils_intToText(uriP->resourceId, (uint8_t *)stringID, LWM2M_STRING_ID_MAX_LEN
+ 284              		.loc 1 249 0
+ 285 014b 410FB77C 		movzwl	6(%r12), %edi
+ 285      2406
+ 286 0151 BA060000 		movl	$6, %edx
+ 286      00
+ 287 0156 488D7424 		leaq	16(%rsp), %rsi
+ 287      10
+ 288 015b E8000000 		call	utils_intToText
+ 288      00
+ 289              	.LVL32:
+ 250:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (result == 0) goto error;
+ 290              		.loc 1 250 0
+ 291 0160 85C0     		testl	%eax, %eax
+ 292 0162 0F849E00 		je	.L14
+ 292      0000
+GAS LISTING /tmp/ccVxl2N6.s 			page 13
+
+
+ 251:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             stringID[result] = 0;
+ 293              		.loc 1 251 0
+ 294 0168 4898     		cltq
+ 295 016a C6440410 		movb	$0, 16(%rsp,%rax)
+ 295      00
+ 252:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             coap_set_header_uri_path_segment(transacP->message, stringID);
+ 296              		.loc 1 252 0
+ 297 016f 488B7B38 		movq	56(%rbx), %rdi
+ 298 0173 488D7424 		leaq	16(%rsp), %rsi
+ 298      10
+ 299 0178 E8000000 		call	coap_set_header_uri_path_segment
+ 299      00
+ 300              	.LVL33:
+ 301              	.L16:
+ 302              	.LBE8:
+ 253:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 254:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 255:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (0 < token_len)
+ 303              		.loc 1 255 0
+ 304 017d 807C240C 		cmpb	$0, 12(%rsp)
+ 304      00
+ 305 0182 0F849A00 		je	.L26
+ 305      0000
+ 256:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 257:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (NULL != token)
+ 306              		.loc 1 257 0
+ 307 0188 48837C24 		cmpq	$0, 96(%rsp)
+ 307      6000
+ 308 018e 7417     		je	.L21
+ 258:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 259:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             coap_set_header_token(transacP->message, token, token_len);
+ 309              		.loc 1 259 0
+ 310 0190 488B7B38 		movq	56(%rbx), %rdi
+ 311 0194 410FB6D7 		movzbl	%r15b, %edx
+ 312 0198 488B7424 		movq	96(%rsp), %rsi
+ 312      60
+ 313 019d E8000000 		call	coap_set_header_token
+ 313      00
+ 314              	.LVL34:
+ 260:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 261:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         else
+ 262:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 263:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             // generate a token
+ 264:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             uint8_t temp_token[COAP_TOKEN_LEN];
+ 265:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             time_t tv_sec = lwm2m_gettime();
+ 266:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 267:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             // initialize first 6 bytes, leave the last 2 random
+ 268:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[0] = mID;
+ 269:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[1] = mID >> 8;
+ 270:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[2] = tv_sec;
+ 271:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[3] = tv_sec >> 8;
+ 272:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[4] = tv_sec >> 16;
+ 273:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[5] = tv_sec >> 24;
+ 274:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             // use just the provided amount of bytes
+ 275:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             coap_set_header_token(transacP->message, temp_token, token_len);
+ 276:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             int i;
+ 277:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             for(i = 0; i < token_len; i++)
+GAS LISTING /tmp/ccVxl2N6.s 			page 14
+
+
+ 278:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 LOG_ARG("send token is %d\n", temp_token[i]);
+ 279:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 280:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 281:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 282:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("Exiting on success");
+ 283:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     return transacP;
+ 315              		.loc 1 283 0
+ 316 01a2 4889D8   		movq	%rbx, %rax
+ 317 01a5 EB7E     		jmp	.L13
+ 318              	.L21:
+ 319              	.LBB9:
+ 265:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 320              		.loc 1 265 0
+ 321 01a7 E8000000 		call	lwm2m_gettime
+ 321      00
+ 322              	.LVL35:
+ 268:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[1] = mID >> 8;
+ 323              		.loc 1 268 0
+ 324 01ac 44886C24 		movb	%r13b, 16(%rsp)
+ 324      10
+ 269:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[2] = tv_sec;
+ 325              		.loc 1 269 0
+ 326 01b1 6641C1ED 		shrw	$8, %r13w
+ 326      08
+ 327 01b6 44886C24 		movb	%r13b, 17(%rsp)
+ 327      11
+ 270:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[3] = tv_sec >> 8;
+ 328              		.loc 1 270 0
+ 329 01bb 88442412 		movb	%al, 18(%rsp)
+ 271:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[4] = tv_sec >> 16;
+ 330              		.loc 1 271 0
+ 331 01bf 4889C2   		movq	%rax, %rdx
+ 332 01c2 48C1FA08 		sarq	$8, %rdx
+ 333 01c6 88542413 		movb	%dl, 19(%rsp)
+ 272:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             temp_token[5] = tv_sec >> 24;
+ 334              		.loc 1 272 0
+ 335 01ca 4889C2   		movq	%rax, %rdx
+ 336 01cd 48C1FA10 		sarq	$16, %rdx
+ 337 01d1 88542414 		movb	%dl, 20(%rsp)
+ 273:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             // use just the provided amount of bytes
+ 338              		.loc 1 273 0
+ 339 01d5 48C1F818 		sarq	$24, %rax
+ 340              	.LVL36:
+ 341 01d9 88442415 		movb	%al, 21(%rsp)
+ 275:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             int i;
+ 342              		.loc 1 275 0
+ 343 01dd 488B7B38 		movq	56(%rbx), %rdi
+ 344 01e1 410FB6D7 		movzbl	%r15b, %edx
+ 345 01e5 488D7424 		leaq	16(%rsp), %rsi
+ 345      10
+ 346 01ea E8000000 		call	coap_set_header_token
+ 346      00
+ 347              	.LVL37:
+ 277:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 LOG_ARG("send token is %d\n", temp_token[i]);
+ 348              		.loc 1 277 0
+ 349 01ef B8000000 		movl	$0, %eax
+ 349      00
+GAS LISTING /tmp/ccVxl2N6.s 			page 15
+
+
+ 350 01f4 EB03     		jmp	.L22
+ 351              	.LVL38:
+ 352              	.L23:
+ 277:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 LOG_ARG("send token is %d\n", temp_token[i]);
+ 353              		.loc 1 277 0 is_stmt 0 discriminator 3
+ 354 01f6 83C001   		addl	$1, %eax
+ 355              	.LVL39:
+ 356              	.L22:
+ 277:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 LOG_ARG("send token is %d\n", temp_token[i]);
+ 357              		.loc 1 277 0 discriminator 1
+ 358 01f9 410FB6D7 		movzbl	%r15b, %edx
+ 359 01fd 39D0     		cmpl	%edx, %eax
+ 360 01ff 7CF5     		jl	.L23
+ 361              	.LBE9:
+ 362              		.loc 1 283 0 is_stmt 1
+ 363 0201 4889D8   		movq	%rbx, %rax
+ 364              	.LVL40:
+ 365 0204 EB1F     		jmp	.L13
+ 366              	.L14:
+ 284:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 285:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** error:
+ 286:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("Exiting on failure");
+ 287:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_free(transacP);
+ 367              		.loc 1 287 0
+ 368 0206 4889DF   		movq	%rbx, %rdi
+ 369 0209 E8000000 		call	lwm2m_free
+ 369      00
+ 370              	.LVL41:
+ 288:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     return NULL;
+ 371              		.loc 1 288 0
+ 372 020e B8000000 		movl	$0, %eax
+ 372      00
+ 373 0213 EB10     		jmp	.L13
+ 374              	.LVL42:
+ 375              	.L24:
+ 376              	.LCFI15:
+ 377              		.cfi_def_cfa_offset 8
+ 378              		.cfi_restore 3
+ 379              		.cfi_restore 6
+ 380              		.cfi_restore 12
+ 381              		.cfi_restore 13
+ 382              		.cfi_restore 14
+ 383              		.cfi_restore 15
+ 203:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 384              		.loc 1 203 0
+ 385 0215 B8000000 		movl	$0, %eax
+ 385      00
+ 289:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 386              		.loc 1 289 0
+ 387 021a C3       		ret
+ 388              	.LVL43:
+ 389              	.L25:
+ 390              	.LCFI16:
+ 391              		.cfi_def_cfa_offset 96
+ 392              		.cfi_offset 3, -56
+ 393              		.cfi_offset 6, -48
+ 394              		.cfi_offset 12, -40
+GAS LISTING /tmp/ccVxl2N6.s 			page 16
+
+
+ 395              		.cfi_offset 13, -32
+ 396              		.cfi_offset 14, -24
+ 397              		.cfi_offset 15, -16
+ 207:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     memset(transacP, 0, sizeof(lwm2m_transaction_t));
+ 398              		.loc 1 207 0
+ 399 021b B8000000 		movl	$0, %eax
+ 399      00
+ 400              	.LVL44:
+ 401 0220 EB03     		jmp	.L13
+ 402              	.L26:
+ 283:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 403              		.loc 1 283 0
+ 404 0222 4889D8   		movq	%rbx, %rax
+ 405              	.L13:
+ 406              		.loc 1 289 0
+ 407 0225 4883C428 		addq	$40, %rsp
+ 408              	.LCFI17:
+ 409              		.cfi_def_cfa_offset 56
+ 410 0229 5B       		popq	%rbx
+ 411              	.LCFI18:
+ 412              		.cfi_restore 3
+ 413              		.cfi_def_cfa_offset 48
+ 414              	.LVL45:
+ 415 022a 5D       		popq	%rbp
+ 416              	.LCFI19:
+ 417              		.cfi_restore 6
+ 418              		.cfi_def_cfa_offset 40
+ 419              	.LVL46:
+ 420 022b 415C     		popq	%r12
+ 421              	.LCFI20:
+ 422              		.cfi_restore 12
+ 423              		.cfi_def_cfa_offset 32
+ 424              	.LVL47:
+ 425 022d 415D     		popq	%r13
+ 426              	.LCFI21:
+ 427              		.cfi_restore 13
+ 428              		.cfi_def_cfa_offset 24
+ 429 022f 415E     		popq	%r14
+ 430              	.LCFI22:
+ 431              		.cfi_restore 14
+ 432              		.cfi_def_cfa_offset 16
+ 433              	.LVL48:
+ 434 0231 415F     		popq	%r15
+ 435              	.LCFI23:
+ 436              		.cfi_restore 15
+ 437              		.cfi_def_cfa_offset 8
+ 438              	.LVL49:
+ 439 0233 C3       		ret
+ 440              		.cfi_endproc
+ 441              	.LFE64:
+ 443              		.section	.text.transaction_free,"ax",@progbits
+ 444              		.globl	transaction_free
+ 446              	transaction_free:
+ 447              	.LFB65:
+ 290:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 291:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** void transaction_free(lwm2m_transaction_t *transacP)
+ 292:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+GAS LISTING /tmp/ccVxl2N6.s 			page 17
+
+
+ 448              		.loc 1 292 0
+ 449              		.cfi_startproc
+ 450              	.LVL50:
+ 451 0000 53       		pushq	%rbx
+ 452              	.LCFI24:
+ 453              		.cfi_def_cfa_offset 16
+ 454              		.cfi_offset 3, -16
+ 455 0001 4889FB   		movq	%rdi, %rbx
+ 293:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("Entering");
+ 294:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (transacP->message)
+ 456              		.loc 1 294 0
+ 457 0004 488B7F38 		movq	56(%rdi), %rdi
+ 458              	.LVL51:
+ 459 0008 4885FF   		testq	%rdi, %rdi
+ 460 000b 740E     		je	.L29
+ 295:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 296:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         coap_free_header(transacP->message);
+ 461              		.loc 1 296 0
+ 462 000d E8000000 		call	coap_free_header
+ 462      00
+ 463              	.LVL52:
+ 297:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         lwm2m_free(transacP->message);
+ 464              		.loc 1 297 0
+ 465 0012 488B7B38 		movq	56(%rbx), %rdi
+ 466 0016 E8000000 		call	lwm2m_free
+ 466      00
+ 467              	.LVL53:
+ 468              	.L29:
+ 298:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 299:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 300:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (transacP->buffer) lwm2m_free(transacP->buffer);
+ 469              		.loc 1 300 0
+ 470 001b 488B7B48 		movq	72(%rbx), %rdi
+ 471 001f 4885FF   		testq	%rdi, %rdi
+ 472 0022 7405     		je	.L30
+ 473              		.loc 1 300 0 is_stmt 0 discriminator 1
+ 474 0024 E8000000 		call	lwm2m_free
+ 474      00
+ 475              	.LVL54:
+ 476              	.L30:
+ 301:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_free(transacP);
+ 477              		.loc 1 301 0 is_stmt 1
+ 478 0029 4889DF   		movq	%rbx, %rdi
+ 479 002c E8000000 		call	lwm2m_free
+ 479      00
+ 480              	.LVL55:
+ 302:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 481              		.loc 1 302 0
+ 482 0031 5B       		popq	%rbx
+ 483              	.LCFI25:
+ 484              		.cfi_def_cfa_offset 8
+ 485              	.LVL56:
+ 486 0032 C3       		ret
+ 487              		.cfi_endproc
+ 488              	.LFE65:
+ 490              		.section	.text.transaction_remove,"ax",@progbits
+ 491              		.globl	transaction_remove
+GAS LISTING /tmp/ccVxl2N6.s 			page 18
+
+
+ 493              	transaction_remove:
+ 494              	.LFB66:
+ 303:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 304:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** void transaction_remove(lwm2m_context_t *contextP,
+ 305:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         lwm2m_transaction_t *transacP)
+ 306:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+ 495              		.loc 1 306 0
+ 496              		.cfi_startproc
+ 497              	.LVL57:
+ 498 0000 55       		pushq	%rbp
+ 499              	.LCFI26:
+ 500              		.cfi_def_cfa_offset 16
+ 501              		.cfi_offset 6, -16
+ 502 0001 53       		pushq	%rbx
+ 503              	.LCFI27:
+ 504              		.cfi_def_cfa_offset 24
+ 505              		.cfi_offset 3, -24
+ 506 0002 4883EC08 		subq	$8, %rsp
+ 507              	.LCFI28:
+ 508              		.cfi_def_cfa_offset 32
+ 509 0006 4889FD   		movq	%rdi, %rbp
+ 510 0009 4889F3   		movq	%rsi, %rbx
+ 307:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("Entering");
+ 308:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     contextP->transactionList = (lwm2m_transaction_t *) LWM2M_LIST_RM(contextP->transactionList, tr
+ 511              		.loc 1 308 0
+ 512 000c 488B7F58 		movq	88(%rdi), %rdi
+ 513              	.LVL58:
+ 514 0010 0FB77608 		movzwl	8(%rsi), %esi
+ 515              	.LVL59:
+ 516 0014 BA000000 		movl	$0, %edx
+ 516      00
+ 517 0019 E8000000 		call	lwm2m_list_remove
+ 517      00
+ 518              	.LVL60:
+ 519 001e 48894558 		movq	%rax, 88(%rbp)
+ 309:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transaction_free(transacP);
+ 520              		.loc 1 309 0
+ 521 0022 4889DF   		movq	%rbx, %rdi
+ 522 0025 E8000000 		call	transaction_free
+ 522      00
+ 523              	.LVL61:
+ 310:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 524              		.loc 1 310 0
+ 525 002a 4883C408 		addq	$8, %rsp
+ 526              	.LCFI29:
+ 527              		.cfi_def_cfa_offset 24
+ 528 002e 5B       		popq	%rbx
+ 529              	.LCFI30:
+ 530              		.cfi_def_cfa_offset 16
+ 531              	.LVL62:
+ 532 002f 5D       		popq	%rbp
+ 533              	.LCFI31:
+ 534              		.cfi_def_cfa_offset 8
+ 535              	.LVL63:
+ 536 0030 C3       		ret
+ 537              		.cfi_endproc
+ 538              	.LFE66:
+GAS LISTING /tmp/ccVxl2N6.s 			page 19
+
+
+ 540              		.section	.text.transaction_handleResponse,"ax",@progbits
+ 541              		.globl	transaction_handleResponse
+ 543              	transaction_handleResponse:
+ 544              	.LFB67:
+ 311:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 312:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** bool transaction_handleResponse(lwm2m_context_t *contextP,
+ 313:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                 void *fromSessionH,
+ 314:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                 coap_packet_t *message,
+ 315:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                                 coap_packet_t *response)
+ 316:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+ 545              		.loc 1 316 0
+ 546              		.cfi_startproc
+ 547              	.LVL64:
+ 548 0000 4157     		pushq	%r15
+ 549              	.LCFI32:
+ 550              		.cfi_def_cfa_offset 16
+ 551              		.cfi_offset 15, -16
+ 552 0002 4156     		pushq	%r14
+ 553              	.LCFI33:
+ 554              		.cfi_def_cfa_offset 24
+ 555              		.cfi_offset 14, -24
+ 556 0004 4155     		pushq	%r13
+ 557              	.LCFI34:
+ 558              		.cfi_def_cfa_offset 32
+ 559              		.cfi_offset 13, -32
+ 560 0006 4154     		pushq	%r12
+ 561              	.LCFI35:
+ 562              		.cfi_def_cfa_offset 40
+ 563              		.cfi_offset 12, -40
+ 564 0008 55       		pushq	%rbp
+ 565              	.LCFI36:
+ 566              		.cfi_def_cfa_offset 48
+ 567              		.cfi_offset 6, -48
+ 568 0009 53       		pushq	%rbx
+ 569              	.LCFI37:
+ 570              		.cfi_def_cfa_offset 56
+ 571              		.cfi_offset 3, -56
+ 572 000a 4883EC18 		subq	$24, %rsp
+ 573              	.LCFI38:
+ 574              		.cfi_def_cfa_offset 80
+ 575 000e 4989FC   		movq	%rdi, %r12
+ 576 0011 4989F5   		movq	%rsi, %r13
+ 577 0014 4989D6   		movq	%rdx, %r14
+ 578 0017 48894C24 		movq	%rcx, 8(%rsp)
+ 578      08
+ 579              	.LVL65:
+ 317:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     bool found = false;
+ 318:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     bool reset = false;
+ 319:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_transaction_t *transacP;
+ 320:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 321:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG_ARG("Entering,message->code: %d", message->code);
+ 322:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transacP = contextP->transactionList;
+ 580              		.loc 1 322 0
+ 581 001c 488B5F58 		movq	88(%rdi), %rbx
+ 582              	.LVL66:
+ 318:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_transaction_t *transacP;
+ 583              		.loc 1 318 0
+GAS LISTING /tmp/ccVxl2N6.s 			page 20
+
+
+ 584 0020 41BF0000 		movl	$0, %r15d
+ 584      0000
+ 317:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     bool found = false;
+ 585              		.loc 1 317 0
+ 586 0026 C6442407 		movb	$0, 7(%rsp)
+ 586      00
+ 323:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 324:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     while (NULL != transacP)
+ 587              		.loc 1 324 0
+ 588 002b E9050100 		jmp	.L35
+ 588      00
+ 589              	.LVL67:
+ 590              	.L46:
+ 325:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 326:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (lwm2m_session_is_equal(fromSessionH, transacP->peerH, contextP->userData) == true)
+ 591              		.loc 1 326 0
+ 592 0030 498B5424 		movq	96(%r12), %rdx
+ 592      60
+ 593 0035 488B7310 		movq	16(%rbx), %rsi
+ 594 0039 4C89EF   		movq	%r13, %rdi
+ 595 003c E8000000 		call	lwm2m_session_is_equal
+ 595      00
+ 596              	.LVL68:
+ 597 0041 89C5     		movl	%eax, %ebp
+ 598 0043 84C0     		testb	%al, %al
+ 599 0045 0F84E700 		je	.L36
+ 599      0000
+ 327:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 328:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (!transacP->ack_received)
+ 600              		.loc 1 328 0
+ 601 004b 807B1800 		cmpb	$0, 24(%rbx)
+ 602 004f 7529     		jne	.L37
+ 329:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 330:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 if ((COAP_TYPE_ACK == message->type) || (COAP_TYPE_RST == message->type))
+ 603              		.loc 1 330 0
+ 604 0051 418B460C 		movl	12(%r14), %eax
+ 605 0055 83E802   		subl	$2, %eax
+ 606 0058 83F801   		cmpl	$1, %eax
+ 607 005b 771D     		ja	.L37
+ 331:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 {
+ 332:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     if (transacP->mID == message->mid)
+ 608              		.loc 1 332 0
+ 609 005d 410FB746 		movzwl	18(%r14), %eax
+ 609      12
+ 610 0062 66394308 		cmpw	%ax, 8(%rbx)
+ 611 0066 7512     		jne	.L37
+ 612              	.LVL69:
+ 333:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     {
+ 334:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         found = true;
+ 335:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         transacP->ack_received = true;
+ 613              		.loc 1 335 0
+ 614 0068 C6431801 		movb	$1, 24(%rbx)
+ 336:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         reset = COAP_TYPE_RST == message->type;
+ 615              		.loc 1 336 0
+ 616 006c 41837E0C 		cmpl	$3, 12(%r14)
+ 616      03
+ 617 0071 410F94C7 		sete	%r15b
+GAS LISTING /tmp/ccVxl2N6.s 			page 21
+
+
+ 618              	.LVL70:
+ 334:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         transacP->ack_received = true;
+ 619              		.loc 1 334 0
+ 620 0075 C6442407 		movb	$1, 7(%rsp)
+ 620      01
+ 621              	.LVL71:
+ 622              	.L37:
+ 337:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     }
+ 338:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 }
+ 339:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 340:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 341:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (reset || prv_checkFinished(transacP, message))
+ 623              		.loc 1 341 0
+ 624 007a 4584FF   		testb	%r15b, %r15b
+ 625 007d 750F     		jne	.L38
+ 626              		.loc 1 341 0 is_stmt 0 discriminator 1
+ 627 007f 4C89F6   		movq	%r14, %rsi
+ 628 0082 4889DF   		movq	%rbx, %rdi
+ 629 0085 E8000000 		call	prv_checkFinished
+ 629      00
+ 630              	.LVL72:
+ 631 008a 85C0     		testl	%eax, %eax
+ 632 008c 7471     		je	.L39
+ 633              	.L38:
+ 342:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 343:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 // HACK: If a message is sent from the monitor callback,
+ 344:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 // it will arrive before the registration ACK.
+ 345:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 // So we resend transaction that were denied for authentication reason.
+ 346:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 if (!reset)
+ 634              		.loc 1 346 0 is_stmt 1
+ 635 008e 4584FF   		testb	%r15b, %r15b
+ 636 0091 754E     		jne	.L40
+ 347:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 {
+ 348:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     if (COAP_TYPE_CON == message->type && NULL != response)
+ 637              		.loc 1 348 0
+ 638 0093 41837E0C 		cmpl	$0, 12(%r14)
+ 638      00
+ 639 0098 752F     		jne	.L41
+ 640              		.loc 1 348 0 is_stmt 0 discriminator 1
+ 641 009a 4C8B7C24 		movq	8(%rsp), %r15
+ 641      08
+ 642              	.LVL73:
+ 643 009f 4D85FF   		testq	%r15, %r15
+ 644 00a2 7425     		je	.L41
+ 349:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     {
+ 350:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         coap_init_message(response, COAP_TYPE_ACK, 0, message->mid);
+ 645              		.loc 1 350 0 is_stmt 1
+ 646 00a4 410FB74E 		movzwl	18(%r14), %ecx
+ 646      12
+ 647 00a9 BA000000 		movl	$0, %edx
+ 647      00
+ 648 00ae BE020000 		movl	$2, %esi
+ 648      00
+ 649 00b3 4C89FF   		movq	%r15, %rdi
+ 650 00b6 E8000000 		call	coap_init_message
+ 650      00
+ 651              	.LVL74:
+GAS LISTING /tmp/ccVxl2N6.s 			page 22
+
+
+ 351:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         message_send(contextP, response, fromSessionH);
+ 652              		.loc 1 351 0
+ 653 00bb 4C89EA   		movq	%r13, %rdx
+ 654 00be 4C89FE   		movq	%r15, %rsi
+ 655 00c1 4C89E7   		movq	%r12, %rdi
+ 656 00c4 E8000000 		call	message_send
+ 656      00
+ 657              	.LVL75:
+ 658              	.L41:
+ 352:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     }
+ 353:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 354:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     if ((COAP_401_UNAUTHORIZED == message->code) && (COAP_MAX_RETRANSMIT > transacP
+ 659              		.loc 1 354 0
+ 660 00c9 41807E10 		cmpb	$-127, 16(%r14)
+ 660      81
+ 661 00ce 7511     		jne	.L40
+ 662              		.loc 1 354 0 is_stmt 0 discriminator 1
+ 663 00d0 807B2809 		cmpb	$9, 40(%rbx)
+ 664 00d4 770B     		ja	.L40
+ 355:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     {
+ 356:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         transacP->ack_received = false;
+ 665              		.loc 1 356 0 is_stmt 1
+ 666 00d6 C6431800 		movb	$0, 24(%rbx)
+ 357:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         transacP->retrans_time += COAP_RESPONSE_TIMEOUT;
+ 667              		.loc 1 357 0
+ 668 00da 48834330 		addq	$4, 48(%rbx)
+ 668      04
+ 358:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         LOG("timeout in transaction_handleResponse\n");
+ 359:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                         return true;
+ 669              		.loc 1 359 0
+ 670 00df EB62     		jmp	.L42
+ 671              	.L40:
+ 360:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     }
+ 361:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 }
+ 362:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 if (transacP->callback != NULL)
+ 672              		.loc 1 362 0
+ 673 00e1 488B4360 		movq	96(%rbx), %rax
+ 674 00e5 4885C0   		testq	%rax, %rax
+ 675 00e8 7408     		je	.L43
+ 363:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 {
+ 364:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     transacP->callback(transacP, message);
+ 676              		.loc 1 364 0
+ 677 00ea 4C89F6   		movq	%r14, %rsi
+ 678 00ed 4889DF   		movq	%rbx, %rdi
+ 679 00f0 FFD0     		call	*%rax
+ 680              	.LVL76:
+ 681              	.L43:
+ 365:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 }
+ 366:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 transaction_remove(contextP, transacP);
+ 682              		.loc 1 366 0
+ 683 00f2 4889DE   		movq	%rbx, %rsi
+ 684 00f5 4C89E7   		movq	%r12, %rdi
+ 685 00f8 E8000000 		call	transaction_remove
+ 685      00
+ 686              	.LVL77:
+ 367:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 return true;
+ 687              		.loc 1 367 0
+GAS LISTING /tmp/ccVxl2N6.s 			page 23
+
+
+ 688 00fd EB44     		jmp	.L42
+ 689              	.LVL78:
+ 690              	.L39:
+ 368:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 369:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             // if we found our guy, exit
+ 370:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (found)
+ 691              		.loc 1 370 0
+ 692 00ff 807C2407 		cmpb	$0, 7(%rsp)
+ 692      00
+ 693 0104 742C     		je	.L36
+ 694              	.LBB10:
+ 371:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 372:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 time_t tv_sec = lwm2m_gettime();
+ 695              		.loc 1 372 0
+ 696 0106 E8000000 		call	lwm2m_gettime
+ 696      00
+ 697              	.LVL79:
+ 373:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 if (tv_sec)
+ 698              		.loc 1 373 0
+ 699 010b 4885C0   		testq	%rax, %rax
+ 700 010e 7404     		je	.L44
+ 374:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 {
+ 375:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     transacP->retrans_time = tv_sec;
+ 701              		.loc 1 375 0
+ 702 0110 48894330 		movq	%rax, 48(%rbx)
+ 703              	.L44:
+ 376:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 }
+ 377:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 if (transacP->response_timeout)
+ 704              		.loc 1 377 0
+ 705 0114 488B4320 		movq	32(%rbx), %rax
+ 706              	.LVL80:
+ 707 0118 4885C0   		testq	%rax, %rax
+ 708 011b 7406     		je	.L45
+ 378:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 {
+ 379:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     transacP->retrans_time += transacP->response_timeout;
+ 709              		.loc 1 379 0
+ 710 011d 48014330 		addq	%rax, 48(%rbx)
+ 711 0121 EB20     		jmp	.L42
+ 712              	.L45:
+ 380:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 }
+ 381:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 else
+ 382:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 {
+ 383:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                     transacP->retrans_time += COAP_RESPONSE_TIMEOUT * transacP->retrans_counter;
+ 713              		.loc 1 383 0
+ 714 0123 0FB64328 		movzbl	40(%rbx), %eax
+ 715 0127 C1E002   		sall	$2, %eax
+ 716 012a 4898     		cltq
+ 717 012c 48014330 		addq	%rax, 48(%rbx)
+ 718 0130 EB11     		jmp	.L42
+ 719              	.L36:
+ 720              	.LBE10:
+ 384:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 }
+ 385:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 LOG_ARG("only true25,fromSessionH is %p, transacP->peerH is %p\n", fromSessionH, tr
+ 386:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 return true;
+ 387:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 388:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 389:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         else
+GAS LISTING /tmp/ccVxl2N6.s 			page 24
+
+
+ 390:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 391:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             LOG_ARG("error25,fromSessionH is %p, transacP->peerH is %p\n", fromSessionH, transacP->
+ 392:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 393:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         transacP = transacP->next;
+ 721              		.loc 1 393 0
+ 722 0132 488B1B   		movq	(%rbx), %rbx
+ 723              	.LVL81:
+ 724              	.L35:
+ 324:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 725              		.loc 1 324 0
+ 726 0135 4885DB   		testq	%rbx, %rbx
+ 727 0138 0F85F2FE 		jne	.L46
+ 727      FFFF
+ 394:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 395:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("error25,return false in transaction_handleResponse\n");
+ 396:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     return false;
+ 728              		.loc 1 396 0
+ 729 013e BD000000 		movl	$0, %ebp
+ 729      00
+ 730              	.LVL82:
+ 731              	.L42:
+ 397:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 732              		.loc 1 397 0
+ 733 0143 89E8     		movl	%ebp, %eax
+ 734 0145 4883C418 		addq	$24, %rsp
+ 735              	.LCFI39:
+ 736              		.cfi_def_cfa_offset 56
+ 737 0149 5B       		popq	%rbx
+ 738              	.LCFI40:
+ 739              		.cfi_def_cfa_offset 48
+ 740              	.LVL83:
+ 741 014a 5D       		popq	%rbp
+ 742              	.LCFI41:
+ 743              		.cfi_def_cfa_offset 40
+ 744 014b 415C     		popq	%r12
+ 745              	.LCFI42:
+ 746              		.cfi_def_cfa_offset 32
+ 747              	.LVL84:
+ 748 014d 415D     		popq	%r13
+ 749              	.LCFI43:
+ 750              		.cfi_def_cfa_offset 24
+ 751              	.LVL85:
+ 752 014f 415E     		popq	%r14
+ 753              	.LCFI44:
+ 754              		.cfi_def_cfa_offset 16
+ 755              	.LVL86:
+ 756 0151 415F     		popq	%r15
+ 757              	.LCFI45:
+ 758              		.cfi_def_cfa_offset 8
+ 759 0153 C3       		ret
+ 760              		.cfi_endproc
+ 761              	.LFE67:
+ 763              		.section	.text.transaction_send,"ax",@progbits
+ 764              		.globl	transaction_send
+ 766              	transaction_send:
+ 767              	.LFB68:
+ 398:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** //transacP中对象，除buffer外已经赋值
+GAS LISTING /tmp/ccVxl2N6.s 			page 25
+
+
+ 399:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** int transaction_send(lwm2m_context_t *contextP,
+ 400:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                      lwm2m_transaction_t *transacP)
+ 401:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+ 768              		.loc 1 401 0
+ 769              		.cfi_startproc
+ 770              	.LVL87:
+ 771 0000 4155     		pushq	%r13
+ 772              	.LCFI46:
+ 773              		.cfi_def_cfa_offset 16
+ 774              		.cfi_offset 13, -16
+ 775 0002 4154     		pushq	%r12
+ 776              	.LCFI47:
+ 777              		.cfi_def_cfa_offset 24
+ 778              		.cfi_offset 12, -24
+ 779 0004 55       		pushq	%rbp
+ 780              	.LCFI48:
+ 781              		.cfi_def_cfa_offset 32
+ 782              		.cfi_offset 6, -32
+ 783 0005 53       		pushq	%rbx
+ 784              	.LCFI49:
+ 785              		.cfi_def_cfa_offset 40
+ 786              		.cfi_offset 3, -40
+ 787 0006 4883EC08 		subq	$8, %rsp
+ 788              	.LCFI50:
+ 789              		.cfi_def_cfa_offset 48
+ 790 000a 4989FC   		movq	%rdi, %r12
+ 791 000d 4889F3   		movq	%rsi, %rbx
+ 792              	.LVL88:
+ 402:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     bool maxRetriesReached = false;
+ 403:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_packet_t *message = transacP->message;
+ 793              		.loc 1 403 0
+ 794 0010 488B6E38 		movq	56(%rsi), %rbp
+ 795              	.LVL89:
+ 404:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     int ret;
+ 405:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 406:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("Entering");
+ 407:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 408:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG_ARG("transaction_send: ver %u, type %u, tkl %u, code %u.%.2u, mid %u, Content type: %d",
+ 409:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             message->version, message->type, message->token_len, message->code >> 5, message->code 
+ 410:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG_ARG("time:%llu", atiny_gettime_ms());
+ 411:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (transacP->buffer == NULL)
+ 796              		.loc 1 411 0
+ 797 0014 48837E48 		cmpq	$0, 72(%rsi)
+ 797      00
+ 798 0019 0F858600 		jne	.L49
+ 798      0000
+ 412:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 413:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         transacP->buffer_len = coap_serialize_get_size(message);
+ 799              		.loc 1 413 0
+ 800 001f 4889EF   		movq	%rbp, %rdi
+ 801              	.LVL90:
+ 802 0022 E8000000 		call	coap_serialize_get_size
+ 802      00
+ 803              	.LVL91:
+ 804 0027 66894340 		movw	%ax, 64(%rbx)
+ 414:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (transacP->buffer_len == 0)
+ 805              		.loc 1 414 0
+GAS LISTING /tmp/ccVxl2N6.s 			page 26
+
+
+ 806 002b 6685C0   		testw	%ax, %ax
+ 807 002e 7515     		jne	.L50
+ 415:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 416:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transaction_remove(contextP, transacP);
+ 808              		.loc 1 416 0
+ 809 0030 4889DE   		movq	%rbx, %rsi
+ 810 0033 4C89E7   		movq	%r12, %rdi
+ 811 0036 E8000000 		call	transaction_remove
+ 811      00
+ 812              	.LVL92:
+ 417:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             LOG("remove");
+ 418:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             return COAP_500_INTERNAL_SERVER_ERROR;
+ 813              		.loc 1 418 0
+ 814 003b B8A00000 		movl	$160, %eax
+ 814      00
+ 815 0040 E94B0100 		jmp	.L51
+ 815      00
+ 816              	.L50:
+ 419:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 420:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 421:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         transacP->buffer = (uint8_t *)lwm2m_malloc(transacP->buffer_len);
+ 817              		.loc 1 421 0
+ 818 0045 0FB7F8   		movzwl	%ax, %edi
+ 819 0048 E8000000 		call	lwm2m_malloc
+ 819      00
+ 820              	.LVL93:
+ 821 004d 48894348 		movq	%rax, 72(%rbx)
+ 422:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (transacP->buffer == NULL)
+ 822              		.loc 1 422 0
+ 823 0051 4885C0   		testq	%rax, %rax
+ 824 0054 7515     		jne	.L52
+ 423:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 424:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transaction_remove(contextP, transacP);
+ 825              		.loc 1 424 0
+ 826 0056 4889DE   		movq	%rbx, %rsi
+ 827 0059 4C89E7   		movq	%r12, %rdi
+ 828 005c E8000000 		call	transaction_remove
+ 828      00
+ 829              	.LVL94:
+ 425:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             LOG("remove");
+ 426:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             return COAP_500_INTERNAL_SERVER_ERROR;
+ 830              		.loc 1 426 0
+ 831 0061 B8A00000 		movl	$160, %eax
+ 831      00
+ 832 0066 E9250100 		jmp	.L51
+ 832      00
+ 833              	.L52:
+ 427:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 428:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 429:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         transacP->buffer_len = coap_serialize_message(message, transacP->buffer);
+ 834              		.loc 1 429 0
+ 835 006b 4889C6   		movq	%rax, %rsi
+ 836 006e 4889EF   		movq	%rbp, %rdi
+ 837 0071 E8000000 		call	coap_serialize_message
+ 837      00
+ 838              	.LVL95:
+ 839 0076 66894340 		movw	%ax, 64(%rbx)
+GAS LISTING /tmp/ccVxl2N6.s 			page 27
+
+
+ 430:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (transacP->buffer_len == 0)
+ 840              		.loc 1 430 0
+ 841 007a 6685C0   		testw	%ax, %ax
+ 842 007d 7526     		jne	.L49
+ 431:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 432:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             lwm2m_free(transacP->buffer);
+ 843              		.loc 1 432 0
+ 844 007f 488B7B48 		movq	72(%rbx), %rdi
+ 845 0083 E8000000 		call	lwm2m_free
+ 845      00
+ 846              	.LVL96:
+ 433:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transacP->buffer = NULL;
+ 847              		.loc 1 433 0
+ 848 0088 48C74348 		movq	$0, 72(%rbx)
+ 848      00000000 
+ 434:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transaction_remove(contextP, transacP);
+ 849              		.loc 1 434 0
+ 850 0090 4889DE   		movq	%rbx, %rsi
+ 851 0093 4C89E7   		movq	%r12, %rdi
+ 852 0096 E8000000 		call	transaction_remove
+ 852      00
+ 853              	.LVL97:
+ 435:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             LOG("remove");
+ 436:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             return COAP_500_INTERNAL_SERVER_ERROR;
+ 854              		.loc 1 436 0
+ 855 009b B8A00000 		movl	$160, %eax
+ 855      00
+ 856 00a0 E9EB0000 		jmp	.L51
+ 856      00
+ 857              	.L49:
+ 437:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 438:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 439:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 440:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (!transacP->ack_received)
+ 858              		.loc 1 440 0
+ 859 00a5 807B1800 		cmpb	$0, 24(%rbx)
+ 860 00a9 0F85A000 		jne	.L58
+ 860      0000
+ 861              	.LVL98:
+ 862              	.LBB11:
+ 441:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 442:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         long unsigned timeout = 0;
+ 443:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 444:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (0 == transacP->retrans_counter)
+ 863              		.loc 1 444 0
+ 864 00af 0FB64B28 		movzbl	40(%rbx), %ecx
+ 865 00b3 84C9     		testb	%cl, %cl
+ 866 00b5 7523     		jne	.L54
+ 867              	.LBB12:
+ 445:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 446:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             time_t tv_sec = lwm2m_gettime();
+ 868              		.loc 1 446 0
+ 869 00b7 E8000000 		call	lwm2m_gettime
+ 869      00
+ 870              	.LVL99:
+ 447:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (tv_sec)
+ 871              		.loc 1 447 0
+GAS LISTING /tmp/ccVxl2N6.s 			page 28
+
+
+ 872 00bc 4885C0   		testq	%rax, %rax
+ 873 00bf 7437     		je	.L59
+ 448:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 449:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 transacP->retrans_time = tv_sec + COAP_RESPONSE_TIMEOUT;
+ 874              		.loc 1 449 0
+ 875 00c1 4883C004 		addq	$4, %rax
+ 876              	.LVL100:
+ 877 00c5 48894330 		movq	%rax, 48(%rbx)
+ 450:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 transacP->retrans_counter = 1;
+ 878              		.loc 1 450 0
+ 879 00c9 C6432801 		movb	$1, 40(%rbx)
+ 451:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 timeout = 0;
+ 880              		.loc 1 451 0
+ 881 00cd 41BD0000 		movl	$0, %r13d
+ 881      0000
+ 882              	.LBE12:
+ 883              	.LBE11:
+ 402:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_packet_t *message = transacP->message;
+ 884              		.loc 1 402 0
+ 885 00d3 BD000000 		movl	$0, %ebp
+ 885      00
+ 886              	.LVL101:
+ 887              	.LBB15:
+ 888              	.LBB13:
+ 889 00d8 EB36     		jmp	.L55
+ 890              	.LVL102:
+ 891              	.L54:
+ 892              	.LBE13:
+ 452:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 453:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             else
+ 454:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 455:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 maxRetriesReached = true;
+ 456:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 457:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 458:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         else
+ 459:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 460:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if(transacP->retrans_counter <= 4 )
+ 893              		.loc 1 460 0
+ 894 00da 80F904   		cmpb	$4, %cl
+ 895 00dd 7726     		ja	.L60
+ 461:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 timeout = COAP_RESPONSE_TIMEOUT << (transacP->retrans_counter - 1);
+ 896              		.loc 1 461 0
+ 897 00df 0FB6C9   		movzbl	%cl, %ecx
+ 898 00e2 83E901   		subl	$1, %ecx
+ 899 00e5 41BD0400 		movl	$4, %r13d
+ 899      0000
+ 900 00eb 41D3E5   		sall	%cl, %r13d
+ 901 00ee 4D63ED   		movslq	%r13d, %r13
+ 902              	.LVL103:
+ 903              	.LBE15:
+ 402:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_packet_t *message = transacP->message;
+ 904              		.loc 1 402 0
+ 905 00f1 BD000000 		movl	$0, %ebp
+ 905      00
+ 906              	.LVL104:
+ 907              	.LBB16:
+ 908 00f6 EB18     		jmp	.L55
+GAS LISTING /tmp/ccVxl2N6.s 			page 29
+
+
+ 909              	.LVL105:
+ 910              	.L59:
+ 442:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 911              		.loc 1 442 0
+ 912 00f8 41BD0000 		movl	$0, %r13d
+ 912      0000
+ 913              	.LBB14:
+ 455:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 914              		.loc 1 455 0
+ 915 00fe BD010000 		movl	$1, %ebp
+ 915      00
+ 916              	.LVL106:
+ 917 0103 EB0B     		jmp	.L55
+ 918              	.LVL107:
+ 919              	.L60:
+ 920              	.LBE14:
+ 462:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             else
+ 463:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 timeout = COAP_RESPONSE_TIMEOUT << (4 - 1);
+ 921              		.loc 1 463 0
+ 922 0105 41BD2000 		movl	$32, %r13d
+ 922      0000
+ 923              	.LBE16:
+ 402:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_packet_t *message = transacP->message;
+ 924              		.loc 1 402 0
+ 925 010b BD000000 		movl	$0, %ebp
+ 925      00
+ 926              	.LVL108:
+ 927              	.L55:
+ 928              	.LBB17:
+ 464:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 465:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 466:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (COAP_MAX_RETRANSMIT + 1 >= transacP->retrans_counter)
+ 929              		.loc 1 466 0
+ 930 0110 807B280B 		cmpb	$11, 40(%rbx)
+ 931 0114 7740     		ja	.L61
+ 467:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 468:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             ret = lwm2m_buffer_send(transacP->peerH, transacP->buffer, transacP->buffer_len, contex
+ 932              		.loc 1 468 0
+ 933 0116 498B4C24 		movq	96(%r12), %rcx
+ 933      60
+ 934 011b 0FB75340 		movzwl	64(%rbx), %edx
+ 935 011f 488B7348 		movq	72(%rbx), %rsi
+ 936 0123 488B7B10 		movq	16(%rbx), %rdi
+ 937 0127 E8000000 		call	lwm2m_buffer_send
+ 937      00
+ 938              	.LVL109:
+ 469:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             output_buffer(stderr, (uint8_t *)(transacP->buffer), transacP->buffer_len, 0);
+ 939              		.loc 1 469 0
+ 940 012c 0FB75340 		movzwl	64(%rbx), %edx
+ 941 0130 488B7348 		movq	72(%rbx), %rsi
+ 942 0134 B9000000 		movl	$0, %ecx
+ 942      00
+ 943 0139 488B3D00 		movq	stderr(%rip), %rdi
+ 943      000000
+ 944 0140 E8000000 		call	output_buffer
+ 944      00
+ 945              	.LVL110:
+GAS LISTING /tmp/ccVxl2N6.s 			page 30
+
+
+ 470:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transacP->retrans_time += timeout;
+ 946              		.loc 1 470 0
+ 947 0145 4C016B30 		addq	%r13, 48(%rbx)
+ 471:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             LOG_ARG("send result is %d, retrans_counter:%d", ret, transacP->retrans_counter);
+ 472:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transacP->retrans_counter += 1;
+ 948              		.loc 1 472 0
+ 949 0149 80432801 		addb	$1, 40(%rbx)
+ 950 014d EB0C     		jmp	.L53
+ 951              	.LVL111:
+ 952              	.L58:
+ 953              	.LBE17:
+ 402:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     coap_packet_t *message = transacP->message;
+ 954              		.loc 1 402 0
+ 955 014f BD000000 		movl	$0, %ebp
+ 955      00
+ 956              	.LVL112:
+ 957 0154 EB05     		jmp	.L53
+ 958              	.LVL113:
+ 959              	.L61:
+ 960              	.LBB18:
+ 473:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 474:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             UNUSEX(ret);
+ 475:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 476:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         else
+ 477:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 478:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             maxRetriesReached = true;
+ 961              		.loc 1 478 0
+ 962 0156 BD010000 		movl	$1, %ebp
+ 962      00
+ 963              	.LVL114:
+ 964              	.L53:
+ 965              	.LBE18:
+ 479:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 480:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 481:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 482:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     if (transacP->ack_received || maxRetriesReached)
+ 966              		.loc 1 482 0
+ 967 015b 807B1800 		cmpb	$0, 24(%rbx)
+ 968 015f 7505     		jne	.L56
+ 969              		.loc 1 482 0 is_stmt 0 discriminator 1
+ 970 0161 4084ED   		testb	%bpl, %bpl
+ 971 0164 7425     		je	.L62
+ 972              	.L56:
+ 483:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 484:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (transacP->callback)
+ 973              		.loc 1 484 0 is_stmt 1
+ 974 0166 488B4360 		movq	96(%rbx), %rax
+ 975 016a 4885C0   		testq	%rax, %rax
+ 976 016d 740A     		je	.L57
+ 485:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 486:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             transacP->callback(transacP, NULL);
+ 977              		.loc 1 486 0
+ 978 016f BE000000 		movl	$0, %esi
+ 978      00
+ 979 0174 4889DF   		movq	%rbx, %rdi
+ 980 0177 FFD0     		call	*%rax
+ 981              	.LVL115:
+GAS LISTING /tmp/ccVxl2N6.s 			page 31
+
+
+ 982              	.L57:
+ 487:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 488:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         transaction_remove(contextP, transacP);
+ 983              		.loc 1 488 0
+ 984 0179 4889DE   		movq	%rbx, %rsi
+ 985 017c 4C89E7   		movq	%r12, %rdi
+ 986 017f E8000000 		call	transaction_remove
+ 986      00
+ 987              	.LVL116:
+ 489:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         LOG_ARG("remove, ACK:%d, timeout: %d", transacP->ack_received, maxRetriesReached);
+ 490:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         return -1;
+ 988              		.loc 1 490 0
+ 989 0184 B8FFFFFF 		movl	$-1, %eax
+ 989      FF
+ 990 0189 EB05     		jmp	.L51
+ 991              	.L62:
+ 491:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 492:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 493:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     return 0;
+ 992              		.loc 1 493 0
+ 993 018b B8000000 		movl	$0, %eax
+ 993      00
+ 994              	.LVL117:
+ 995              	.L51:
+ 494:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 996              		.loc 1 494 0
+ 997 0190 4883C408 		addq	$8, %rsp
+ 998              	.LCFI51:
+ 999              		.cfi_def_cfa_offset 40
+ 1000 0194 5B       		popq	%rbx
+ 1001              	.LCFI52:
+ 1002              		.cfi_def_cfa_offset 32
+ 1003              	.LVL118:
+ 1004 0195 5D       		popq	%rbp
+ 1005              	.LCFI53:
+ 1006              		.cfi_def_cfa_offset 24
+ 1007 0196 415C     		popq	%r12
+ 1008              	.LCFI54:
+ 1009              		.cfi_def_cfa_offset 16
+ 1010              	.LVL119:
+ 1011 0198 415D     		popq	%r13
+ 1012              	.LCFI55:
+ 1013              		.cfi_def_cfa_offset 8
+ 1014 019a C3       		ret
+ 1015              		.cfi_endproc
+ 1016              	.LFE68:
+ 1018              		.section	.text.transaction_step,"ax",@progbits
+ 1019              		.globl	transaction_step
+ 1021              	transaction_step:
+ 1022              	.LFB69:
+ 495:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 496:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** void transaction_step(lwm2m_context_t *contextP,
+ 497:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                       time_t currentTime,
+ 498:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                       time_t *timeoutP)
+ 499:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** {
+ 1023              		.loc 1 499 0
+ 1024              		.cfi_startproc
+GAS LISTING /tmp/ccVxl2N6.s 			page 32
+
+
+ 1025              	.LVL120:
+ 1026 0000 4156     		pushq	%r14
+ 1027              	.LCFI56:
+ 1028              		.cfi_def_cfa_offset 16
+ 1029              		.cfi_offset 14, -16
+ 1030 0002 4155     		pushq	%r13
+ 1031              	.LCFI57:
+ 1032              		.cfi_def_cfa_offset 24
+ 1033              		.cfi_offset 13, -24
+ 1034 0004 4154     		pushq	%r12
+ 1035              	.LCFI58:
+ 1036              		.cfi_def_cfa_offset 32
+ 1037              		.cfi_offset 12, -32
+ 1038 0006 55       		pushq	%rbp
+ 1039              	.LCFI59:
+ 1040              		.cfi_def_cfa_offset 40
+ 1041              		.cfi_offset 6, -40
+ 1042 0007 53       		pushq	%rbx
+ 1043              	.LCFI60:
+ 1044              		.cfi_def_cfa_offset 48
+ 1045              		.cfi_offset 3, -48
+ 1046 0008 4989FE   		movq	%rdi, %r14
+ 1047 000b 4989F4   		movq	%rsi, %r12
+ 1048 000e 4989D5   		movq	%rdx, %r13
+ 500:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     lwm2m_transaction_t *transacP;
+ 501:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 502:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     LOG("Entering");
+ 503:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     transacP = contextP->transactionList;
+ 1049              		.loc 1 503 0
+ 1050 0011 488B5F58 		movq	88(%rdi), %rbx
+ 1051              	.LVL121:
+ 504:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     while (transacP != NULL)
+ 1052              		.loc 1 504 0
+ 1053 0015 EB49     		jmp	.L65
+ 1054              	.LVL122:
+ 1055              	.L70:
+ 1056              	.LBB19:
+ 505:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 506:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         // transaction_send() may remove transaction from the linked list
+ 507:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         lwm2m_transaction_t *nextP = transacP->next;
+ 1057              		.loc 1 507 0
+ 1058 0017 488B2B   		movq	(%rbx), %rbp
+ 1059              	.LVL123:
+ 508:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         int removed = 0;
+ 509:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 510:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (transacP->retrans_time <= currentTime)
+ 1060              		.loc 1 510 0
+ 1061 001a 4C396330 		cmpq	%r12, 48(%rbx)
+ 1062 001e 7F0D     		jg	.L71
+ 511:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 512:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             removed = transaction_send(contextP, transacP);
+ 1063              		.loc 1 512 0
+ 1064 0020 4889DE   		movq	%rbx, %rsi
+ 1065 0023 4C89F7   		movq	%r14, %rdi
+ 1066 0026 E8000000 		call	transaction_send
+ 1066      00
+ 1067              	.LVL124:
+GAS LISTING /tmp/ccVxl2N6.s 			page 33
+
+
+ 1068 002b EB05     		jmp	.L66
+ 1069              	.LVL125:
+ 1070              	.L71:
+ 508:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         int removed = 0;
+ 1071              		.loc 1 508 0
+ 1072 002d B8000000 		movl	$0, %eax
+ 1072      00
+ 1073              	.LVL126:
+ 1074              	.L66:
+ 513:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 514:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 515:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         if (0 == removed)
+ 1075              		.loc 1 515 0
+ 1076 0032 85C0     		testl	%eax, %eax
+ 1077 0034 751F     		jne	.L67
+ 1078              	.LBB20:
+ 516:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 517:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             time_t interval;
+ 518:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 519:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (transacP->retrans_time > currentTime)
+ 1079              		.loc 1 519 0
+ 1080 0036 488B4330 		movq	48(%rbx), %rax
+ 1081              	.LVL127:
+ 1082 003a 4939C4   		cmpq	%rax, %r12
+ 1083 003d 7D05     		jge	.L72
+ 520:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 521:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 interval = transacP->retrans_time - currentTime;
+ 1084              		.loc 1 521 0
+ 1085 003f 4C29E0   		subq	%r12, %rax
+ 1086              	.LVL128:
+ 1087 0042 EB05     		jmp	.L68
+ 1088              	.LVL129:
+ 1089              	.L72:
+ 522:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 523:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             else
+ 524:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 525:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 interval = 1;
+ 1090              		.loc 1 525 0
+ 1091 0044 B8010000 		movl	$1, %eax
+ 1091      00
+ 1092              	.L68:
+ 1093              	.LVL130:
+ 526:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 527:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 528:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             if (*timeoutP > interval)
+ 1094              		.loc 1 528 0
+ 1095 0049 493B4500 		cmpq	0(%r13), %rax
+ 1096 004d 7D0E     		jge	.L69
+ 529:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             {
+ 530:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****                 *timeoutP = interval;
+ 1097              		.loc 1 530 0
+ 1098 004f 49894500 		movq	%rax, 0(%r13)
+ 1099 0053 EB08     		jmp	.L69
+ 1100              	.LVL131:
+ 1101              	.L67:
+ 1102              	.LBE20:
+ 531:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+GAS LISTING /tmp/ccVxl2N6.s 			page 34
+
+
+ 532:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 533:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         else
+ 534:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         {
+ 535:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             *timeoutP = 1;
+ 1103              		.loc 1 535 0
+ 1104 0055 49C74500 		movq	$1, 0(%r13)
+ 1104      01000000 
+ 1105              	.LVL132:
+ 1106              	.L69:
+ 1107              	.LBB21:
+ 525:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****             }
+ 1108              		.loc 1 525 0
+ 1109 005d 4889EB   		movq	%rbp, %rbx
+ 1110              	.LVL133:
+ 1111              	.L65:
+ 1112              	.LBE21:
+ 1113              	.LBE19:
+ 504:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     {
+ 1114              		.loc 1 504 0
+ 1115 0060 4885DB   		testq	%rbx, %rbx
+ 1116 0063 75B2     		jne	.L70
+ 536:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         }
+ 537:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** 
+ 538:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****         transacP = nextP;
+ 539:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c ****     }
+ 540:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/transaction.c **** }
+ 1117              		.loc 1 540 0
+ 1118 0065 5B       		popq	%rbx
+ 1119              	.LCFI61:
+ 1120              		.cfi_def_cfa_offset 40
+ 1121              	.LVL134:
+ 1122 0066 5D       		popq	%rbp
+ 1123              	.LCFI62:
+ 1124              		.cfi_def_cfa_offset 32
+ 1125 0067 415C     		popq	%r12
+ 1126              	.LCFI63:
+ 1127              		.cfi_def_cfa_offset 24
+ 1128              	.LVL135:
+ 1129 0069 415D     		popq	%r13
+ 1130              	.LCFI64:
+ 1131              		.cfi_def_cfa_offset 16
+ 1132              	.LVL136:
+ 1133 006b 415E     		popq	%r14
+ 1134              	.LCFI65:
+ 1135              		.cfi_def_cfa_offset 8
+ 1136              	.LVL137:
+ 1137 006d C3       		ret
+ 1138              		.cfi_endproc
+ 1139              	.LFE69:
+ 1141              		.text
+ 1142              	.Letext0:
+ 1143              		.file 3 "/usr/include/stdint.h"
+ 1144              		.file 4 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h"
+ 1145              		.file 5 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 1146              		.file 6 "/usr/include/time.h"
+ 1147              		.file 7 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/er-coap-13/er-coap
+ 1148              		.file 8 "/usr/include/libio.h"
+GAS LISTING /tmp/ccVxl2N6.s 			page 35
+
+
+ 1149              		.file 9 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/liblwm2m.h"
+ 1150              		.file 10 "/usr/include/stdio.h"
+ 1151              		.file 11 "/usr/include/string.h"
+ 1152              		.file 12 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/internals.h"
+ 1153              		.file 13 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/examples/shared/comman
+GAS LISTING /tmp/ccVxl2N6.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 transaction.c
+     /tmp/ccVxl2N6.s:6      .text.prv_checkFinished:0000000000000000 prv_checkFinished
+     /tmp/ccVxl2N6.s:127    .text.transaction_new:0000000000000000 transaction_new
+     /tmp/ccVxl2N6.s:446    .text.transaction_free:0000000000000000 transaction_free
+     /tmp/ccVxl2N6.s:493    .text.transaction_remove:0000000000000000 transaction_remove
+     /tmp/ccVxl2N6.s:543    .text.transaction_handleResponse:0000000000000000 transaction_handleResponse
+     /tmp/ccVxl2N6.s:766    .text.transaction_send:0000000000000000 transaction_send
+     /tmp/ccVxl2N6.s:1021   .text.transaction_step:0000000000000000 transaction_step
+
+UNDEFINED SYMBOLS
+coap_get_header_token
+memcmp
+lwm2m_malloc
+coap_init_message
+coap_set_header_uri_path_segment
+utils_intToText
+coap_set_header_token
+lwm2m_gettime
+lwm2m_free
+coap_free_header
+lwm2m_list_remove
+lwm2m_session_is_equal
+message_send
+coap_serialize_get_size
+coap_serialize_message
+lwm2m_buffer_send
+stderr
+output_buffer

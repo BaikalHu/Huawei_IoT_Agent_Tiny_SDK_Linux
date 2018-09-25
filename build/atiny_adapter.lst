@@ -1,0 +1,1041 @@
+GAS LISTING /tmp/ccxrkr8t.s 			page 1
+
+
+   1              		.file	"atiny_adapter.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.text.atiny_gettime_ms,"ax",@progbits
+   5              		.globl	atiny_gettime_ms
+   7              	atiny_gettime_ms:
+   8              	.LFB61:
+   9              		.file 1 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_ad
+   1:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** /*----------------------------------------------------------------------------
+   2:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * All rights reserved.
+   4:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * are permitted provided that the following conditions are met:
+   6:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * conditions and the following disclaimer.
+   8:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * provided with the distribution.
+  11:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * permission.
+  14:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  *---------------------------------------------------------------------------*/
+  26:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** /*----------------------------------------------------------------------------
+  27:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * Notice of Export Control Law
+  28:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * ===============================================
+  29:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  * applicable export control laws and regulations.
+  33:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****  *---------------------------------------------------------------------------*/
+  34:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  35:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include "atiny_adapter.h"
+  36:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <stdlib.h>
+  37:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <stdint.h>
+  38:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <stdio.h>
+  39:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <string.h>
+  40:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <stdarg.h>
+  41:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <sys/time.h>
+  42:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #include <pthread.h>
+  43:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  44:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  45:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  46:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #define ATINY_CNT_MAX_WAITTIME 0xFFFFFFFF
+  47:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #define LOG_BUF_SIZE (256)
+  48:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  49:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #if 0
+GAS LISTING /tmp/ccxrkr8t.s 			page 2
+
+
+  50:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** static uint64_t osKernelGetTickCount (void)
+  51:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+  52:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     uint64_t ticks;
+  53:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     UINTPTR uvIntSave;
+  54:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  55:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if(OS_INT_ACTIVE)
+  56:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     {
+  57:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         ticks = 0U;
+  58:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     }
+  59:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     else
+  60:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     {
+  61:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         uvIntSave = LOS_IntLock();
+  62:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         ticks = g_ullTickCount;
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         LOS_IntRestore(uvIntSave);
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     }
+  65:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  66:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return ticks;
+  67:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+  68:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #endif
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** uint64_t atiny_gettime_ms(void)
+  71:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+  10              		.loc 1 71 0
+  11              		.cfi_startproc
+  12 0000 4883EC18 		subq	$24, %rsp
+  13              	.LCFI0:
+  14              		.cfi_def_cfa_offset 32
+  72:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  73:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     struct timeval tv;
+  74:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     gettimeofday(&tv,NULL);
+  15              		.loc 1 74 0
+  16 0004 BE000000 		movl	$0, %esi
+  16      00
+  17 0009 4889E7   		movq	%rsp, %rdi
+  18 000c E8000000 		call	gettimeofday
+  18      00
+  19              	.LVL0:
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  76:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return tv.tv_sec*1000 + tv.tv_usec/1000;
+  20              		.loc 1 76 0
+  21 0011 48693424 		imulq	$1000, (%rsp), %rsi
+  21      E8030000 
+  22 0019 488B4C24 		movq	8(%rsp), %rcx
+  22      08
+  23 001e 48BACFF7 		movabsq	$2361183241434822607, %rdx
+  23      53E3A59B 
+  23      C420
+  24 0028 4889C8   		movq	%rcx, %rax
+  25 002b 48F7EA   		imulq	%rdx
+  26 002e 48C1FA07 		sarq	$7, %rdx
+  27 0032 48C1F93F 		sarq	$63, %rcx
+  28 0036 4829CA   		subq	%rcx, %rdx
+  29 0039 488D0416 		leaq	(%rsi,%rdx), %rax
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+  30              		.loc 1 77 0
+  31 003d 4883C418 		addq	$24, %rsp
+  32              	.LCFI1:
+GAS LISTING /tmp/ccxrkr8t.s 			page 3
+
+
+  33              		.cfi_def_cfa_offset 8
+  34 0041 C3       		ret
+  35              		.cfi_endproc
+  36              	.LFE61:
+  38              		.section	.text.atiny_malloc,"ax",@progbits
+  39              		.globl	atiny_malloc
+  41              	atiny_malloc:
+  42              	.LFB62:
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void *atiny_malloc(size_t size)
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+  43              		.loc 1 80 0
+  44              		.cfi_startproc
+  45              	.LVL1:
+  46 0000 4883EC08 		subq	$8, %rsp
+  47              	.LCFI2:
+  48              		.cfi_def_cfa_offset 16
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return malloc(size);
+  49              		.loc 1 81 0
+  50 0004 E8000000 		call	malloc
+  50      00
+  51              	.LVL2:
+  82:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+  52              		.loc 1 82 0
+  53 0009 4883C408 		addq	$8, %rsp
+  54              	.LCFI3:
+  55              		.cfi_def_cfa_offset 8
+  56 000d C3       		ret
+  57              		.cfi_endproc
+  58              	.LFE62:
+  60              		.section	.text.atiny_free,"ax",@progbits
+  61              		.globl	atiny_free
+  63              	atiny_free:
+  64              	.LFB63:
+  83:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  84:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_free(void *ptr)
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+  65              		.loc 1 85 0
+  66              		.cfi_startproc
+  67              	.LVL3:
+  68 0000 4883EC08 		subq	$8, %rsp
+  69              	.LCFI4:
+  70              		.cfi_def_cfa_offset 16
+  86:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     (void)free(ptr);
+  71              		.loc 1 86 0
+  72 0004 E8000000 		call	free
+  72      00
+  73              	.LVL4:
+  87:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+  74              		.loc 1 87 0
+  75 0009 4883C408 		addq	$8, %rsp
+  76              	.LCFI5:
+  77              		.cfi_def_cfa_offset 8
+  78 000d C3       		ret
+  79              		.cfi_endproc
+  80              	.LFE63:
+  82              		.section	.text.atiny_snprintf,"ax",@progbits
+GAS LISTING /tmp/ccxrkr8t.s 			page 4
+
+
+  83              		.globl	atiny_snprintf
+  85              	atiny_snprintf:
+  86              	.LFB64:
+  88:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** int atiny_snprintf(char *buf, unsigned int size, const char *format, ...)
+  90:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+  87              		.loc 1 90 0
+  88              		.cfi_startproc
+  89              	.LVL5:
+  90 0000 4881ECD8 		subq	$216, %rsp
+  90      000000
+  91              	.LCFI6:
+  92              		.cfi_def_cfa_offset 224
+  93 0007 48894C24 		movq	%rcx, 56(%rsp)
+  93      38
+  94 000c 4C894424 		movq	%r8, 64(%rsp)
+  94      40
+  95 0011 4C894C24 		movq	%r9, 72(%rsp)
+  95      48
+  96 0016 84C0     		testb	%al, %al
+  97 0018 7437     		je	.L9
+  98 001a 0F294424 		movaps	%xmm0, 80(%rsp)
+  98      50
+  99 001f 0F294C24 		movaps	%xmm1, 96(%rsp)
+  99      60
+ 100 0024 0F295424 		movaps	%xmm2, 112(%rsp)
+ 100      70
+ 101 0029 0F299C24 		movaps	%xmm3, 128(%rsp)
+ 101      80000000 
+ 102 0031 0F29A424 		movaps	%xmm4, 144(%rsp)
+ 102      90000000 
+ 103 0039 0F29AC24 		movaps	%xmm5, 160(%rsp)
+ 103      A0000000 
+ 104 0041 0F29B424 		movaps	%xmm6, 176(%rsp)
+ 104      B0000000 
+ 105 0049 0F29BC24 		movaps	%xmm7, 192(%rsp)
+ 105      C0000000 
+ 106              	.L9:
+  91:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     int     ret;
+  92:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     va_list args;
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  94:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     va_start(args, format);
+ 107              		.loc 1 94 0
+ 108 0051 C7442408 		movl	$24, 8(%rsp)
+ 108      18000000 
+ 109 0059 C744240C 		movl	$48, 12(%rsp)
+ 109      30000000 
+ 110 0061 488D8424 		leaq	224(%rsp), %rax
+ 110      E0000000 
+ 111 0069 48894424 		movq	%rax, 16(%rsp)
+ 111      10
+ 112 006e 488D4424 		leaq	32(%rsp), %rax
+ 112      20
+ 113 0073 48894424 		movq	%rax, 24(%rsp)
+ 113      18
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     ret = vsnprintf(buf, size, format, args);
+ 114              		.loc 1 95 0
+GAS LISTING /tmp/ccxrkr8t.s 			page 5
+
+
+ 115 0078 89F6     		movl	%esi, %esi
+ 116              	.LVL6:
+ 117              	.LBB10:
+ 118              	.LBB11:
+ 119              		.file 2 "/usr/include/x86_64-linux-gnu/bits/stdio2.h"
+   1:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** /* Checking macros for stdio functions.
+   2:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    Copyright (C) 2004-2016 Free Software Foundation, Inc.
+   3:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    This file is part of the GNU C Library.
+   4:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+   5:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    The GNU C Library is free software; you can redistribute it and/or
+   6:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    modify it under the terms of the GNU Lesser General Public
+   7:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    License as published by the Free Software Foundation; either
+   8:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    version 2.1 of the License, or (at your option) any later version.
+   9:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  10:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  11:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  12:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  13:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    Lesser General Public License for more details.
+  14:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  15:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    You should have received a copy of the GNU Lesser General Public
+  16:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    License along with the GNU C Library; if not, see
+  17:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    <http://www.gnu.org/licenses/>.  */
+  18:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  19:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #ifndef _STDIO_H
+  20:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # error "Never include <bits/stdio2.h> directly; use <stdio.h> instead."
+  21:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #endif
+  22:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  23:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __sprintf_chk (char *__restrict __s, int __flag, size_t __slen,
+  24:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			  const char *__restrict __format, ...) __THROW;
+  25:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vsprintf_chk (char *__restrict __s, int __flag, size_t __slen,
+  26:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   const char *__restrict __format,
+  27:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   _G_va_list __ap) __THROW;
+  28:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  29:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #ifdef __va_arg_pack
+  30:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  31:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (sprintf (char *__restrict __s, const char *__restrict __fmt, ...))
+  32:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  33:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+  34:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				  __bos (__s), __fmt, __va_arg_pack ());
+  35:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  36:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #elif !defined __cplusplus
+  37:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # define sprintf(str, ...) \
+  38:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   __builtin___sprintf_chk (str, __USE_FORTIFY_LEVEL - 1, __bos (str), \
+  39:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   __VA_ARGS__)
+  40:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #endif
+  41:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  42:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  43:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (vsprintf (char *__restrict __s, const char *__restrict __fmt,
+  44:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 		 _G_va_list __ap))
+  45:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  46:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___vsprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+  47:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				   __bos (__s), __fmt, __ap);
+  48:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  49:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  50:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #if defined __USE_ISOC99 || defined __USE_UNIX98
+  51:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  52:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __snprintf_chk (char *__restrict __s, size_t __n, int __flag,
+GAS LISTING /tmp/ccxrkr8t.s 			page 6
+
+
+  53:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   size_t __slen, const char *__restrict __format,
+  54:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   ...) __THROW;
+  55:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vsnprintf_chk (char *__restrict __s, size_t __n, int __flag,
+  56:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			    size_t __slen, const char *__restrict __format,
+  57:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			    _G_va_list __ap) __THROW;
+  58:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  59:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # ifdef __va_arg_pack
+  60:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  61:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (snprintf (char *__restrict __s, size_t __n,
+  62:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 		 const char *__restrict __fmt, ...))
+  63:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  64:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+  65:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				   __bos (__s), __fmt, __va_arg_pack ());
+  66:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  67:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # elif !defined __cplusplus
+  68:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #  define snprintf(str, len, ...) \
+  69:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   __builtin___snprintf_chk (str, len, __USE_FORTIFY_LEVEL - 1, __bos (str), \
+  70:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			    __VA_ARGS__)
+  71:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # endif
+  72:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  73:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  74:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (vsnprintf (char *__restrict __s, size_t __n,
+  75:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 		  const char *__restrict __fmt, _G_va_list __ap))
+  76:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  77:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___vsnprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+ 120              		.loc 2 77 0
+ 121 007a 4C8D4C24 		leaq	8(%rsp), %r9
+ 121      08
+ 122              	.LVL7:
+ 123 007f 4989D0   		movq	%rdx, %r8
+ 124 0082 48C7C1FF 		movq	$-1, %rcx
+ 124      FFFFFF
+ 125 0089 BA010000 		movl	$1, %edx
+ 125      00
+ 126              	.LVL8:
+ 127 008e E8000000 		call	__vsnprintf_chk
+ 127      00
+ 128              	.LVL9:
+ 129              	.LBE11:
+ 130              	.LBE10:
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     va_end(args);
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return ret;
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 131              		.loc 1 99 0
+ 132 0093 4881C4D8 		addq	$216, %rsp
+ 132      000000
+ 133              	.LCFI7:
+ 134              		.cfi_def_cfa_offset 8
+ 135 009a C3       		ret
+ 136              		.cfi_endproc
+ 137              	.LFE64:
+ 139              		.section	.rodata.str1.1,"aMS",@progbits,1
+ 140              	.LC0:
+ 141 0000 257300   		.string	"%s"
+ 142              		.section	.text.atiny_printf,"ax",@progbits
+ 143              		.globl	atiny_printf
+GAS LISTING /tmp/ccxrkr8t.s 			page 7
+
+
+ 145              	atiny_printf:
+ 146              	.LFB65:
+ 100:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 102:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** int atiny_printf(const char *format, ...)
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 147              		.loc 1 103 0
+ 148              		.cfi_startproc
+ 149              	.LVL10:
+ 150 0000 55       		pushq	%rbp
+ 151              	.LCFI8:
+ 152              		.cfi_def_cfa_offset 16
+ 153              		.cfi_offset 6, -16
+ 154 0001 53       		pushq	%rbx
+ 155              	.LCFI9:
+ 156              		.cfi_def_cfa_offset 24
+ 157              		.cfi_offset 3, -24
+ 158 0002 4881ECD8 		subq	$472, %rsp
+ 158      010000
+ 159              	.LCFI10:
+ 160              		.cfi_def_cfa_offset 496
+ 161 0009 4989FA   		movq	%rdi, %r10
+ 162 000c 4889B424 		movq	%rsi, 296(%rsp)
+ 162      28010000 
+ 163 0014 48899424 		movq	%rdx, 304(%rsp)
+ 163      30010000 
+ 164 001c 48898C24 		movq	%rcx, 312(%rsp)
+ 164      38010000 
+ 165 0024 4C898424 		movq	%r8, 320(%rsp)
+ 165      40010000 
+ 166 002c 4C898C24 		movq	%r9, 328(%rsp)
+ 166      48010000 
+ 167 0034 84C0     		testb	%al, %al
+ 168 0036 7440     		je	.L13
+ 169 0038 0F298424 		movaps	%xmm0, 336(%rsp)
+ 169      50010000 
+ 170 0040 0F298C24 		movaps	%xmm1, 352(%rsp)
+ 170      60010000 
+ 171 0048 0F299424 		movaps	%xmm2, 368(%rsp)
+ 171      70010000 
+ 172 0050 0F299C24 		movaps	%xmm3, 384(%rsp)
+ 172      80010000 
+ 173 0058 0F29A424 		movaps	%xmm4, 400(%rsp)
+ 173      90010000 
+ 174 0060 0F29AC24 		movaps	%xmm5, 416(%rsp)
+ 174      A0010000 
+ 175 0068 0F29B424 		movaps	%xmm6, 432(%rsp)
+ 175      B0010000 
+ 176 0070 0F29BC24 		movaps	%xmm7, 448(%rsp)
+ 176      C0010000 
+ 177              	.L13:
+ 178              	.LVL11:
+ 179              	.LBB12:
+ 180              	.LBB13:
+ 181              		.file 3 "/usr/include/x86_64-linux-gnu/bits/string3.h"
+   1:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* Copyright (C) 2004-2016 Free Software Foundation, Inc.
+   2:/usr/include/x86_64-linux-gnu/bits/string3.h ****    This file is part of the GNU C Library.
+GAS LISTING /tmp/ccxrkr8t.s 			page 8
+
+
+   3:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   4:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is free software; you can redistribute it and/or
+   5:/usr/include/x86_64-linux-gnu/bits/string3.h ****    modify it under the terms of the GNU Lesser General Public
+   6:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License as published by the Free Software Foundation; either
+   7:/usr/include/x86_64-linux-gnu/bits/string3.h ****    version 2.1 of the License, or (at your option) any later version.
+   8:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   9:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  10:/usr/include/x86_64-linux-gnu/bits/string3.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:/usr/include/x86_64-linux-gnu/bits/string3.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  12:/usr/include/x86_64-linux-gnu/bits/string3.h ****    Lesser General Public License for more details.
+  13:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  14:/usr/include/x86_64-linux-gnu/bits/string3.h ****    You should have received a copy of the GNU Lesser General Public
+  15:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License along with the GNU C Library; if not, see
+  16:/usr/include/x86_64-linux-gnu/bits/string3.h ****    <http://www.gnu.org/licenses/>.  */
+  17:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  18:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef _STRING_H
+  19:/usr/include/x86_64-linux-gnu/bits/string3.h **** # error "Never use <bits/string3.h> directly; include <string.h> instead."
+  20:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  21:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  22:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  23:/usr/include/x86_64-linux-gnu/bits/string3.h **** __warndecl (__warn_memset_zero_len,
+  24:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	    "memset used with constant zero length parameter; this could be due to transposed parameters")
+  25:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  26:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  27:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef __cplusplus
+  28:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* XXX This is temporarily.  We should not redefine any of the symbols
+  29:/usr/include/x86_64-linux-gnu/bits/string3.h ****    and instead integrate the error checking into the original
+  30:/usr/include/x86_64-linux-gnu/bits/string3.h ****    definitions.  */
+  31:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memcpy
+  32:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memmove
+  33:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memset
+  34:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcat
+  35:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcpy
+  36:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncat
+  37:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncpy
+  38:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_GNU
+  39:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef mempcpy
+  40:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef stpcpy
+  41:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  42:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_MISC
+  43:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bcopy
+  44:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bzero
+  45:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  46:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  47:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  48:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  49:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  50:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memcpy (void *__restrict __dest, const void *__restrict __src,
+  51:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	       size_t __len))
+  52:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  54:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  55:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  56:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  57:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memmove (void *__dest, const void *__src, size_t __len))
+  58:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  59:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memmove_chk (__dest, __src, __len, __bos0 (__dest));
+GAS LISTING /tmp/ccxrkr8t.s 			page 9
+
+
+  60:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  61:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  62:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifdef __USE_GNU
+  63:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  64:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (mempcpy (void *__restrict __dest, const void *__restrict __src,
+  65:/usr/include/x86_64-linux-gnu/bits/string3.h **** 		size_t __len))
+  66:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  67:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___mempcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  68:/usr/include/x86_64-linux-gnu/bits/string3.h **** }
+  69:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  70:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  71:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  72:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* The first two tests here help to catch a somewhat common problem
+  73:/usr/include/x86_64-linux-gnu/bits/string3.h ****    where the second and third parameter are transposed.  This is
+  74:/usr/include/x86_64-linux-gnu/bits/string3.h ****    especially problematic if the intended fill value is zero.  In this
+  75:/usr/include/x86_64-linux-gnu/bits/string3.h ****    case no work is done at all.  We detect these problems by referring
+  76:/usr/include/x86_64-linux-gnu/bits/string3.h ****    non-existing functions.  */
+  77:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  78:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memset (void *__dest, int __ch, size_t __len))
+  79:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  80:/usr/include/x86_64-linux-gnu/bits/string3.h ****   /* GCC-5.0 and newer implements these checks in the compiler, so we don't
+  81:/usr/include/x86_64-linux-gnu/bits/string3.h ****      need them here.  */
+  82:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  83:/usr/include/x86_64-linux-gnu/bits/string3.h ****   if (__builtin_constant_p (__len) && __len == 0
+  84:/usr/include/x86_64-linux-gnu/bits/string3.h ****       && (!__builtin_constant_p (__ch) || __ch != 0))
+  85:/usr/include/x86_64-linux-gnu/bits/string3.h ****     {
+  86:/usr/include/x86_64-linux-gnu/bits/string3.h ****       __warn_memset_zero_len ();
+  87:/usr/include/x86_64-linux-gnu/bits/string3.h ****       return __dest;
+  88:/usr/include/x86_64-linux-gnu/bits/string3.h ****     }
+  89:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  90:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memset_chk (__dest, __ch, __len, __bos0 (__dest));
+ 182              		.loc 3 90 0
+ 183 0078 488D5C24 		leaq	32(%rsp), %rbx
+ 183      20
+ 184              	.LVL12:
+ 185 007d B9200000 		movl	$32, %ecx
+ 185      00
+ 186 0082 B8000000 		movl	$0, %eax
+ 186      00
+ 187 0087 4889DF   		movq	%rbx, %rdi
+ 188              	.LVL13:
+ 189 008a F348AB   		rep stosq
+ 190              	.LVL14:
+ 191              	.LBE13:
+ 192              	.LBE12:
+ 104:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     int ret;
+ 105:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     char str_buf[LOG_BUF_SIZE] = {0};
+ 106:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     va_list list;
+ 107:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 108:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     memset(str_buf, 0, LOG_BUF_SIZE);
+ 109:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     va_start(list, format);
+ 193              		.loc 1 109 0
+ 194 008d C7442408 		movl	$8, 8(%rsp)
+ 194      08000000 
+ 195 0095 C744240C 		movl	$48, 12(%rsp)
+ 195      30000000 
+ 196 009d 488D8424 		leaq	496(%rsp), %rax
+GAS LISTING /tmp/ccxrkr8t.s 			page 10
+
+
+ 196      F0010000 
+ 197 00a5 48894424 		movq	%rax, 16(%rsp)
+ 197      10
+ 198 00aa 488D8424 		leaq	288(%rsp), %rax
+ 198      20010000 
+ 199 00b2 48894424 		movq	%rax, 24(%rsp)
+ 199      18
+ 200              	.LVL15:
+ 201              	.LBB14:
+ 202              	.LBB15:
+ 203              		.loc 2 77 0
+ 204 00b7 4C8D4C24 		leaq	8(%rsp), %r9
+ 204      08
+ 205              	.LVL16:
+ 206 00bc 4D89D0   		movq	%r10, %r8
+ 207 00bf B9000100 		movl	$256, %ecx
+ 207      00
+ 208 00c4 BA010000 		movl	$1, %edx
+ 208      00
+ 209 00c9 BE000100 		movl	$256, %esi
+ 209      00
+ 210 00ce 4889DF   		movq	%rbx, %rdi
+ 211 00d1 E8000000 		call	__vsnprintf_chk
+ 211      00
+ 212              	.LVL17:
+ 213 00d6 89C5     		movl	%eax, %ebp
+ 214              	.LVL18:
+ 215              	.LBE15:
+ 216              	.LBE14:
+ 217              	.LBB16:
+ 218              	.LBB17:
+  78:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				    __bos (__s), __fmt, __ap);
+  79:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  80:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  81:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #endif
+  82:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  83:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #if __USE_FORTIFY_LEVEL > 1
+  84:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  85:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __fprintf_chk (FILE *__restrict __stream, int __flag,
+  86:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			  const char *__restrict __format, ...);
+  87:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __printf_chk (int __flag, const char *__restrict __format, ...);
+  88:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vfprintf_chk (FILE *__restrict __stream, int __flag,
+  89:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   const char *__restrict __format, _G_va_list __ap);
+  90:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vprintf_chk (int __flag, const char *__restrict __format,
+  91:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			  _G_va_list __ap);
+  92:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  93:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # ifdef __va_arg_pack
+  94:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  95:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
+  96:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  97:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+  98:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			__va_arg_pack ());
+  99:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+ 100:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+ 101:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+ 102:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** printf (const char *__restrict __fmt, ...)
+ 103:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+GAS LISTING /tmp/ccxrkr8t.s 			page 11
+
+
+ 104:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+ 219              		.loc 2 104 0
+ 220 00d8 4889DA   		movq	%rbx, %rdx
+ 221 00db BE000000 		movl	$.LC0, %esi
+ 221      00
+ 222 00e0 BF010000 		movl	$1, %edi
+ 222      00
+ 223 00e5 B8000000 		movl	$0, %eax
+ 223      00
+ 224 00ea E8000000 		call	__printf_chk
+ 224      00
+ 225              	.LVL19:
+ 226              	.LBE17:
+ 227              	.LBE16:
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     ret = vsnprintf(str_buf, LOG_BUF_SIZE, format, list);
+ 111:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     va_end(list);
+ 112:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 113:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     printf("%s", str_buf);
+ 114:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 115:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return ret;
+ 116:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 228              		.loc 1 116 0
+ 229 00ef 89E8     		movl	%ebp, %eax
+ 230 00f1 4881C4D8 		addq	$472, %rsp
+ 230      010000
+ 231              	.LCFI11:
+ 232              		.cfi_def_cfa_offset 24
+ 233 00f8 5B       		popq	%rbx
+ 234              	.LCFI12:
+ 235              		.cfi_def_cfa_offset 16
+ 236 00f9 5D       		popq	%rbp
+ 237              	.LCFI13:
+ 238              		.cfi_def_cfa_offset 8
+ 239 00fa C3       		ret
+ 240              		.cfi_endproc
+ 241              	.LFE65:
+ 243              		.section	.text.atiny_strdup,"ax",@progbits
+ 244              		.globl	atiny_strdup
+ 246              	atiny_strdup:
+ 247              	.LFB66:
+ 117:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 118:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 119:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** char *atiny_strdup(const char *ch)
+ 120:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 248              		.loc 1 120 0
+ 249              		.cfi_startproc
+ 250              	.LVL20:
+ 251 0000 4883EC08 		subq	$8, %rsp
+ 252              	.LCFI14:
+ 253              		.cfi_def_cfa_offset 16
+ 121:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return strdup(ch);
+ 254              		.loc 1 121 0
+ 255 0004 E8000000 		call	__strdup
+ 255      00
+ 256              	.LVL21:
+ 122:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 257              		.loc 1 122 0
+GAS LISTING /tmp/ccxrkr8t.s 			page 12
+
+
+ 258 0009 4883C408 		addq	$8, %rsp
+ 259              	.LCFI15:
+ 260              		.cfi_def_cfa_offset 8
+ 261 000d C3       		ret
+ 262              		.cfi_endproc
+ 263              	.LFE66:
+ 265              		.section	.text.atiny_mutex_create,"ax",@progbits
+ 266              		.globl	atiny_mutex_create
+ 268              	atiny_mutex_create:
+ 269              	.LFB67:
+ 123:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 124:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #ifdef WITH_LINUX
+ 125:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 126:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void *atiny_mutex_create(void)
+ 127:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 270              		.loc 1 127 0
+ 271              		.cfi_startproc
+ 272 0000 53       		pushq	%rbx
+ 273              	.LCFI16:
+ 274              		.cfi_def_cfa_offset 16
+ 275              		.cfi_offset 3, -16
+ 276              	.LVL22:
+ 128:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     pthread_mutex_t *mutex = NULL;
+ 129:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     mutex = malloc(sizeof(pthread_mutex_t));
+ 277              		.loc 1 129 0
+ 278 0001 BF280000 		movl	$40, %edi
+ 278      00
+ 279 0006 E8000000 		call	malloc
+ 279      00
+ 280              	.LVL23:
+ 130:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if(mutex == NULL)
+ 281              		.loc 1 130 0
+ 282 000b 4885C0   		testq	%rax, %rax
+ 283 000e 741B     		je	.L19
+ 284 0010 4889C3   		movq	%rax, %rbx
+ 131:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         return NULL;
+ 132:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 133:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if(pthread_mutex_init(mutex, NULL) != 0)
+ 285              		.loc 1 133 0
+ 286 0013 BE000000 		movl	$0, %esi
+ 286      00
+ 287 0018 4889C7   		movq	%rax, %rdi
+ 288 001b E8000000 		call	pthread_mutex_init
+ 288      00
+ 289              	.LVL24:
+ 290 0020 85C0     		testl	%eax, %eax
+ 291 0022 740E     		je	.L20
+ 134:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         return NULL;
+ 292              		.loc 1 134 0
+ 293 0024 B8000000 		movl	$0, %eax
+ 293      00
+ 294 0029 EB0A     		jmp	.L18
+ 295              	.LVL25:
+ 296              	.L19:
+ 131:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         return NULL;
+ 297              		.loc 1 131 0
+ 298 002b B8000000 		movl	$0, %eax
+GAS LISTING /tmp/ccxrkr8t.s 			page 13
+
+
+ 298      00
+ 299              	.LVL26:
+ 300 0030 EB03     		jmp	.L18
+ 301              	.LVL27:
+ 302              	.L20:
+ 135:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 136:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return (void *)mutex;
+ 303              		.loc 1 136 0
+ 304 0032 4889D8   		movq	%rbx, %rax
+ 305              	.LVL28:
+ 306              	.L18:
+ 137:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 307              		.loc 1 137 0
+ 308 0035 5B       		popq	%rbx
+ 309              	.LCFI17:
+ 310              		.cfi_def_cfa_offset 8
+ 311 0036 C3       		ret
+ 312              		.cfi_endproc
+ 313              	.LFE67:
+ 315              		.section	.text.atiny_mutex_destroy,"ax",@progbits
+ 316              		.globl	atiny_mutex_destroy
+ 318              	atiny_mutex_destroy:
+ 319              	.LFB68:
+ 138:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 139:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_mutex_destroy(void *mutex)
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 320              		.loc 1 140 0
+ 321              		.cfi_startproc
+ 322              	.LVL29:
+ 141:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if(mutex == NULL)
+ 323              		.loc 1 141 0
+ 324 0000 4885FF   		testq	%rdi, %rdi
+ 325 0003 7412     		je	.L26
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if(mutex == NULL)
+ 326              		.loc 1 140 0
+ 327 0005 53       		pushq	%rbx
+ 328              	.LCFI18:
+ 329              		.cfi_def_cfa_offset 16
+ 330              		.cfi_offset 3, -16
+ 331 0006 4889FB   		movq	%rdi, %rbx
+ 142:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         return;
+ 143:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     (void)pthread_mutex_destroy(mutex);
+ 332              		.loc 1 143 0
+ 333 0009 E8000000 		call	pthread_mutex_destroy
+ 333      00
+ 334              	.LVL30:
+ 144:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     free(mutex);
+ 335              		.loc 1 144 0
+ 336 000e 4889DF   		movq	%rbx, %rdi
+ 337 0011 E8000000 		call	free
+ 337      00
+ 338              	.LVL31:
+ 145:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return;
+ 146:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 339              		.loc 1 146 0
+ 340 0016 5B       		popq	%rbx
+ 341              	.LCFI19:
+GAS LISTING /tmp/ccxrkr8t.s 			page 14
+
+
+ 342              		.cfi_restore 3
+ 343              		.cfi_def_cfa_offset 8
+ 344              	.LVL32:
+ 345              	.L26:
+ 346 0017 F3C3     		rep ret
+ 347              		.cfi_endproc
+ 348              	.LFE68:
+ 350              		.section	.text.atiny_mutex_lock,"ax",@progbits
+ 351              		.globl	atiny_mutex_lock
+ 353              	atiny_mutex_lock:
+ 354              	.LFB69:
+ 147:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 148:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_mutex_lock(void *mutex)
+ 149:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 355              		.loc 1 149 0
+ 356              		.cfi_startproc
+ 357              	.LVL33:
+ 150:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if (mutex == NULL)
+ 358              		.loc 1 150 0
+ 359 0000 4885FF   		testq	%rdi, %rdi
+ 360 0003 740D     		je	.L31
+ 149:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if (mutex == NULL)
+ 361              		.loc 1 149 0
+ 362 0005 4883EC08 		subq	$8, %rsp
+ 363              	.LCFI20:
+ 364              		.cfi_def_cfa_offset 16
+ 151:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     {
+ 152:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         return;
+ 153:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     }
+ 154:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 155:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     (void)pthread_mutex_lock(mutex);
+ 365              		.loc 1 155 0
+ 366 0009 E8000000 		call	pthread_mutex_lock
+ 366      00
+ 367              	.LVL34:
+ 156:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 368              		.loc 1 156 0
+ 369 000e 4883C408 		addq	$8, %rsp
+ 370              	.LCFI21:
+ 371              		.cfi_def_cfa_offset 8
+ 372              	.L31:
+ 373 0012 F3C3     		rep ret
+ 374              		.cfi_endproc
+ 375              	.LFE69:
+ 377              		.section	.text.atiny_mutex_unlock,"ax",@progbits
+ 378              		.globl	atiny_mutex_unlock
+ 380              	atiny_mutex_unlock:
+ 381              	.LFB70:
+ 157:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 158:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_mutex_unlock(void *mutex)
+ 159:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 382              		.loc 1 159 0
+ 383              		.cfi_startproc
+ 384              	.LVL35:
+ 160:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if (mutex == NULL)
+ 385              		.loc 1 160 0
+ 386 0000 4885FF   		testq	%rdi, %rdi
+GAS LISTING /tmp/ccxrkr8t.s 			page 15
+
+
+ 387 0003 740D     		je	.L36
+ 159:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     if (mutex == NULL)
+ 388              		.loc 1 159 0
+ 389 0005 4883EC08 		subq	$8, %rsp
+ 390              	.LCFI22:
+ 391              		.cfi_def_cfa_offset 16
+ 161:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     {
+ 162:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         return;
+ 163:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     }
+ 164:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 165:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     (void)pthread_mutex_unlock(mutex);
+ 392              		.loc 1 165 0
+ 393 0009 E8000000 		call	pthread_mutex_unlock
+ 393      00
+ 394              	.LVL36:
+ 166:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 395              		.loc 1 166 0
+ 396 000e 4883C408 		addq	$8, %rsp
+ 397              	.LCFI23:
+ 398              		.cfi_def_cfa_offset 8
+ 399              	.L36:
+ 400 0012 F3C3     		rep ret
+ 401              		.cfi_endproc
+ 402              	.LFE70:
+ 404              		.section	.text.atiny_random,"ax",@progbits
+ 405              		.globl	atiny_random
+ 407              	atiny_random:
+ 408              	.LFB71:
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 168:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #else
+ 169:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 170:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void *atiny_mutex_create(void)
+ 171:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 172:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return NULL;
+ 173:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 174:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 175:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_mutex_destroy(void *mutex)
+ 176:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 177:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     ((void)mutex);
+ 178:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 179:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 180:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_mutex_lock(void *mutex)
+ 181:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 182:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     ((void)mutex);
+ 183:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 184:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 185:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_mutex_unlock(void *mutex)
+ 186:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 187:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     ((void)mutex);
+ 188:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 189:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 190:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** #endif /* LOSCFG_BASE_IPC_SEM == YES */
+ 191:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 192:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 193:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** int atiny_random(void* output, size_t len)
+ 194:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 409              		.loc 1 194 0
+GAS LISTING /tmp/ccxrkr8t.s 			page 16
+
+
+ 410              		.cfi_startproc
+ 411              	.LVL37:
+ 412 0000 4155     		pushq	%r13
+ 413              	.LCFI24:
+ 414              		.cfi_def_cfa_offset 16
+ 415              		.cfi_offset 13, -16
+ 416 0002 4154     		pushq	%r12
+ 417              	.LCFI25:
+ 418              		.cfi_def_cfa_offset 24
+ 419              		.cfi_offset 12, -24
+ 420 0004 55       		pushq	%rbp
+ 421              	.LCFI26:
+ 422              		.cfi_def_cfa_offset 32
+ 423              		.cfi_offset 6, -32
+ 424 0005 53       		pushq	%rbx
+ 425              	.LCFI27:
+ 426              		.cfi_def_cfa_offset 40
+ 427              		.cfi_offset 3, -40
+ 428 0006 4883EC08 		subq	$8, %rsp
+ 429              	.LCFI28:
+ 430              		.cfi_def_cfa_offset 48
+ 431 000a 4989FD   		movq	%rdi, %r13
+ 432 000d 4989F4   		movq	%rsi, %r12
+ 433              	.LVL38:
+ 195:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     size_t i;
+ 196:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     unsigned char * p = (unsigned char *) output;
+ 197:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 198:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     for (i = 0; i < len; i++)
+ 434              		.loc 1 198 0
+ 435 0010 BB000000 		movl	$0, %ebx
+ 435      00
+ 436 0015 EB11     		jmp	.L38
+ 437              	.LVL39:
+ 438              	.L39:
+ 199:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         p [i] = (unsigned char) (rand () & 255);
+ 439              		.loc 1 199 0 discriminator 3
+ 440 0017 498D6C1D 		leaq	0(%r13,%rbx), %rbp
+ 440      00
+ 441 001c E8000000 		call	rand
+ 441      00
+ 442              	.LVL40:
+ 443 0021 884500   		movb	%al, 0(%rbp)
+ 198:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         p [i] = (unsigned char) (rand () & 255);
+ 444              		.loc 1 198 0 discriminator 3
+ 445 0024 4883C301 		addq	$1, %rbx
+ 446              	.LVL41:
+ 447              	.L38:
+ 198:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****         p [i] = (unsigned char) (rand () & 255);
+ 448              		.loc 1 198 0 is_stmt 0 discriminator 1
+ 449 0028 4C39E3   		cmpq	%r12, %rbx
+ 450 002b 72EA     		jb	.L39
+ 200:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 201:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c ****     return 0;
+ 202:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** }
+ 451              		.loc 1 202 0 is_stmt 1
+ 452 002d B8000000 		movl	$0, %eax
+ 452      00
+GAS LISTING /tmp/ccxrkr8t.s 			page 17
+
+
+ 453 0032 4883C408 		addq	$8, %rsp
+ 454              	.LCFI29:
+ 455              		.cfi_def_cfa_offset 40
+ 456 0036 5B       		popq	%rbx
+ 457              	.LCFI30:
+ 458              		.cfi_def_cfa_offset 32
+ 459              	.LVL42:
+ 460 0037 5D       		popq	%rbp
+ 461              	.LCFI31:
+ 462              		.cfi_def_cfa_offset 24
+ 463 0038 415C     		popq	%r12
+ 464              	.LCFI32:
+ 465              		.cfi_def_cfa_offset 16
+ 466              	.LVL43:
+ 467 003a 415D     		popq	%r13
+ 468              	.LCFI33:
+ 469              		.cfi_def_cfa_offset 8
+ 470              	.LVL44:
+ 471 003c C3       		ret
+ 472              		.cfi_endproc
+ 473              	.LFE71:
+ 475              		.section	.text.atiny_reboot,"ax",@progbits
+ 476              		.globl	atiny_reboot
+ 478              	atiny_reboot:
+ 479              	.LFB72:
+ 203:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** 
+ 204:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** void atiny_reboot(void)
+ 205:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//agent_tiny/osadapter/atiny_adapter.c **** {
+ 480              		.loc 1 205 0
+ 481              		.cfi_startproc
+ 482 0000 F3C3     		rep ret
+ 483              		.cfi_endproc
+ 484              	.LFE72:
+ 486              		.text
+ 487              	.Letext0:
+ 488              		.file 4 "/usr/include/stdint.h"
+ 489              		.file 5 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h"
+ 490              		.file 6 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 491              		.file 7 "/usr/include/libio.h"
+ 492              		.file 8 "<built-in>"
+ 493              		.file 9 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stdarg.h"
+ 494              		.file 10 "/usr/include/stdio.h"
+ 495              		.file 11 "/usr/include/x86_64-linux-gnu/bits/time.h"
+ 496              		.file 12 "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h"
+ 497              		.file 13 "/usr/include/x86_64-linux-gnu/sys/time.h"
+ 498              		.file 14 "/usr/include/stdlib.h"
+ 499              		.file 15 "/usr/include/x86_64-linux-gnu/bits/string2.h"
+ 500              		.file 16 "/usr/include/pthread.h"
+GAS LISTING /tmp/ccxrkr8t.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 atiny_adapter.c
+     /tmp/ccxrkr8t.s:7      .text.atiny_gettime_ms:0000000000000000 atiny_gettime_ms
+     /tmp/ccxrkr8t.s:41     .text.atiny_malloc:0000000000000000 atiny_malloc
+     /tmp/ccxrkr8t.s:63     .text.atiny_free:0000000000000000 atiny_free
+     /tmp/ccxrkr8t.s:85     .text.atiny_snprintf:0000000000000000 atiny_snprintf
+     /tmp/ccxrkr8t.s:145    .text.atiny_printf:0000000000000000 atiny_printf
+     /tmp/ccxrkr8t.s:246    .text.atiny_strdup:0000000000000000 atiny_strdup
+     /tmp/ccxrkr8t.s:268    .text.atiny_mutex_create:0000000000000000 atiny_mutex_create
+     /tmp/ccxrkr8t.s:318    .text.atiny_mutex_destroy:0000000000000000 atiny_mutex_destroy
+     /tmp/ccxrkr8t.s:353    .text.atiny_mutex_lock:0000000000000000 atiny_mutex_lock
+     /tmp/ccxrkr8t.s:380    .text.atiny_mutex_unlock:0000000000000000 atiny_mutex_unlock
+     /tmp/ccxrkr8t.s:407    .text.atiny_random:0000000000000000 atiny_random
+     /tmp/ccxrkr8t.s:478    .text.atiny_reboot:0000000000000000 atiny_reboot
+
+UNDEFINED SYMBOLS
+gettimeofday
+malloc
+free
+__vsnprintf_chk
+__printf_chk
+__strdup
+pthread_mutex_init
+pthread_mutex_destroy
+pthread_mutex_lock
+pthread_mutex_unlock
+rand

@@ -1,0 +1,630 @@
+GAS LISTING /tmp/ccEYtOWZ.s 			page 1
+
+
+   1              		.file	"block1.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.text.coap_block1_handler,"ax",@progbits
+   5              		.globl	coap_block1_handler
+   7              	coap_block1_handler:
+   8              	.LFB63:
+   9              		.file 1 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c"
+   1:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** /*----------------------------------------------------------------------------
+   2:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * All rights reserved.
+   4:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * are permitted provided that the following conditions are met:
+   6:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * conditions and the following disclaimer.
+   8:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * provided with the distribution.
+  11:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * permission.
+  14:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *---------------------------------------------------------------------------*/
+  26:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** /*----------------------------------------------------------------------------
+  27:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Notice of Export Control Law
+  28:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * ===============================================
+  29:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * applicable export control laws and regulations.
+  33:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *---------------------------------------------------------------------------*/
+  34:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  35:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** /*******************************************************************************
+  36:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *
+  37:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Copyright (c) 2016 Intel Corporation and others.
+  38:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * All rights reserved. This program and the accompanying materials
+  39:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * are made available under the terms of the Eclipse Public License v1.0
+  40:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * and Eclipse Distribution License v1.0 which accompany this distribution.
+  41:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *
+  42:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * The Eclipse Public License is available at
+  43:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *    http://www.eclipse.org/legal/epl-v10.html
+  44:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * The Eclipse Distribution License is available at
+  45:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *    http://www.eclipse.org/org/documents/edl-v10.php.
+  46:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *
+  47:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  * Contributors:
+  48:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *    Simon Bernard - initial API and implementation
+  49:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *
+GAS LISTING /tmp/ccEYtOWZ.s 			page 2
+
+
+  50:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  *******************************************************************************/
+  51:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** /*
+  52:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  Copyright (c) 2016 Intel Corporation
+  53:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  54:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  Redistribution and use in source and binary forms, with or without modification,
+  55:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  are permitted provided that the following conditions are met:
+  56:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  57:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****      * Redistributions of source code must retain the above copyright notice,
+  58:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****        this list of conditions and the following disclaimer.
+  59:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****      * Redistributions in binary form must reproduce the above copyright notice,
+  60:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****        this list of conditions and the following disclaimer in the documentation
+  61:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****        and/or other materials provided with the distribution.
+  62:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****      * Neither the name of Intel Corporation nor the names of its contributors
+  63:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****        may be used to endorse or promote products derived from this software
+  64:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****        without specific prior written permission.
+  65:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  66:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  67:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  68:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  69:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  70:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+  71:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  72:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+  73:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  74:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+  75:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****  THE POSSIBILITY OF SUCH DAMAGE.
+  76:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** */
+  77:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** #include "internals.h"
+  78:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  79:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** #include <stdlib.h>
+  80:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** #include <string.h>
+  81:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** #include <stdio.h>
+  82:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  83:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** // the maximum payload transferred by block1 we accumulate per server
+  84:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** #define MAX_BLOCK1_SIZE 4096
+  85:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  86:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** uint8_t coap_block1_handler(lwm2m_block1_data_t **pBlock1Data,
+  87:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             uint16_t mid,
+  88:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             uint8_t *buffer,
+  89:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             size_t length,
+  90:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             uint16_t blockSize,
+  91:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             uint32_t blockNum,
+  92:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             bool blockMore,
+  93:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             uint8_t **outputBuffer,
+  94:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                             size_t *outputLength)
+  95:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** {
+  10              		.loc 1 95 0
+  11              		.cfi_startproc
+  12              	.LVL0:
+  13 0000 4157     		pushq	%r15
+  14              	.LCFI0:
+  15              		.cfi_def_cfa_offset 16
+  16              		.cfi_offset 15, -16
+  17 0002 4156     		pushq	%r14
+  18              	.LCFI1:
+  19              		.cfi_def_cfa_offset 24
+  20              		.cfi_offset 14, -24
+GAS LISTING /tmp/ccEYtOWZ.s 			page 3
+
+
+  21 0004 4155     		pushq	%r13
+  22              	.LCFI2:
+  23              		.cfi_def_cfa_offset 32
+  24              		.cfi_offset 13, -32
+  25 0006 4154     		pushq	%r12
+  26              	.LCFI3:
+  27              		.cfi_def_cfa_offset 40
+  28              		.cfi_offset 12, -40
+  29 0008 55       		pushq	%rbp
+  30              	.LCFI4:
+  31              		.cfi_def_cfa_offset 48
+  32              		.cfi_offset 6, -48
+  33 0009 53       		pushq	%rbx
+  34              	.LCFI5:
+  35              		.cfi_def_cfa_offset 56
+  36              		.cfi_offset 3, -56
+  37 000a 4883EC18 		subq	$24, %rsp
+  38              	.LCFI6:
+  39              		.cfi_def_cfa_offset 80
+  40 000e 4189F4   		movl	%esi, %r12d
+  41 0011 4989D6   		movq	%rdx, %r14
+  42 0014 4889CD   		movq	%rcx, %rbp
+  43 0017 448B6C24 		movl	80(%rsp), %r13d
+  43      50
+  96:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     lwm2m_block1_data_t *block1Data = *pBlock1Data;;
+  44              		.loc 1 96 0
+  45 001c 488B1F   		movq	(%rdi), %rbx
+  46              	.LVL1:
+  97:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+  98:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     // manage new block1 transfer
+  99:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     if (blockNum == 0)
+  47              		.loc 1 99 0
+  48 001f 4585C9   		testl	%r9d, %r9d
+  49 0022 755B     		jne	.L2
+  50 0024 4989FF   		movq	%rdi, %r15
+ 100:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     {
+ 101:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // we already have block1 data for this server, clear it
+ 102:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         if (block1Data != NULL)
+  51              		.loc 1 102 0
+  52 0027 4885DB   		testq	%rbx, %rbx
+  53 002a 740A     		je	.L3
+ 103:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         {
+ 104:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             lwm2m_free(block1Data->block1buffer);
+  54              		.loc 1 104 0
+  55 002c 488B3B   		movq	(%rbx), %rdi
+  56              	.LVL2:
+  57 002f E8000000 		call	lwm2m_free
+  57      00
+  58              	.LVL3:
+  59 0034 EB19     		jmp	.L4
+  60              	.LVL4:
+  61              	.L3:
+ 105:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         }
+ 106:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         else
+ 107:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         {
+ 108:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             block1Data = lwm2m_malloc(sizeof(lwm2m_block1_data_t));
+  62              		.loc 1 108 0
+GAS LISTING /tmp/ccEYtOWZ.s 			page 4
+
+
+  63 0036 BF180000 		movl	$24, %edi
+  63      00
+  64              	.LVL5:
+  65 003b E8000000 		call	lwm2m_malloc
+  65      00
+  66              	.LVL6:
+  67 0040 4889C3   		movq	%rax, %rbx
+  68              	.LVL7:
+ 109:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             *pBlock1Data = block1Data;
+  69              		.loc 1 109 0
+  70 0043 498907   		movq	%rax, (%r15)
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             if (NULL == block1Data) return COAP_500_INTERNAL_SERVER_ERROR;
+  71              		.loc 1 110 0
+  72 0046 4885C0   		testq	%rax, %rax
+  73 0049 0F84E800 		je	.L8
+  73      0000
+  74              	.LVL8:
+  75              	.L4:
+ 111:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         }
+ 112:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 113:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         block1Data->block1buffer = lwm2m_malloc(length);
+  76              		.loc 1 113 0
+  77 004f 4889EF   		movq	%rbp, %rdi
+  78 0052 E8000000 		call	lwm2m_malloc
+  78      00
+  79              	.LVL9:
+  80 0057 488903   		movq	%rax, (%rbx)
+ 114:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         block1Data->block1bufferSize = length;
+  81              		.loc 1 114 0
+  82 005a 48896B08 		movq	%rbp, 8(%rbx)
+ 115:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         if (NULL == block1Data->block1buffer) return COAP_500_INTERNAL_SERVER_ERROR;
+  83              		.loc 1 115 0
+  84 005e 4885C0   		testq	%rax, %rax
+  85 0061 0F84D700 		je	.L9
+  85      0000
+  86              	.LVL10:
+  87              	.LBB9:
+  88              	.LBB10:
+  89              		.file 2 "/usr/include/x86_64-linux-gnu/bits/string3.h"
+   1:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* Copyright (C) 2004-2016 Free Software Foundation, Inc.
+   2:/usr/include/x86_64-linux-gnu/bits/string3.h ****    This file is part of the GNU C Library.
+   3:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   4:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is free software; you can redistribute it and/or
+   5:/usr/include/x86_64-linux-gnu/bits/string3.h ****    modify it under the terms of the GNU Lesser General Public
+   6:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License as published by the Free Software Foundation; either
+   7:/usr/include/x86_64-linux-gnu/bits/string3.h ****    version 2.1 of the License, or (at your option) any later version.
+   8:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+   9:/usr/include/x86_64-linux-gnu/bits/string3.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  10:/usr/include/x86_64-linux-gnu/bits/string3.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:/usr/include/x86_64-linux-gnu/bits/string3.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  12:/usr/include/x86_64-linux-gnu/bits/string3.h ****    Lesser General Public License for more details.
+  13:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  14:/usr/include/x86_64-linux-gnu/bits/string3.h ****    You should have received a copy of the GNU Lesser General Public
+  15:/usr/include/x86_64-linux-gnu/bits/string3.h ****    License along with the GNU C Library; if not, see
+  16:/usr/include/x86_64-linux-gnu/bits/string3.h ****    <http://www.gnu.org/licenses/>.  */
+  17:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  18:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef _STRING_H
+GAS LISTING /tmp/ccEYtOWZ.s 			page 5
+
+
+  19:/usr/include/x86_64-linux-gnu/bits/string3.h **** # error "Never use <bits/string3.h> directly; include <string.h> instead."
+  20:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  21:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  22:/usr/include/x86_64-linux-gnu/bits/string3.h **** #if !__GNUC_PREREQ (5,0)
+  23:/usr/include/x86_64-linux-gnu/bits/string3.h **** __warndecl (__warn_memset_zero_len,
+  24:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	    "memset used with constant zero length parameter; this could be due to transposed parameters")
+  25:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  26:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  27:/usr/include/x86_64-linux-gnu/bits/string3.h **** #ifndef __cplusplus
+  28:/usr/include/x86_64-linux-gnu/bits/string3.h **** /* XXX This is temporarily.  We should not redefine any of the symbols
+  29:/usr/include/x86_64-linux-gnu/bits/string3.h ****    and instead integrate the error checking into the original
+  30:/usr/include/x86_64-linux-gnu/bits/string3.h ****    definitions.  */
+  31:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memcpy
+  32:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memmove
+  33:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef memset
+  34:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcat
+  35:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strcpy
+  36:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncat
+  37:/usr/include/x86_64-linux-gnu/bits/string3.h **** # undef strncpy
+  38:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_GNU
+  39:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef mempcpy
+  40:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef stpcpy
+  41:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  42:/usr/include/x86_64-linux-gnu/bits/string3.h **** # ifdef __USE_MISC
+  43:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bcopy
+  44:/usr/include/x86_64-linux-gnu/bits/string3.h **** #  undef bzero
+  45:/usr/include/x86_64-linux-gnu/bits/string3.h **** # endif
+  46:/usr/include/x86_64-linux-gnu/bits/string3.h **** #endif
+  47:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  48:/usr/include/x86_64-linux-gnu/bits/string3.h **** 
+  49:/usr/include/x86_64-linux-gnu/bits/string3.h **** __fortify_function void *
+  50:/usr/include/x86_64-linux-gnu/bits/string3.h **** __NTH (memcpy (void *__restrict __dest, const void *__restrict __src,
+  51:/usr/include/x86_64-linux-gnu/bits/string3.h **** 	       size_t __len))
+  52:/usr/include/x86_64-linux-gnu/bits/string3.h **** {
+  53:/usr/include/x86_64-linux-gnu/bits/string3.h ****   return __builtin___memcpy_chk (__dest, __src, __len, __bos0 (__dest));
+  90              		.loc 2 53 0
+  91 0067 4889EA   		movq	%rbp, %rdx
+  92 006a 4C89F6   		movq	%r14, %rsi
+  93 006d 4889C7   		movq	%rax, %rdi
+  94 0070 E8000000 		call	memcpy
+  94      00
+  95              	.LVL11:
+  96              	.LBE10:
+  97              	.LBE9:
+ 116:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 117:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // write new block in buffer
+ 118:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         memcpy(block1Data->block1buffer, buffer, length);
+ 119:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         block1Data->lastmid = mid;
+  98              		.loc 1 119 0
+  99 0075 66448963 		movw	%r12w, 16(%rbx)
+  99      10
+ 100 007a E9820000 		jmp	.L6
+ 100      00
+ 101              	.LVL12:
+ 102              	.L2:
+ 120:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     }
+ 121:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     // manage already started block1 transfer
+GAS LISTING /tmp/ccEYtOWZ.s 			page 6
+
+
+ 122:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     else
+ 123:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     {
+ 124:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         if (block1Data == NULL)
+ 103              		.loc 1 124 0
+ 104 007f 4885DB   		testq	%rbx, %rbx
+ 105 0082 0F84BD00 		je	.L10
+ 105      0000
+ 125:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         {
+ 126:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             // we never receive the first block
+ 127:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             // TODO should we clean block1 data for this server ?
+ 128:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             return COAP_408_REQ_ENTITY_INCOMPLETE;
+ 129:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         }
+ 130:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 131:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // If this is a retransmission, we already did that.
+ 132:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         if (block1Data->lastmid != mid)
+ 106              		.loc 1 132 0
+ 107 0088 66397310 		cmpw	%si, 16(%rbx)
+ 108 008c 7473     		je	.L6
+ 109              	.LBB11:
+ 133:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         {
+ 134:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             uint8_t *oldBuffer = block1Data->block1buffer;
+ 110              		.loc 1 134 0
+ 111 008e 488B03   		movq	(%rbx), %rax
+ 112 0091 48894424 		movq	%rax, 8(%rsp)
+ 112      08
+ 113              	.LVL13:
+ 135:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             size_t oldSize = block1Data->block1bufferSize;
+ 114              		.loc 1 135 0
+ 115 0096 4C8B7B08 		movq	8(%rbx), %r15
+ 116              	.LVL14:
+ 136:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 137:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             if (block1Data->block1bufferSize != blockSize * blockNum)
+ 117              		.loc 1 137 0
+ 118 009a 450FB7C0 		movzwl	%r8w, %r8d
+ 119 009e 450FAFC8 		imull	%r8d, %r9d
+ 120              	.LVL15:
+ 121 00a2 4D39CF   		cmpq	%r9, %r15
+ 122 00a5 0F85A100 		jne	.L11
+ 122      0000
+ 138:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             {
+ 139:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                 // we don't receive block in right order
+ 140:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                 // TODO should we clean block1 data for this server ?
+ 141:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                 return COAP_408_REQ_ENTITY_INCOMPLETE;
+ 142:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             }
+ 143:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 144:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             // is it too large?
+ 145:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             if (block1Data->block1bufferSize + length >= MAX_BLOCK1_SIZE)
+ 123              		.loc 1 145 0
+ 124 00ab 4A8D3C39 		leaq	(%rcx,%r15), %rdi
+ 125              	.LVL16:
+ 126 00af 4881FFFF 		cmpq	$4095, %rdi
+ 126      0F0000
+ 127 00b6 0F879700 		ja	.L12
+ 127      0000
+ 146:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             {
+ 147:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****                 return COAP_413_ENTITY_TOO_LARGE;
+ 148:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             }
+GAS LISTING /tmp/ccEYtOWZ.s 			page 7
+
+
+ 149:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             // re-alloc new buffer
+ 150:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             block1Data->block1bufferSize = oldSize + length;
+ 128              		.loc 1 150 0
+ 129 00bc 48897B08 		movq	%rdi, 8(%rbx)
+ 151:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             block1Data->block1buffer = lwm2m_malloc(block1Data->block1bufferSize);
+ 130              		.loc 1 151 0
+ 131 00c0 E8000000 		call	lwm2m_malloc
+ 131      00
+ 132              	.LVL17:
+ 133 00c5 488903   		movq	%rax, (%rbx)
+ 152:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             if (NULL == block1Data->block1buffer) return COAP_500_INTERNAL_SERVER_ERROR;
+ 134              		.loc 1 152 0
+ 135 00c8 4885C0   		testq	%rax, %rax
+ 136 00cb 0F848900 		je	.L13
+ 136      0000
+ 137              	.LVL18:
+ 138              	.LBB12:
+ 139              	.LBB13:
+ 140              		.loc 2 53 0
+ 141 00d1 4C89FA   		movq	%r15, %rdx
+ 142 00d4 488B7424 		movq	8(%rsp), %rsi
+ 142      08
+ 143 00d9 4889C7   		movq	%rax, %rdi
+ 144 00dc E8000000 		call	memcpy
+ 144      00
+ 145              	.LVL19:
+ 146              	.LBE13:
+ 147              	.LBE12:
+ 153:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             memcpy(block1Data->block1buffer, oldBuffer, oldSize);
+ 154:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             lwm2m_free(oldBuffer);
+ 148              		.loc 1 154 0
+ 149 00e1 488B7C24 		movq	8(%rsp), %rdi
+ 149      08
+ 150 00e6 E8000000 		call	lwm2m_free
+ 150      00
+ 151              	.LVL20:
+ 155:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 156:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             // write new block in buffer
+ 157:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             memcpy(block1Data->block1buffer + oldSize, buffer, length);
+ 152              		.loc 1 157 0
+ 153 00eb 4C89FF   		movq	%r15, %rdi
+ 154 00ee 48033B   		addq	(%rbx), %rdi
+ 155              	.LVL21:
+ 156              	.LBB14:
+ 157              	.LBB15:
+ 158              		.loc 2 53 0
+ 159 00f1 4889EA   		movq	%rbp, %rdx
+ 160 00f4 4C89F6   		movq	%r14, %rsi
+ 161 00f7 E8000000 		call	memcpy
+ 161      00
+ 162              	.LVL22:
+ 163              	.LBE15:
+ 164              	.LBE14:
+ 158:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             block1Data->lastmid = mid;
+ 165              		.loc 1 158 0
+ 166 00fc 66448963 		movw	%r12w, 16(%rbx)
+ 166      10
+GAS LISTING /tmp/ccEYtOWZ.s 			page 8
+
+
+ 167              	.LVL23:
+ 168              	.L6:
+ 169              	.LBE11:
+ 159:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         }
+ 160:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     }
+ 161:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 162:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     if (blockMore)
+ 170              		.loc 1 162 0
+ 171 0101 4584ED   		testb	%r13b, %r13b
+ 172 0104 7413     		je	.L7
+ 163:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     {
+ 164:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         *outputLength = (size_t) - 1;
+ 173              		.loc 1 164 0
+ 174 0106 488B4424 		movq	96(%rsp), %rax
+ 174      60
+ 175 010b 48C700FF 		movq	$-1, (%rax)
+ 175      FFFFFF
+ 165:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         return COAP_231_CONTINUE;
+ 176              		.loc 1 165 0
+ 177 0112 B85F0000 		movl	$95, %eax
+ 177      00
+ 178 0117 EB46     		jmp	.L5
+ 179              	.L7:
+ 166:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     }
+ 167:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     else
+ 168:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     {
+ 169:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // buffer is full, set output parameter
+ 170:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // we don't free it to be able to send retransmission
+ 171:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         *outputLength = block1Data->block1bufferSize;
+ 180              		.loc 1 171 0
+ 181 0119 488B4308 		movq	8(%rbx), %rax
+ 182 011d 488B4C24 		movq	96(%rsp), %rcx
+ 182      60
+ 183 0122 488901   		movq	%rax, (%rcx)
+ 172:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         *outputBuffer = block1Data->block1buffer;
+ 184              		.loc 1 172 0
+ 185 0125 488B13   		movq	(%rbx), %rdx
+ 186 0128 488B4424 		movq	88(%rsp), %rax
+ 186      58
+ 187 012d 488910   		movq	%rdx, (%rax)
+ 173:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 174:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         return NO_ERROR;
+ 188              		.loc 1 174 0
+ 189 0130 B8000000 		movl	$0, %eax
+ 189      00
+ 190 0135 EB28     		jmp	.L5
+ 191              	.LVL24:
+ 192              	.L8:
+ 110:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         }
+ 193              		.loc 1 110 0
+ 194 0137 B8A0FFFF 		movl	$-96, %eax
+ 194      FF
+ 195              	.LVL25:
+ 196 013c EB21     		jmp	.L5
+ 197              	.L9:
+ 115:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 198              		.loc 1 115 0
+GAS LISTING /tmp/ccEYtOWZ.s 			page 9
+
+
+ 199 013e B8A0FFFF 		movl	$-96, %eax
+ 199      FF
+ 200 0143 EB1A     		jmp	.L5
+ 201              	.LVL26:
+ 202              	.L10:
+ 128:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         }
+ 203              		.loc 1 128 0
+ 204 0145 B888FFFF 		movl	$-120, %eax
+ 204      FF
+ 205 014a EB13     		jmp	.L5
+ 206              	.LVL27:
+ 207              	.L11:
+ 208              	.LBB16:
+ 141:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             }
+ 209              		.loc 1 141 0
+ 210 014c B888FFFF 		movl	$-120, %eax
+ 210      FF
+ 211              	.LVL28:
+ 212 0151 EB0C     		jmp	.L5
+ 213              	.LVL29:
+ 214              	.L12:
+ 147:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             }
+ 215              		.loc 1 147 0
+ 216 0153 B88DFFFF 		movl	$-115, %eax
+ 216      FF
+ 217              	.LVL30:
+ 218 0158 EB05     		jmp	.L5
+ 219              	.LVL31:
+ 220              	.L13:
+ 152:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****             memcpy(block1Data->block1buffer, oldBuffer, oldSize);
+ 221              		.loc 1 152 0
+ 222 015a B8A0FFFF 		movl	$-96, %eax
+ 222      FF
+ 223              	.LVL32:
+ 224              	.L5:
+ 225              	.LBE16:
+ 175:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     }
+ 176:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** }
+ 226              		.loc 1 176 0
+ 227 015f 4883C418 		addq	$24, %rsp
+ 228              	.LCFI7:
+ 229              		.cfi_def_cfa_offset 56
+ 230 0163 5B       		popq	%rbx
+ 231              	.LCFI8:
+ 232              		.cfi_def_cfa_offset 48
+ 233              	.LVL33:
+ 234 0164 5D       		popq	%rbp
+ 235              	.LCFI9:
+ 236              		.cfi_def_cfa_offset 40
+ 237              	.LVL34:
+ 238 0165 415C     		popq	%r12
+ 239              	.LCFI10:
+ 240              		.cfi_def_cfa_offset 32
+ 241 0167 415D     		popq	%r13
+ 242              	.LCFI11:
+ 243              		.cfi_def_cfa_offset 24
+ 244 0169 415E     		popq	%r14
+GAS LISTING /tmp/ccEYtOWZ.s 			page 10
+
+
+ 245              	.LCFI12:
+ 246              		.cfi_def_cfa_offset 16
+ 247              	.LVL35:
+ 248 016b 415F     		popq	%r15
+ 249              	.LCFI13:
+ 250              		.cfi_def_cfa_offset 8
+ 251 016d C3       		ret
+ 252              		.cfi_endproc
+ 253              	.LFE63:
+ 255              		.section	.text.free_block1_buffer,"ax",@progbits
+ 256              		.globl	free_block1_buffer
+ 258              	free_block1_buffer:
+ 259              	.LFB64:
+ 177:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 178:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** void free_block1_buffer(lwm2m_block1_data_t *block1Data)
+ 179:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** {
+ 260              		.loc 1 179 0
+ 261              		.cfi_startproc
+ 262              	.LVL36:
+ 180:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     if (block1Data != NULL)
+ 263              		.loc 1 180 0
+ 264 0000 4885FF   		testq	%rdi, %rdi
+ 265 0003 741D     		je	.L19
+ 179:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     if (block1Data != NULL)
+ 266              		.loc 1 179 0
+ 267 0005 53       		pushq	%rbx
+ 268              	.LCFI14:
+ 269              		.cfi_def_cfa_offset 16
+ 270              		.cfi_offset 3, -16
+ 271 0006 4889FB   		movq	%rdi, %rbx
+ 181:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     {
+ 182:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // free block1 buffer
+ 183:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         lwm2m_free(block1Data->block1buffer);
+ 272              		.loc 1 183 0
+ 273 0009 488B3F   		movq	(%rdi), %rdi
+ 274              	.LVL37:
+ 275 000c E8000000 		call	lwm2m_free
+ 275      00
+ 276              	.LVL38:
+ 184:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         block1Data->block1bufferSize = 0 ;
+ 277              		.loc 1 184 0
+ 278 0011 48C74308 		movq	$0, 8(%rbx)
+ 278      00000000 
+ 185:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** 
+ 186:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         // free current element
+ 187:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****         lwm2m_free(block1Data);
+ 279              		.loc 1 187 0
+ 280 0019 4889DF   		movq	%rbx, %rdi
+ 281 001c E8000000 		call	lwm2m_free
+ 281      00
+ 282              	.LVL39:
+ 188:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c ****     }
+ 189:/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/block1.c **** }
+ 283              		.loc 1 189 0
+ 284 0021 5B       		popq	%rbx
+ 285              	.LCFI15:
+ 286              		.cfi_restore 3
+GAS LISTING /tmp/ccEYtOWZ.s 			page 11
+
+
+ 287              		.cfi_def_cfa_offset 8
+ 288              	.LVL40:
+ 289              	.L19:
+ 290 0022 F3C3     		rep ret
+ 291              		.cfi_endproc
+ 292              	.LFE64:
+ 294              		.text
+ 295              	.Letext0:
+ 296              		.file 3 "/usr/include/stdint.h"
+ 297              		.file 4 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h"
+ 298              		.file 5 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 299              		.file 6 "/usr/include/libio.h"
+ 300              		.file 7 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/liblwm2m.h"
+ 301              		.file 8 "/usr/include/stdio.h"
+ 302              		.file 9 "/home/baikal/workspace/C50/Huawei_IoT_Agent_Tiny_SDK_Linux//lwm2m/core/er-coap-13/er-coap
+GAS LISTING /tmp/ccEYtOWZ.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 block1.c
+     /tmp/ccEYtOWZ.s:7      .text.coap_block1_handler:0000000000000000 coap_block1_handler
+     /tmp/ccEYtOWZ.s:258    .text.free_block1_buffer:0000000000000000 free_block1_buffer
+
+UNDEFINED SYMBOLS
+lwm2m_free
+lwm2m_malloc
+memcpy

@@ -1,0 +1,18 @@
+GAS LISTING /tmp/ccKwygIX.s 			page 1
+
+
+   1              		.file	"json.c"
+   2              		.text
+   3              	.Ltext0:
+   4              	.Letext0:
+   5              		.file 1 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h"
+   6              		.file 2 "/usr/include/x86_64-linux-gnu/bits/types.h"
+   7              		.file 3 "/usr/include/libio.h"
+   8              		.file 4 "/usr/include/stdio.h"
+GAS LISTING /tmp/ccKwygIX.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 json.c
+
+NO UNDEFINED SYMBOLS
