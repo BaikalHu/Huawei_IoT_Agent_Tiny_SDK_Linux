@@ -246,7 +246,7 @@ int atiny_write_app_write(void* user_data, int len)
     extern  void* g_phandle;
     uint16_t mid;
     uint8_t messageId;
-    uint8_t buf[5] = {2,0,0,3,12};
+    uint8_t buf[68] = {0};
     uint8_t *tmp;
 
     (void)atiny_printf("write num19 object success\r\n");
@@ -254,35 +254,24 @@ int atiny_write_app_write(void* user_data, int len)
     messageId = *(uint8_t *)user_data;
     tmp = user_data;
     mid = tmp[1] << 8 | tmp[2];
+    char *latitude = "45'03'00.00N";
+    char *longitude = "7'40'00.00E";
+
+
 		
-    if(messageId == 0x1)
+    if(messageId == 0x2)
     {
-        buf[2] = (mid >> 8) & 0xff;
-        buf[3] = mid & 0xff;
+        buf[0] = 3;
+        buf[1] = (mid >> 8) & 0xff;
+        buf[2] = mid & 0xff;
+        buf[3] = 0; //errcode 0 means success
+        memcpy(&buf[4], latitude, strlen(latitude));
+        memcpy(&buf[36], longitude, strlen(latitude));
         data_report_t report_data;
         report_data.buf = buf;
         report_data.callback = NULL;
         report_data.cookie = 0;
         report_data.len = sizeof(buf);
-        report_data.type = APP_DATA;
-        do
-        {
-            report_data.cookie = cnt;
-            cnt++;
-            atiny_data_report(g_phandle, &report_data);
-            atiny_data_change(g_phandle, DEVICE_MEMORY_FREE);
-        } while(0);
-    }
-    else if(messageId == 0x3)
-    {
-        buf[0] = 4;
-        buf[1] = tmp[1];
-
-        data_report_t report_data;
-        report_data.buf = buf;
-        report_data.callback = NULL;
-        report_data.cookie = 0;
-        report_data.len = 2;
         report_data.type = APP_DATA;
         do
         {

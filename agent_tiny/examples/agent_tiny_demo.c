@@ -47,7 +47,7 @@ volatile uint8_t bh_str=0;
 #define IOT_PSK_VALUE_LENGTH    12
 #define BS_PSK_VALUE_LENGTH     12
 
-char * g_endpoint_name = "11110001"; // HuaWei OceanConnect
+char * g_endpoint_name = "000c296ab99a"; // HuaWei OceanConnect
 
 #ifdef WITH_DTLS
 char* g_endpoint_name_s = "11110001";
@@ -68,22 +68,42 @@ void ack_callback(atiny_report_type_e type, int cookie, data_send_status_e statu
 
 void app_data_report(void)
 {
-    uint8_t buf[5] = {0,67,6,5,9};
-		//buf[0] = bh_temp;
-		//buf[1] = bh_str;
-    data_report_t report_data;
+    uint8_t pos_buf[65] = {0};
+    uint8_t bat_buf[2] = {0};
+    char *latitude = "45'03'00.00N";
+    char *longitude = "7'40'00.00E";
+    data_report_t pos_data;
+    data_report_t bat_data;
     int cnt = 0;
 
-    report_data.buf = buf;
-    report_data.callback = ack_callback;
-    report_data.cookie = 0;
-    report_data.len = sizeof(buf);
-    report_data.type = APP_DATA;
+    pos_buf[0] = 0;//   gps_position messageId
+    memcpy(&pos_buf[1], latitude, strlen(latitude));
+    memcpy(&pos_buf[33], longitude, strlen(latitude));
+    
+    bat_buf[0] = 1; //    battery_level messageId
+    bat_buf[1] = 100;//   battery level is 100%
+
+    pos_data.buf = pos_buf;
+    pos_data.callback = ack_callback;
+    pos_data.cookie = 0;
+    pos_data.len = sizeof(pos_buf);
+    pos_data.type = APP_DATA;
+
+    bat_data.buf = bat_buf;
+    bat_data.callback = ack_callback;
+    bat_data.cookie = 0;
+    bat_data.len = sizeof(bat_buf);
+    bat_data.type = APP_DATA;
     do
     {
-        report_data.cookie = cnt;
+        pos_data.cookie = cnt;
         cnt++;
-        atiny_data_report(g_phandle, &report_data);
+        atiny_data_report(g_phandle, &pos_data);
+        atiny_data_change(g_phandle, DEVICE_MEMORY_FREE);
+        sleep(60);
+        bat_data.cookie = cnt;
+        cnt++;
+        atiny_data_report(g_phandle, &bat_data);
         atiny_data_change(g_phandle, DEVICE_MEMORY_FREE);
         sleep(60);
     } while(1);
@@ -126,7 +146,7 @@ void agent_tiny_entry(void)
     device_info->endpoint_name = g_endpoint_name;
 #endif
 
-    device_info->manufacturer = "NBB";    // HuaWei OceanConnect
+    device_info->manufacturer = "sherlock";    // HuaWei OceanConnect
 
     atiny_params = &g_atiny_params;
     atiny_params->server_params.binding = "UQ";
